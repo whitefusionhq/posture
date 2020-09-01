@@ -2,7 +2,13 @@
 
 module FeedProcessing
   class ContentTruncation
-    def truncate_html(content, word_count = 80)
+    attr_reader :content
+
+    def initialize(content)
+      @content = content
+    end
+
+    def truncate(word_count = 80)
       return "" if content.blank?
 
       white_list_sanitizer = Rails::Html::WhiteListSanitizer.new

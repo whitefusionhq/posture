@@ -6,6 +6,8 @@ module Importers
   class FeedImporter
     CHECK_INTERVAL = 10
 
+    attr_accessor :raw_feed_data
+
     def initialize(record)
       @feed_record = record
     end
@@ -13,7 +15,8 @@ module Importers
     # rubocop:todo Metrics/PerceivedComplexity
     # rubocop:todo Metrics/MethodLength
     # rubocop:todo Metrics/AbcSize
-    def run_import(force = false) # rubocop:todo Metrics/CyclomaticComplexity
+    # rubocop:todo Metrics/CyclomaticComplexity
+    def run_import(force = false)
       # NOTE: this should be run from a worker, ideally
 
       return false if should_cancel_import? && !force
@@ -25,14 +28,14 @@ module Importers
         Rails.logger.warn "*** ERROR: unable to parse #{url} : ID (#{id})"
         return false
       end
-      update_column(:last_checked_at, DateTime.current)
+      @feed_record.update_column(:last_checked_at, DateTime.current)
 
       feed.entries[0...20].each do |entry| # rubocop:todo Metrics/BlockLength
         # TODO: check out Pry (or ByeBug?) for debugging!
 
         next if entry.published.nil? # weird format, let's skip
 
-        html = if entry.summary.present? && !bad_summary?
+        html = if entry.summary.present? && !@feed_record.bad_summary?
                  entry.summary
                else
                  entry.content
@@ -50,12 +53,12 @@ module Importers
                                   else
                                     80
                                   end
-        processor = PostProcessing::ContentTruncation.new
-        entry_text = processor.truncate_html(html, truncated_to_word_count)
+        processor = FeedProcessing::ContentTruncation.new(html)
+        entry_text = processor.truncate(truncated_to_word_count)
 
         # Create the new post record
-        if posts.where(url: entry.url).count.zero?
-          new_post = posts.create(
+        if @feed_record.posts.where(url: entry.url).count.zero?
+          new_post = @feed_record.posts.create(
             data_store: publication,
             title: entry.title,
             url: entry.url,
@@ -65,7 +68,7 @@ module Importers
           new_post.import_thumbnail!(thumbnail_url) if thumbnail_url
         elsif force
           # If forcing, update a post if the feed fixed something and updated it
-          post = posts.where(url: entry.url).first
+          post = @feed_record.posts.where(url: entry.url).first
           post.update_attributes(title: entry.title, excerpt: entry_text)
         end
       end
@@ -75,6 +78,7 @@ module Importers
     # rubocop:enable Metrics/AbcSize
     # rubocop:enable Metrics/MethodLength
     # rubocop:enable Metrics/PerceivedComplexity
+    # rubocop:enable Metrics/CyclomaticComplexity
 
     private
 
