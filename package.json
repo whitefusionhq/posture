@@ -1,0 +1,20 @@
+{
+  "name": "posture",
+  "private": true,
+  "dependencies": {
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "4.3.0",
+    "@shoelace-style/shoelace": "^2.0.0-beta.17",
+    "lit-element": "^2.4.0",
+    "stimulus": "^1.1.1",
+    "stimulus_reflex": "^3.3.0-pre2",
+    "turbolinks": "^5.2.0"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.10.5",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
