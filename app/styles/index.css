@@ -1,26 +1,3 @@
-/*$green: #119a6e;
-$orange: #ffc68e;
-$imblue: #303768;
-$black: #000000;
-$white: #ffffff;
-$grey: #cacaca;
-$grey-dark: #8a8a8a;
-$grey-light: #eaeae6;
-$success: #3adb76;
-$warning: #ffae00;
-$danger: #cc4b37;
-
-$primary: $green;
-$secondary: $orange;
-$link: $primary;
-$info: $secondary;
-$text: $black;
-$body-background-color: $grey-light;
-
-$body-family: Tahoma;
-
-$radius: 0.4rem; */
-
 :root {
   --color-green: #119a6e;
   --color-green-dark: color(#119a6e darken(6));
@@ -144,24 +121,6 @@ sl-button::part(base) {
   text-transform: uppercase;
   -webkit-font-smoothing: antialiased;
 }
-
-/*sl-button[type="primary"]::part(base) {
-  background-color: var(--sl-color-primary-35);
-  border-color: var(--sl-color-primary-35);
-}
-sl-button[type="primary"]:not([disabled])::part(base):hover {
-  background-color: var(--sl-color-primary-45);
-  border-color: var(--sl-color-primary-45);
-}
-
-sl-button[type="info"]::part(base) {
-  background-color: var(--sl-color-info-75);
-  border-color: var(--sl-color-info-75);
-}
-sl-button[type="info"]:not([disabled])::part(base):hover {
-  background-color: var(--sl-color-info-65);
-  border-color: var(--sl-color-info-65);
-} */
 
 sl-card {
   --border-width: 0;
