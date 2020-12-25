@@ -1,0 +1,209 @@
+/*$green: #119a6e;
+$orange: #ffc68e;
+$imblue: #303768;
+$black: #000000;
+$white: #ffffff;
+$grey: #cacaca;
+$grey-dark: #8a8a8a;
+$grey-light: #eaeae6;
+$success: #3adb76;
+$warning: #ffae00;
+$danger: #cc4b37;
+
+$primary: $green;
+$secondary: $orange;
+$link: $primary;
+$info: $secondary;
+$text: $black;
+$body-background-color: $grey-light;
+
+$body-family: Tahoma;
+
+$radius: 0.4rem; */
+
+:root {
+  --color-green: #119a6e;
+  --color-green-dark: color(#119a6e darken(6));
+  --color-wintermint: #eef9f2;
+  --color-orange: #ffc68e;
+  --color-orange-dark: color(#ffc68e darken(6));
+  --color-slateblue: #303768;
+  --color-black: #000000;
+  --color-darkmode: #1a1a1a;
+  --color-white: #ffffff;
+  --color-grey: #cacaca;
+  --color-grey-dark: #8a8a8a;
+  --color-grey-darkest: #4d4844;
+  --color-grey-light: #eaeae6;
+  --color-success: #3adb76;
+  --color-warning: #ffae00;
+  --color-danger: #cc4b37;
+
+  /* MVP.css variables */
+  --border-radius: 0.4rem;
+  --box-shadow: 0 2px 2px;
+  --color: var(--color-green);
+  --color-accent: #118bee15;
+  --color-bg: var(--color-grey-light);
+  --color-bg-secondary: #e9e9e9;
+  --color-secondary: var(--color-orange);
+  --color-secondary-accent: #920de90b;
+  --color-shadow: #cccccc;
+  --color-text: #000;
+  --color-text-secondary: #999;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
+    Cantarell, "Helvetica Neue", sans-serif;
+  --heading-font-family: "jaf-domus", var(--font-family);
+  --hover-brightness: 0.75;
+  --justify-important: center;
+  --justify-normal: left;
+  --line-height: 1.5;
+  --width-card: 285px;
+  --width-card-medium: 460px;
+  --width-card-wide: 800px;
+  --width-content: 1000px;
+
+  /* Shoelace Variables */
+  --sl-color-black: var(--color-black);
+  --sl-color-primary-500: var(--color-green);
+  --sl-color-primary-400: var(--color-green-dark);
+  --sl-color-info-500: var(--color-orange);
+  --sl-color-info-400: var(--color-orange-dark);
+  --sl-color-info-text: var(--sl-color-black);
+  --sl-font-family: var(--heading-font-family);
+  --sl-input-font-family: var(--heading-font-family);
+  --sl-button-font-size-medium: 1rem;
+  --sl-button-font-size-large: 1.25rem;
+  --sl-input-border-radius-medium: var(--border-radius);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #e0dad5;
+    --color-grey-darkest: var(--color-text);
+    --color-bg: var(--color-black);
+    --color-slateblue: #9ba8ff;
+
+    --sl-color-black: var(--color-white);
+    --sl-color-white: var(--color-black);
+  }
+
+  sl-card {
+    --sl-color-white: var(--color-darkmode);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    --color: var(--color-white) !important;
+  }
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  --line-height: 1.2;
+  --color: var(--color-black);
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  color: var(--color);
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+}
+
+h1,
+h2 {
+  font-weight: 700;
+}
+
+h2,
+h3 {
+  font-size: 1.75rem;
+}
+
+sl-button::part(base) {
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*sl-button[type="primary"]::part(base) {
+  background-color: var(--sl-color-primary-35);
+  border-color: var(--sl-color-primary-35);
+}
+sl-button[type="primary"]:not([disabled])::part(base):hover {
+  background-color: var(--sl-color-primary-45);
+  border-color: var(--sl-color-primary-45);
+}
+
+sl-button[type="info"]::part(base) {
+  background-color: var(--sl-color-info-75);
+  border-color: var(--sl-color-info-75);
+}
+sl-button[type="info"]:not([disabled])::part(base):hover {
+  background-color: var(--sl-color-info-65);
+  border-color: var(--sl-color-info-65);
+} */
+
+sl-card {
+  --border-width: 0;
+  --border-radius: 2px;
+  --color: var(--color-slateblue);
+  --color-text: var(--color-grey-darkest);
+  color: var(--color-text);
+
+  &::part(base) {
+    box-shadow: 0 2px 2px var(--color-shadow);
+    border-bottom: 3px solid var(--color-wintermint);
+  }
+  & img {
+    min-height: 150px;
+    max-height: 450px;
+    object-fit: cover;
+    object-position: center top;
+  }
+  & h3 {
+    margin-top: 0;
+  }
+  & p a {
+    text-decoration: underline;
+    text-underline-offset: 0.1em;
+  }
+}
+
+sl-dialog::part(panel) {
+  filter: blur(6px);
+  transition: var(--sl-transition-medium) opacity, var(--sl-transition-medium) transform,
+    0.5s filter;
+}
+sl-dialog[open]::part(panel) {
+  filter: blur(0);
+}
+
+sl-dialog sl-card {
+  width: 100%;
+}
+
+nav {
+  margin-bottom: 2rem;
+}
+
+@import "custom-elements.css";

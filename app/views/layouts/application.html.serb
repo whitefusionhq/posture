@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Posture</title>
+    {%= csrf_meta_tags %}
+    {%= csp_meta_tag %}
+
+    <link rel="stylesheet" href="https://use.typekit.net/mrp5tkg.css" />
+    {%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %}
+    {%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %}
+  </head>
+
+  <body>
+    {%= render "topbar" %}
+
+    {%= yield %}
+  </body>
+</html>

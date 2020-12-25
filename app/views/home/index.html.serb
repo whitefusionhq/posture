@@ -1,0 +1,142 @@
+<main>
+
+  <h1>Sources Say</h1>
+
+  <source-header>
+    <h2>
+      <a href="#">
+        <img width="40" src="https://res.cloudinary.com/posture/image/upload/c_thumb,h_80,q_60,w_80/appleinsider_13.jpg">
+        Apple Insider
+      </a>
+    </h2>
+
+    <sl-dropdown>
+      <sl-button type="info" slot="trigger" caret>
+        <sl-icon slot="prefix" name="gear"></sl-icon>
+        Options
+      </sl-button>
+      <sl-menu>
+        <sl-menu-item>Dropdown Item 1</sl-menu-item>
+        <sl-menu-item>Dropdown Item 2</sl-menu-item>
+        <sl-menu-item>Dropdown Item 3</sl-menu-item>
+        <sl-menu-divider></sl-menu-divider>
+        <sl-menu-item checked>Checked</sl-menu-item>
+        <sl-menu-item disabled>Disabled</sl-menu-item>
+        <sl-menu-divider></sl-menu-divider>
+        <sl-menu-item>
+          Prefix
+          <sl-icon slot="prefix" name="gift"></sl-icon>
+        </sl-menu-item>
+        <sl-menu-item>
+          Suffix Icon
+          <sl-icon slot="suffix" name="heart"></sl-icon>
+        </sl-menu-item>
+      </sl-menu>
+    </sl-dropdown>
+  </source-header>
+
+  <sl-card>
+    <img slot="image"
+      src="https://photos5.appleinsider.com/gallery/39434-75456-201217-MythicQuest-l.jpg" 
+      alt="A kitten sits patiently between a terracotta pot and decorative grasses."
+    >
+
+    <h3><a target="_blank" href="https://appleinsider.com/articles/20/12/18/covid-outbreak-on-mythic-quest-set-strains-ties-between-crew-and-producers">COVID outbreak on 'Mythic Quest' set strains ties between crew and producers</a></h3>
+
+    <p>Crew members on the set of <a href="https://appleinsider.com/inside/apple-tv-plus" target="_blank">Apple TV+</a> original series "Mythic Quest" are venting to media outlets after producers called the production one of the "safest places you can be outside of your homes" despite two reported COVID clusters
+Citing sources familiar with the matter, <em>Variety</em> reports show creator and star Rob McElhenney in early December <a href="https://variety.com/2020/tv/news/mythic-quest-crew-covid-outbreak-1234852119/" target="_blank">sought to reassure</a> cast and crew of the production's safety. After being informed of a "several" positive cases <a href="https://appleinsider.com/articles/20/12/11/apple-tvs-mythic-quest-crew-suffers-second-outbreak-of-covid-19-in-two-months" target="_blank">on Dec. 4</a>, McElhenney suspended…</p>
+
+    <small>7d ago</small>
+
+    
+    <sl-card-footer slot="footer">
+      <sl-button type="primary" size="small">
+        <sl-icon slot="prefix" name="info-circle"></sl-icon>
+        More Info
+      </sl-button>
+      <sl-rating></sl-rating>
+      <sl-dropdown>
+        <sl-button type="info" slot="trigger" size="small" caret>
+          <sl-icon slot="prefix" name="gear"></sl-icon>
+          Dropdown
+        </sl-button>
+        <sl-menu>
+          <sl-menu-item>Dropdown Item 1</sl-menu-item>
+          <sl-menu-item>Dropdown Item 2</sl-menu-item>
+          <sl-menu-item>Dropdown Item 3</sl-menu-item>
+          <sl-menu-divider></sl-menu-divider>
+          <sl-menu-item checked>Checked</sl-menu-item>
+          <sl-menu-item disabled>Disabled</sl-menu-item>
+          <sl-menu-divider></sl-menu-divider>
+          <sl-menu-item>
+            Prefix
+            <sl-icon slot="prefix" name="gift"></sl-icon>
+          </sl-menu-item>
+          <sl-menu-item>
+            Suffix Icon
+            <sl-icon slot="suffix" name="heart"></sl-icon>
+          </sl-menu-item>
+        </sl-menu>
+      </sl-dropdown>
+    </sl-card-footer>
+  </sl-card>
+
+  <layout-spacer style="height: 300px"></layout-spacer>
+
+  <sl-dialog no-header style="--width: calc(var(--width-content) - 40px)">
+    <sl-card>
+      <img 
+        slot="image" 
+        src="https://images.unsplash.com/photo-1559209172-0ff8f6d49ff7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" 
+        alt="A kitten sits patiently between a terracotta pot and decorative grasses."
+      >
+
+      <strong>Mittens</strong><br>
+      This kitten is as cute as he is playful. Bring him home today!<br>
+      <small>6 weeks old</small>
+
+      <sl-card-footer slot="footer">
+        <sl-button type="primary">More Info</sl-button>
+        <sl-rating></sl-rating>
+        <sl-dropdown>
+          <sl-button type="primary" slot="trigger" caret>Dropdown</sl-button>
+          <sl-menu>
+            <sl-menu-item>Dropdown Item 1</sl-menu-item>
+            <sl-menu-item>Dropdown Item 2</sl-menu-item>
+            <sl-menu-item>Dropdown Item 3</sl-menu-item>
+            <sl-menu-divider></sl-menu-divider>
+            <sl-menu-item checked>Checked</sl-menu-item>
+            <sl-menu-item disabled>Disabled</sl-menu-item>
+            <sl-menu-divider></sl-menu-divider>
+            <sl-menu-item>
+              Prefix
+              <sl-icon slot="prefix" name="gift"></sl-icon>
+            </sl-menu-item>
+            <sl-menu-item>
+              Suffix Icon
+              <sl-icon slot="suffix" name="heart"></sl-icon>
+            </sl-menu-item>
+          </sl-menu>
+        </sl-dropdown>
+      </sl-card-footer>
+    </sl-card>
+    <sl-button slot="footer" type="primary">
+      <sl-icon slot="prefix" name="x-circle"></sl-icon>
+      Close
+    </sl-button>
+  </sl-dialog>
+
+  <sl-button type="primary">Open Dialog</sl-button>
+
+  <script>
+    (() => {
+      const dialog = document.querySelector('sl-dialog');
+      const openButton = dialog.nextElementSibling;
+      const closeButton = dialog.querySelector('sl-button[slot="footer"]');
+
+      openButton.addEventListener('click', () => dialog.show());
+      closeButton.addEventListener('click', () => dialog.hide());
+    })();
+  </script>
+
+</main>

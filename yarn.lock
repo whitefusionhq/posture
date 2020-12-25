@@ -887,10 +887,10 @@
   dependencies:
     mkdirp "^1.0.4"
 
-"@popperjs/core@^2.1.1":
-  version "2.4.4"
-  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.4.4.tgz#11d5db19bd178936ec89cd84519c4de439574398"
-  integrity sha512-1oO6+dN5kdIA3sKPZhRGJTfGVP4SWV6KqlMOwry4J3HfyD68sl/3KmG7DeYUzvN+RbhXDnv/D8vNNB8168tAMg==
+"@popperjs/core@^2.5.3":
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.6.0.tgz#f022195afdfc942e088ee2101285a1d31c7d727f"
+  integrity sha512-cPqjjzuFWNK3BSKLm0abspP0sp/IGOli4p5I5fKFAzdS8fvjdOwDCfZqAaIiXd9lPkOWi3SUUfZof3hEb7J/uw==
 
 "@rails/actioncable@>= 6.0", "@rails/actioncable@^6.0.0":
   version "6.0.3"
@@ -948,22 +948,20 @@
     webpack-cli "^3.3.10"
     webpack-sources "^1.4.3"
 
-"@shoelace-style/shoelace@^2.0.0-beta.17":
-  version "2.0.0-beta.17"
-  resolved "https://registry.yarnpkg.com/@shoelace-style/shoelace/-/shoelace-2.0.0-beta.17.tgz#ffd422215f3f1f038c65d84474f99b852d1cfb2e"
-  integrity sha512-GLPv5qL1s6kKvWJHDYl0bmZhiS/IC1lgH6kS1cEtrxx7DCNcxbWJOYLzp1ElpSo6tJG1uhyVSDFG7+6TUroVcA==
+"@shoelace-style/shoelace@^2.0.0-beta.25":
+  version "2.0.0-beta.25"
+  resolved "https://registry.yarnpkg.com/@shoelace-style/shoelace/-/shoelace-2.0.0-beta.25.tgz#e228a4c2296527b29e4c2177e47e27ea47178623"
+  integrity sha512-wdiL1poXeI9uIs2w7+auX94msM17x3L4Hn0CZm/kzkSxsfl2McGJBDRZv5t3u70LsKl/TtK5Pj3SZyt/BsZfzg==
   dependencies:
-    "@popperjs/core" "^2.1.1"
-    "@stencil/core" "^1.17.3"
+    "@popperjs/core" "^2.5.3"
+    "@stencil/core" "^2.3.0"
+    "@types/resize-observer-browser" "^0.1.4"
     color "^3.1.2"
-    resize-observer-polyfill "^1.5.1"
 
-"@stencil/core@^1.17.3":
-  version "1.17.3"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-1.17.3.tgz#db19f4c707b749beef5cf113916c5252ad5c99de"
-  integrity sha512-q5joOYUPHTNa/5hEThMT/QEJ/suN8bpcYbV/LrSNsgsgHN+RJ05jCpU8VAShdUPT6WzoyF2iGgYc/EI2xeqFzw==
-  dependencies:
-    typescript "3.9.7"
+"@stencil/core@^2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-2.3.0.tgz#9190df3a0064537730be1546545e13531d701da8"
+  integrity sha512-VZ/Ox0E1kngcmHbJhHUufuLELi+xG3of3LuRI3X2AMWyE82JUVYlOEsQci/YBZWpfc9BS9I36R88prBew22oew==
 
 "@stimulus/core@^2.0.0":
   version "2.0.0"
@@ -1021,6 +1019,11 @@
   version "1.5.4"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.4.tgz#15925414e0ad2cd765bfef58842f7e26a7accb24"
   integrity sha512-1HcDas8SEj4z1Wc696tH56G8OlRaH/sqZOynNNB+HF0WOeXPaxTtbYzJY2oEfiUxjSKjhCKr+MvR7dCHcEelug==
+
+"@types/resize-observer-browser@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@types/resize-observer-browser/-/resize-observer-browser-0.1.4.tgz#84879a4d6d4aaefde53d4b29c91c0c4cbcffc26f"
+  integrity sha512-rPvqs+1hL/5hbES/0HTdUu4lvNmneiwKwccbWe7HGLWbnsLdqKnQHyWLg4Pj0AMO7PLHCwBM1Cs8orChdkDONg==
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
@@ -5404,6 +5407,13 @@ postcss-calc@^7.0.1:
     postcss-selector-parser "^6.0.2"
     postcss-value-parser "^4.0.2"
 
+postcss-color-adjustment@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/postcss-color-adjustment/-/postcss-color-adjustment-0.1.6.tgz#941541f17d9e291dbcb9040cddcf9783e70c7ee1"
+  integrity sha512-CL2+E5vnDNua1g6TyvpSrtc2ip4SDujVfr7y9YLuO7JVfJMobTssrvKXurvAj2Z6AmI6vIRyjGJQtJCx2ld+5g==
+  dependencies:
+    tinycolor2 "^1.4.1"
+
 postcss-color-functional-notation@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/postcss-color-functional-notation/-/postcss-color-functional-notation-2.0.1.tgz#5efd37a88fbabeb00a2966d1e53d98ced93f74e0"
@@ -6391,11 +6401,6 @@ requires-port@^1.0.0:
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
   integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
 
-resize-observer-polyfill@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
-  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
-
 resolve-cwd@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/resolve-cwd/-/resolve-cwd-2.0.0.tgz#00a9f7387556e27038eae232caa372a6a59b665a"
@@ -7254,6 +7259,11 @@ timsort@^0.3.0:
   resolved "https://registry.yarnpkg.com/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
   integrity sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=
 
+tinycolor2@^1.4.1:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.2.tgz#3f6a4d1071ad07676d7fa472e1fac40a719d8803"
+  integrity sha512-vJhccZPs965sV/L2sU4oRQVAos0pQXwsvTLkWYdqJ+a8Q5kPFzJTuOFwy7UniPli44NKQGAglksjvOcpo95aZA==
+
 to-arraybuffer@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/to-arraybuffer/-/to-arraybuffer-1.0.1.tgz#7d229b1fcc637e466ca081180836a7aabff83f43"
@@ -7360,11 +7370,6 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
-
-typescript@3.9.7:
-  version "3.9.7"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.7.tgz#98d600a5ebdc38f40cb277522f12dc800e9e25fa"
-  integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"

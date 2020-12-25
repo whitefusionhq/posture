@@ -1,0 +1,29 @@
+layout-spacer {
+  display: block;
+}
+
+source-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & h2 {
+    --color: var(--color-slateblue);
+  }
+  & img {
+    width: 40px;
+    border-radius: 8px;
+    margin-right: 0.25rem;
+    vertical-align: -0.35em;
+    box-shadow: var(--box-shadow) var(--color-shadow);
+  }
+  & a:hover {
+    text-decoration: none;
+  }
+}
+
+sl-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

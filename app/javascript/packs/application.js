@@ -3,12 +3,11 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+import "../../../public/mvp.css"
 import "@shoelace-style/shoelace/dist/shoelace/shoelace.css"
-import "../../styles/index.scss"
+import "../../styles/index.css"
 import { defineCustomElements, setAssetPath } from "@shoelace-style/shoelace"
 
-require("@rails/ujs").start()
-require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 

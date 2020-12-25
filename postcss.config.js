@@ -1,12 +1,16 @@
 module.exports = {
-  plugins: [
-    require('postcss-import'),
-    require('postcss-flexbugs-fixes'),
-    require('postcss-preset-env')({
+  plugins: {
+    "postcss-flexbugs-fixes": {},
+    "postcss-color-adjustment": {},
+    "postcss-preset-env": {
       autoprefixer: {
-        flexbox: 'no-2009'
+        flexbox: "no-2009",
       },
-      stage: 3
-    })
-  ]
+      stage: 4,
+      features: {
+        "nesting-rules": true,
+        "custom-media-queries": true,
+      },
+    },
+  },
 }

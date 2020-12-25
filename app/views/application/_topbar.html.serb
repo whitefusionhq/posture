@@ -7,14 +7,14 @@
 
   <div class="navbar-start">
     <a class="navbar-item" href="/go/discover"><sl-icon name="compass" style="font-size:120%" class="mr-2"></sl-icon> <span class="is-hidden-mobile">Discover</span></a>
-    <% if current_user %>
+    {% if current_user %}
       <a class="navbar-item" href="/go/feeds/new"><i class="typcn typcn-plus"></i> <span class="is-hidden-mobile">Add</span></a>
       <a class="navbar-item" href="/go/readlist"><i class="typcn typcn-bookmark"></i> <span class="is-hidden-mobile">Readlist</span></a>
       <a class="navbar-item" href="/go/journals"><i class="typcn typcn-book"></i> <span class="is-hidden-mobile">Journals</span></a>
-    <% end %>
+    {% end %}
   </div>
 
-  <% if current_user %>
+  {% if current_user %}
     <div class="navbar-menu">
       <div class="navbar-end">
         <div class="navbar-item has-dropdown is-hoverable">
@@ -23,23 +23,23 @@
           </a>
 
           <div class="navbar-dropdown is-boxed is-right">
-            <a class="navbar-item change-themes<% if @darkmode %> is-hidden<% end %>" href="/go/theme?darkmode=true" data-remote="true" data-method="post">Toggle Theme</a>
-            <a class="navbar-item change-themes<% unless @darkmode %> is-hidden<% end %>" href="/go/theme?darkmode=false" data-remote="true" data-method="post">Toggle Theme</a>
+            <a class="navbar-item change-themes{% if @darkmode %} is-hidden{% end %}" href="/go/theme?darkmode=true" data-remote="true" data-method="post">Toggle Theme</a>
+            <a class="navbar-item change-themes{% unless @darkmode %} is-hidden{% end %}" href="/go/theme?darkmode=false" data-remote="true" data-method="post">Toggle Theme</a>
 
             <hr class="navbar-divider" />
 
             <a class="navbar-item" href="/go/account">My Account</a>
 
-            <% if current_user.is_admin? %>
+            {% if current_user.is_admin? %}
               <a class="navbar-item" href="/go/admin">Admin Dashboard</a>
-            <% end %>
+            {% end %}
 
             <hr class="navbar-divider" />
 
-            <%= link_to 'Sign Out', logout_path, method: :post, class: 'navbar-item' %>
+            {%= link_to 'Sign Out', logout_path, method: :post, class: 'navbar-item' %}
           </div>
         </div>
       </div>
     </div>
-  <% end %>
+  {% end %}
 </nav>
