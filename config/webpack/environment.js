@@ -18,4 +18,18 @@ environment.plugins.prepend(
   })
 )
 
+const babelOptions = environment.loaders.get("babel").use[0].options
+
+// Insert rb2js loader at the end of list
+environment.loaders.append("rb2js", {
+  test: /\.js\.rb$/,
+  use: [
+    {
+      loader: "babel-loader",
+      options: { ...babelOptions },
+    },
+    "@ruby2js/webpack-loader",
+  ],
+})
+
 module.exports = environment

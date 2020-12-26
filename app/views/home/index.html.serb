@@ -2,6 +2,13 @@
 
   <h1>Sources Say</h1>
 
+  <tag-list>
+    <a href="/{%= "?tag=apple" unless params[:tag] == "apple" %}"><sl-tag type="{%= params[:tag] == "apple"? :success : :info %}" pill {%= :clearable if params[:tag] == "apple" %}>#apple</sl-tag></a>
+    <a href="/{%= "?tag=portland" unless params[:tag] == "portland" %}"><sl-tag type="{%= params[:tag] == "portland"? :success : :info %}" pill {%= :clearable if params[:tag] == "portland" %}>#portland</sl-tag></a>
+    <a href="/{%= "?tag=ruby" unless params[:tag] == "ruby" %}"><sl-tag type="{%= params[:tag] == "ruby"? :success : :info %}" pill {%= :clearable if params[:tag] == "ruby" %}>#ruby</sl-tag></a>
+  </tag-list>
+
+
   <source-header>
     <h2>
       <a href="#">
@@ -11,26 +18,18 @@
     </h2>
 
     <sl-dropdown>
-      <sl-button type="info" slot="trigger" caret>
-        <sl-icon slot="prefix" name="gear"></sl-icon>
-        Options
-      </sl-button>
+      <sl-icon-button name="gear" label="Options" slot="trigger">
+      </sl-icon-button>
       <sl-menu>
-        <sl-menu-item>Dropdown Item 1</sl-menu-item>
-        <sl-menu-item>Dropdown Item 2</sl-menu-item>
-        <sl-menu-item>Dropdown Item 3</sl-menu-item>
-        <sl-menu-divider></sl-menu-divider>
-        <sl-menu-item checked>Checked</sl-menu-item>
-        <sl-menu-item disabled>Disabled</sl-menu-item>
-        <sl-menu-divider></sl-menu-divider>
         <sl-menu-item>
           Prefix
           <sl-icon slot="prefix" name="gift"></sl-icon>
         </sl-menu-item>
-        <sl-menu-item>
+        <sl-menu-divider></sl-menu-divider>
+        <a href="#"><sl-menu-item>
           Suffix Icon
           <sl-icon slot="suffix" name="heart"></sl-icon>
-        </sl-menu-item>
+        </sl-menu-item></a>
       </sl-menu>
     </sl-dropdown>
   </source-header>
@@ -54,7 +53,6 @@ Citing sources familiar with the matter, <em>Variety</em> reports show creator a
         <sl-icon slot="prefix" name="info-circle"></sl-icon>
         More Info
       </sl-button>
-      <sl-rating></sl-rating>
       <sl-dropdown>
         <sl-button type="info" slot="trigger" size="small" caret>
           <sl-icon slot="prefix" name="gear"></sl-icon>
@@ -138,5 +136,39 @@ Citing sources familiar with the matter, <em>Variety</em> reports show creator a
       closeButton.addEventListener('click', () => dialog.hide());
     })();
   </script>
+
+<div id="haha"></div>
+
+{%= form_with url: "/test-submit" do %}
+  <sl-form data-controller="shoelace-form" class="form-overview">
+    <sl-input name="name" type="text" label="Name" value="{{ 'val"ue"</sl-input>' }}"></sl-input>
+    <br>
+    <sl-select name="favorite" label="Select your favorite">
+      <sl-menu-item value="birds">Birds</sl-menu-item>
+      <sl-menu-item value="cats">Cats</sl-menu-item>
+      <sl-menu-item value="dogs">Dogs</sl-menu-item>
+    </sl-select>
+    <br>
+    <sl-checkbox name="agree" value="yes">
+      I totally agree
+    </sl-checkbox>
+    <br><br>
+    <sl-radio name="option" value="opt1" checked>Option 1</sl-radio><br>
+    <sl-radio name="option" value="opt2">Option 2</sl-radio><br>
+    <sl-radio name="option" value="opt3">Option 3</sl-radio><br>
+    <sl-radio name="option" value="opt4">Option 4</sl-radio>
+    <br><br>
+
+    <sl-color-picker name="new_color" inline></sl-color-picker>
+    
+    <sl-button type="primary" submit>Submit</sl-button>
+  </sl-form>
+{% end %}
+
+<hr/>
+
+{%= form_with url: "/test-submit" do |f| %}
+  {%= f.submit "wee" %}
+{% end %}
 
 </main>

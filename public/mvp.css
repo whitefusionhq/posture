@@ -304,6 +304,7 @@ figure figcaption {
 
 /* Forms */
 
+/*
 button:disabled,
 input:disabled {
   background: var(--color-bg-secondary);
@@ -372,6 +373,7 @@ label {
   font-weight: bold;
   margin-bottom: 0.2rem;
 }
+*/
 
 /* Tables */
 table {

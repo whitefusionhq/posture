@@ -34,7 +34,7 @@
   --hover-brightness: 0.75;
   --justify-important: center;
   --justify-normal: left;
-  --line-height: 1.5;
+  --line-height: 1.66;
   --width-card: 285px;
   --width-card-medium: 460px;
   --width-card-wide: 800px;
@@ -44,14 +44,18 @@
   --sl-color-black: var(--color-black);
   --sl-color-primary-500: var(--color-green);
   --sl-color-primary-400: var(--color-green-dark);
+  --sl-color-primary-50: var(--color-wintermint);
   --sl-color-info-500: var(--color-orange);
   --sl-color-info-400: var(--color-orange-dark);
   --sl-color-info-text: var(--sl-color-black);
+  --sl-color-success-100: var(--color-wintermint);
+  --sl-color-success-700: var(--color-green);
   --sl-font-family: var(--heading-font-family);
-  --sl-input-font-family: var(--heading-font-family);
+  --sl-font-sans: var(--font-family);
   --sl-button-font-size-medium: 1rem;
   --sl-button-font-size-large: 1.25rem;
   --sl-input-border-radius-medium: var(--border-radius);
+  --sl-focus-ring-color-primary: color(#119a6e transparentize(0.2));
 }
 
 @media (prefers-color-scheme: dark) {
@@ -79,8 +83,17 @@
   }
 }
 
+* {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
+}
+
 html {
   font-size: 18px;
+}
+@media (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
 }
 
 body {
@@ -106,6 +119,12 @@ h1 {
   font-size: 3rem;
 }
 
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
 h1,
 h2 {
   font-weight: 700;
@@ -116,53 +135,21 @@ h3 {
   font-size: 1.75rem;
 }
 
-sl-button::part(base) {
-  font-weight: 700;
-  text-transform: uppercase;
-  -webkit-font-smoothing: antialiased;
-}
-
-sl-card {
-  --border-width: 0;
-  --border-radius: 2px;
-  --color: var(--color-slateblue);
-  --color-text: var(--color-grey-darkest);
-  color: var(--color-text);
-
-  &::part(base) {
-    box-shadow: 0 2px 2px var(--color-shadow);
-    border-bottom: 3px solid var(--color-wintermint);
+@media (max-width: 600px) {
+  h2,
+  h3 {
+    font-size: 1.5rem;
   }
-  & img {
-    min-height: 150px;
-    max-height: 450px;
-    object-fit: cover;
-    object-position: center top;
-  }
-  & h3 {
-    margin-top: 0;
-  }
-  & p a {
-    text-decoration: underline;
-    text-underline-offset: 0.1em;
-  }
-}
-
-sl-dialog::part(panel) {
-  filter: blur(6px);
-  transition: var(--sl-transition-medium) opacity, var(--sl-transition-medium) transform,
-    0.5s filter;
-}
-sl-dialog[open]::part(panel) {
-  filter: blur(0);
-}
-
-sl-dialog sl-card {
-  width: 100%;
 }
 
 nav {
   margin-bottom: 2rem;
+  height: 3rem;
 }
 
+.turbo-progress-bar {
+  background: var(--color-orange-dark);
+}
+
+@import "shoelace-customizations.css";
 @import "custom-elements.css";

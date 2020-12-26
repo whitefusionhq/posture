@@ -7,6 +7,7 @@ import "../../../public/mvp.css"
 import "@shoelace-style/shoelace/dist/shoelace/shoelace.css"
 import "../../styles/index.css"
 import { defineCustomElements, setAssetPath } from "@shoelace-style/shoelace"
+import { Turbo, cable } from "@hotwired/turbo-rails"
 
 require("@rails/activestorage").start()
 require("channels")

@@ -1,0 +1,49 @@
+sl-button::part(base) {
+  font-family: var(--sl-font-family);
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+}
+
+sl-card {
+  --border-width: 0;
+  --border-radius: 2px;
+  --color: var(--color-slateblue);
+  --color-text: var(--color-grey-darkest);
+  color: var(--color-text);
+
+  &::part(base) {
+    box-shadow: 0 2px 2px var(--color-shadow);
+    border-bottom: 3px solid var(--color-wintermint);
+  }
+  & img {
+    min-height: 150px;
+    max-height: 450px;
+    object-fit: cover;
+    object-position: center top;
+  }
+  & h3 {
+    margin-top: 0;
+  }
+  & p a {
+    text-decoration: underline;
+    text-underline-offset: 0.1em;
+  }
+}
+
+sl-dialog::part(panel) {
+  filter: blur(6px);
+  transition: var(--sl-transition-medium) opacity, var(--sl-transition-medium) transform,
+    0.5s filter;
+}
+sl-dialog[open]::part(panel) {
+  filter: blur(0);
+}
+
+sl-dialog sl-card {
+  width: 100%;
+}
+
+sl-menu {
+  --hover-brightness: 1;
+}

@@ -21,9 +21,20 @@ source-header {
     text-decoration: none;
   }
 }
+@media (max-width: 600px) {
+  source-header img {
+    vertical-align: -0.5em;
+  }
+}
 
 sl-card-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+tag-list {
+  display: block;
+  --hover-brightness: 1;
+  margin-bottom: var(--tag-list-spacing, 1rem);
 }
