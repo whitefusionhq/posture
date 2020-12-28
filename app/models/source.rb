@@ -9,6 +9,7 @@
 #  featured_in_discover :boolean          default(FALSE)
 #  handle               :string
 #  hide_from_public     :boolean          default(FALSE)
+#  latest_post_at       :datetime
 #  title                :string
 #  twitter_handle       :string
 #  type                 :string           default("Publication")
@@ -22,6 +23,8 @@
 #  index_sources_on_type  (type)
 #
 class Source < ApplicationRecord
+  has_many :posts
+
   def self.generate_private_handle
     100.times do
       rand_num = SecureRandom.rand(1_000_000)

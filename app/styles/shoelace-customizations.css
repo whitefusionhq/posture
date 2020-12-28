@@ -11,23 +11,37 @@ sl-card {
   --color: var(--color-slateblue);
   --color-text: var(--color-grey-darkest);
   color: var(--color-text);
+  width: 100%;
 
   &::part(base) {
     box-shadow: 0 2px 2px var(--color-shadow);
     border-bottom: 3px solid var(--color-wintermint);
   }
-  & img {
-    min-height: 150px;
-    max-height: 450px;
-    object-fit: cover;
-    object-position: center top;
+  & [slot=image] {
+    --hover-brightness: 1;
+    width: 100%;
+
+    & img {
+      display: block;
+      width: 100%;
+      min-height: 150px;
+      max-height: 450px;
+      object-fit: cover;
+      object-position: center top;
+    }
   }
+  
   & h3 {
     margin-top: 0;
+    margin-bottom: 0.75rem;
   }
   & p a {
     text-decoration: underline;
     text-underline-offset: 0.1em;
+  }
+
+  &::part(footer) {
+    padding-top: 0;
   }
 }
 
@@ -40,10 +54,9 @@ sl-dialog[open]::part(panel) {
   filter: blur(0);
 }
 
-sl-dialog sl-card {
-  width: 100%;
-}
-
 sl-menu {
   --hover-brightness: 1;
+}
+sl-menu-item::part(suffix) {
+  margin-left: 1em;
 }

@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 
   post "/test-submit", to: "home#test_submit"
 
+  put "/", to: "home#index"
   root to: "home#index"
 end

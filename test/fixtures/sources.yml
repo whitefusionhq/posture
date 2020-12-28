@@ -7,6 +7,7 @@
 #  featured_in_discover :boolean          default(FALSE)
 #  handle               :string
 #  hide_from_public     :boolean          default(FALSE)
+#  latest_post_at       :datetime
 #  title                :string
 #  twitter_handle       :string
 #  type                 :string           default("Publication")

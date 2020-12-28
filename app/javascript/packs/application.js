@@ -23,3 +23,21 @@ import "controllers"
 
 setAssetPath(document.currentScript.src)
 defineCustomElements()
+
+document.addEventListener("DOMContentLoaded", async () => {
+  await import("@github/time-elements")
+
+  let scrollTop = 0
+  addEventListener("turbo:click", ({ target }) => {
+    if (target.hasAttribute("data-turbo-preserve-scroll")) {
+      scrollTop = document.scrollingElement.scrollTop
+    } 
+  })
+  
+  addEventListener("turbo:load", () => {
+    if (scrollTop) {
+      document.scrollingElement.scrollTo(0, scrollTop) 
+    }
+    scrollTop = 0
+  })
+})

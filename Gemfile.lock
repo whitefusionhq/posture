@@ -1,3 +1,12 @@
+PATH
+  remote: ../BRIDGETOWN/serbea
+  specs:
+    serbea (0.10.5)
+      activesupport (~> 6.0)
+      erubi (>= 1.10)
+      hash_with_dot_access (~> 1.1)
+      tilt (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -255,11 +264,6 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
-    serbea (0.10.5)
-      activesupport (~> 6.0)
-      erubi (>= 1.10)
-      hash_with_dot_access (~> 1.1)
-      tilt (~> 2.0)
     sidekiq (6.1.2)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
@@ -356,7 +360,7 @@ DEPENDENCIES
   rubocop-bridgetown
   ruby2js (~> 3.6)
   selenium-webdriver
-  serbea (~> 0.10)
+  serbea!
   sidekiq (~> 6.1)
   sidekiq-cron (~> 1.2)
   solargraph

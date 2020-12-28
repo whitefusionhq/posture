@@ -1,0 +1,90 @@
+
+  <sl-dialog no-header style="--width: calc(var(--width-content) - 40px)">
+    <sl-card>
+      <img 
+        slot="image" 
+        src="https://images.unsplash.com/photo-1559209172-0ff8f6d49ff7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" 
+        alt="A kitten sits patiently between a terracotta pot and decorative grasses."
+      >
+
+      <strong>Mittens</strong><br>
+      This kitten is as cute as he is playful. Bring him home today!<br>
+      <small>6 weeks old</small>
+
+      <sl-card-footer slot="footer">
+        <sl-button type="primary">More Info</sl-button>
+        <sl-rating></sl-rating>
+        <sl-dropdown>
+          <sl-button type="primary" slot="trigger" caret>Dropdown</sl-button>
+          <sl-menu>
+            <sl-menu-item>Dropdown Item 1</sl-menu-item>
+            <sl-menu-item>Dropdown Item 2</sl-menu-item>
+            <sl-menu-item>Dropdown Item 3</sl-menu-item>
+            <sl-menu-divider></sl-menu-divider>
+            <sl-menu-item checked>Checked</sl-menu-item>
+            <sl-menu-item disabled>Disabled</sl-menu-item>
+            <sl-menu-divider></sl-menu-divider>
+            <sl-menu-item>
+              Prefix
+              <sl-icon slot="prefix" name="gift"></sl-icon>
+            </sl-menu-item>
+            <sl-menu-item>
+              Suffix Icon
+              <sl-icon slot="suffix" name="heart"></sl-icon>
+            </sl-menu-item>
+          </sl-menu>
+        </sl-dropdown>
+      </sl-card-footer>
+    </sl-card>
+    <sl-button slot="footer" type="primary">
+      <sl-icon slot="prefix" name="x-circle"></sl-icon>
+      Close
+    </sl-button>
+  </sl-dialog>
+
+  <sl-button type="primary">Open Dialog</sl-button>
+
+  <script>
+    (() => {
+      const dialog = document.querySelector('sl-dialog');
+      const openButton = dialog.nextElementSibling;
+      const closeButton = dialog.querySelector('sl-button[slot="footer"]');
+
+      openButton.addEventListener('click', () => dialog.show());
+      closeButton.addEventListener('click', () => dialog.hide());
+    })();
+  </script>
+
+<div id="haha"></div>
+
+{%= form_with url: "/test-submit" do %}
+  <sl-form data-controller="shoelace-form" class="form-overview">
+    <sl-input name="name" type="text" label="Name" value="{{ 'val"ue"</sl-input>' }}"></sl-input>
+    <br>
+    <sl-select name="favorite" label="Select your favorite">
+      <sl-menu-item value="birds">Birds</sl-menu-item>
+      <sl-menu-item value="cats">Cats</sl-menu-item>
+      <sl-menu-item value="dogs">Dogs</sl-menu-item>
+    </sl-select>
+    <br>
+    <sl-checkbox name="agree" value="yes">
+      I totally agree
+    </sl-checkbox>
+    <br><br>
+    <sl-radio name="option" value="opt1" checked>Option 1</sl-radio><br>
+    <sl-radio name="option" value="opt2">Option 2</sl-radio><br>
+    <sl-radio name="option" value="opt3">Option 3</sl-radio><br>
+    <sl-radio name="option" value="opt4">Option 4</sl-radio>
+    <br><br>
+
+    <sl-color-picker name="new_color" inline></sl-color-picker>
+    
+    <sl-button type="primary" submit>Submit</sl-button>
+  </sl-form>
+{% end %}
+
+<hr/>
+
+{%= form_with url: "/test-submit" do |f| %}
+  {%= f.submit "wee" %}
+{% end %}

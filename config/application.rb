@@ -17,6 +17,14 @@ require "rails/test_unit/railtie"
 
 require "view_component/engine"
 
+class ViewComponent::Compiler
+  alias_method :_previous_matching_views_in_source_location, :matching_views_in_source_location
+
+  def matching_views_in_source_location
+    _previous_matching_views_in_source_location.uniq
+  end
+end
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)

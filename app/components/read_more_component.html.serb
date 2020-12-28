@@ -1,0 +1,4 @@
+{%= form_tag @url, id: @id, method: :put do %}
+  <sl-button type="primary" onclick="this.closest('form').querySelector('button').click()">{%= content %}</sl-button>
+  <button hidden></button>
+{% end %}

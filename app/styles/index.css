@@ -30,7 +30,8 @@
   --color-text-secondary: #999;
   --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
     Cantarell, "Helvetica Neue", sans-serif;
-  --heading-font-family: "jaf-domus", var(--font-family);
+  /* --heading-font-family: "jaf-domus", var(--font-family); */
+  --heading-font-family: ui-rounded, "SF Pro Rounded", var(--font-family);
   --hover-brightness: 0.75;
   --justify-important: center;
   --justify-normal: left;
@@ -64,6 +65,9 @@
     --color-grey-darkest: var(--color-text);
     --color-bg: var(--color-black);
     --color-slateblue: #9ba8ff;
+    --color-wintermint: #333;
+
+    --color-shadow: #111;
 
     --sl-color-black: var(--color-white);
     --sl-color-white: var(--color-black);
@@ -116,12 +120,12 @@ h6 {
 
 h1 {
   text-align: center;
-  font-size: 3rem;
+  font-size: 2.8rem;
 }
 
 @media (max-width: 600px) {
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
   }
 }
 
@@ -132,13 +136,13 @@ h2 {
 
 h2,
 h3 {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 }
 
 @media (max-width: 600px) {
   h2,
   h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 }
 

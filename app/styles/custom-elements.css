@@ -12,6 +12,8 @@ source-header {
   }
   & img {
     width: 40px;
+    height: 40px;
+    display: inline-block;
     border-radius: 8px;
     margin-right: 0.25rem;
     vertical-align: -0.35em;
@@ -27,10 +29,11 @@ source-header {
   }
 }
 
-sl-card-footer {
+sl-card-footer { /* not part of Shoelace — I made it up =) */
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  margin-top: -0.5em;
 }
 
 tag-list {

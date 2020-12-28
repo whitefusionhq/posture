@@ -248,10 +248,11 @@ a:hover {
   text-decoration: underline;
 }
 
-a b,
+/* a b,
 a em,
 a i,
-a strong,
+a strong, */
+
 button {
   border-radius: var(--border-radius);
   display: inline-block;
@@ -271,22 +272,23 @@ button:hover {
   filter: brightness(var(--hover-brightness));
 }
 
-a b,
-a strong,
+/* a b,
+a strong, */
+
 button {
   background-color: var(--color);
   border: 2px solid var(--color);
   color: var(--color-bg);
 }
 
-a em,
+/* a em,
 a i {
   border: 2px solid var(--color);
   border-radius: var(--border-radius);
   color: var(--color);
   display: inline-block;
   padding: 1rem 2rem;
-}
+} */
 
 /* Images */
 figure {

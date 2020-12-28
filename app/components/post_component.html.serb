@@ -1,0 +1,74 @@
+{% if @show_source %}
+  <source-header>
+    <h2>
+      <a href="#">
+        {% if @source.icon_cloudinary_id %}
+          {%= cl_image_tag(@source.icon_cloudinary_id, width: 80, height: 80,
+        crop: :thumb, format: :jpg, quality: 60) %}
+        {% end %}
+        {{ @source.title }}
+      </a>
+      <sl-icon-button style="font-size: .82em" name="dash-circle" label="Hide" onclick="this.closest('source-header').parentNode.querySelectorAll('[data-source-id=&quot;{{ @source.id }}&quot;]').forEach(node => node.hidden = !node.hidden);this.name = this.name == 'dash-circle' ? 'plus-circle' : 'dash-circle'">
+      </sl-icon-button>
+    </h2>
+
+    <sl-dropdown placement="bottom-end">
+      <sl-icon-button name="gear" label="Options" slot="trigger">
+      </sl-icon-button>
+      <sl-menu>
+        <sl-menu-item>
+          Menu Item
+          <sl-icon slot="suffix" name="gift"></sl-icon>
+        </sl-menu-item>
+        <sl-menu-divider></sl-menu-divider>
+        <a href="#"><sl-menu-item>
+          Suffix Icon
+          <sl-icon slot="suffix" name="heart"></sl-icon>
+        </sl-menu-item></a>
+      </sl-menu>
+    </sl-dropdown>
+  </source-header>
+{% end %}
+
+<sl-card data-controller="timeline-post" data-source-id="{{ @source.id }}">
+  {% if !@post.feed&.no_thumbnails and @post.thumbnail_url %}
+    <a href="{{ @post.qualified_url }}" target="_blank" slot="image"><img
+      src="{{ @post.thumbnail_url }}" 
+      alt="article thumbnail"
+    /></a>
+  {% end %}
+
+  {% if @post.has_real_title? %}
+    <h3>{{ @post.title | sanitize_tags: %w(strong em b i u) | link_to @post.qualified_url, target: '_blank', class: "link" }}</h3>
+  {% end %}
+
+  {{ @post.excerpt | safe }}
+
+  <p style="margin-bottom: 0"><small>
+    <relative-time datetime="{{ @post.published_at.getutc.iso8601 }}">
+      {{ @post.published_at }}
+    </relative-time>
+  </small></p>
+
+  <sl-card-footer slot="footer">
+    <sl-icon-button name="bookmark" label="Read Later">
+    </sl-icon-button>
+    <sl-icon-button data-action="click->timeline-post#share" data-share-url="{{ @post.qualified_url }}" name="box-arrow-up" label="Share">
+    </sl-icon-button>
+    <sl-dropdown placement="bottom">
+      <sl-icon-button name="three-dots" label="Options" slot="trigger">
+      </sl-icon-button>
+      <sl-menu>
+        <sl-menu-item data-action="click->timeline-post#copyLink">
+          Copy Link
+          <sl-icon slot="suffix" name="link-45deg"></sl-icon>
+        </sl-menu-item>
+        <sl-menu-divider></sl-menu-divider>
+        <sl-menu-item>
+          Report Issue
+          <sl-icon slot="suffix" name="exclamation-triangle"></sl-icon>
+        </sl-menu-item>
+      </sl-menu>
+    </sl-dropdown>
+  </sl-card-footer>
+</sl-card>

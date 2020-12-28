@@ -1,0 +1,4 @@
+{%@remove "timeline-read-more" %}
+{%@append "timeline" do %}
+  {%@ partial: "posts", formats: [:html] %}
+{%@ %}
