@@ -9,7 +9,7 @@ class TimelinePostController < Controller
       end
     end
 
-    set_timeout 0 do
+    set_timeout 100 do
       self.element.class_list.add("load-complete")
     end
   end

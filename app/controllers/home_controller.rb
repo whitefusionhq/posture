@@ -2,17 +2,13 @@
 
 class HomeController < ApplicationController
   def index
-    #    sleep 10
+    #sleep 10
     load_posts_from_sources
 
     respond_to do |format|
       format.turbo_stream if params[:last_source_id]
       format.html
     end
-  end
-
-  def update
-    index
   end
 
   def test_submit
@@ -47,7 +43,7 @@ class HomeController < ApplicationController
     sources.each do |source|
       next if @posts.length > 20
 
-      @posts.concat source.posts.order(published_at: :desc).limit(5)
+      @posts.concat source.posts.includes(:feed).order(published_at: :desc).limit(5)
     end
   end
 end
