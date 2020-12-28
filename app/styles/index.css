@@ -155,5 +155,12 @@ nav {
   background: var(--color-orange-dark);
 }
 
+#timeline-read-more {
+  margin-top: 1.25rem;
+  & sl-button {
+    width: 100%;
+  }
+}
+
 @import "shoelace-customizations.css";
 @import "custom-elements.css";

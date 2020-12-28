@@ -6,6 +6,8 @@
           {%= cl_image_tag(@source.icon_cloudinary_id, width: 80, height: 80,
         crop: :thumb, format: :jpg, quality: 60) %}
         {% end %}
+      </a>
+      <a href="#">
         {{ @source.title }}
       </a>
       <sl-icon-button style="font-size: .82em" name="dash-circle" label="Hide" onclick="this.closest('source-header').parentNode.querySelectorAll('[data-source-id=&quot;{{ @source.id }}&quot;]').forEach(node => node.hidden = !node.hidden);this.name = this.name == 'dash-circle' ? 'plus-circle' : 'dash-circle'">

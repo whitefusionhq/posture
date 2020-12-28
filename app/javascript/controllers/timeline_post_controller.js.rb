@@ -8,6 +8,10 @@ class TimelinePostController < Controller
         end
       end
     end
+
+    set_timeout 0 do
+      self.element.class_list.add("load-complete")
+    end
   end
 
   def share(event)

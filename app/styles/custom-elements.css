@@ -9,18 +9,29 @@ source-header {
 
   & h2 {
     --color: var(--color-slateblue);
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    margin: 1rem 0;
+
+    & a {
+      padding-right: 0.75rem;
+    }
   }
   & img {
     width: 40px;
     height: 40px;
     display: inline-block;
     border-radius: 8px;
-    margin-right: 0.25rem;
     vertical-align: -0.35em;
     box-shadow: var(--box-shadow) var(--color-shadow);
   }
   & a:hover {
     text-decoration: none;
+  }
+
+  & > sl-dropdown {
+    padding-left: 0.5rem;
   }
 }
 @media (max-width: 600px) {

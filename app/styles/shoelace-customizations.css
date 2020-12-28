@@ -12,6 +12,8 @@ sl-card {
   --color-text: var(--color-grey-darkest);
   color: var(--color-text);
   width: 100%;
+  min-height: 200px;
+  display: block;
 
   &::part(base) {
     box-shadow: 0 2px 2px var(--color-shadow);
@@ -43,6 +45,14 @@ sl-card {
   &::part(footer) {
     padding-top: 0;
   }
+}
+
+body.animate-loading sl-card[data-controller="timeline-post"] {
+  opacity: 0;
+  transition: opacity 0.1s ease-out;
+}
+body.animate-loading sl-card[data-controller="timeline-post"].load-complete {
+  opacity: 1;
 }
 
 sl-dialog::part(panel) {
