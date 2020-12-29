@@ -1,24 +1,5 @@
-# README
+# Posture
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A social network based around topics and news feeds. Built with Ruby on Rails, Hotwire, Shoelace, Ruby2JS, and a ton of other goodies.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+**WORK IN PROGRESS!!** Check back around Q2 2021 for an official beta!
