@@ -1,0 +1,3 @@
+check_feeds:
+  cron: "*/30 * * * *" # execute at every 30 minutes
+  class: "CheckFeedsJob"
