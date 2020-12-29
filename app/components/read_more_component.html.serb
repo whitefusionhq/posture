@@ -1,4 +1,13 @@
 {%= form_tag @url, id: @id, method: :put do %}
-  <sl-button type="primary" onclick="document.body.classList.add('animate-loading');this.loading=true;this.closest('form').querySelector('button').click()">{%= content %}</sl-button>
+  <sl-button
+    type="primary"
+    onclick="
+      document.body.classList.add('animate-loading')
+      this.loading = true
+      this.closest('form').querySelector('button').click()
+    "
+  >
+    {%= content %}
+  </sl-button>
   <button hidden></button>
 {% end %}
