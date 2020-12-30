@@ -42,6 +42,18 @@ main {
   max-width: var(--width-content);
   padding: 2rem 1rem;
 }
+/* Added by JW: */
+main {
+  padding-top: 0;
+}
+@media (max-width: 500px) {
+  footer,
+  header,
+  main {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
 
 hr {
   background-color: var(--color-bg-secondary);
