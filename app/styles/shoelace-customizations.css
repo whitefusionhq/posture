@@ -45,7 +45,7 @@ sl-card {
 
   &::part(footer) {
     padding-top: 0;
-    padding-bottom: 0.85rem;
+    padding-bottom: 0.80rem;
   }
 }
 

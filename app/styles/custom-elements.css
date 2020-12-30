@@ -45,6 +45,7 @@ sl-card-footer { /* not part of Shoelace — I made it up =) */
   justify-content: space-around;
   align-items: center;
   margin-top: -0.5em;
+  font-size: 20px;
 }
 
 tag-list {
