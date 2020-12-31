@@ -17,7 +17,9 @@ module Ruby2JS
         include: :class,
         underscored_private: true,
         autoimports: {
-          [:Controller] => "stimulus",
+          :ApplicationController      => "controllers/application_controller",
+          [:html, :render] => "lit-html",
+          :raiseToast      => "lib/toast.js.rb",
         }
       }
     end

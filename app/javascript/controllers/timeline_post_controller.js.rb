@@ -1,16 +1,31 @@
-class TimelinePostController < Controller
+class TimelinePostController < ApplicationController
   def connect()
-    img = self.element.querySelector(%(a[slot="image"] img))
-    if img
-      img.onload = ->() do
-        if img.natural_width < 200 && img.natural_height < 200
-          img.parent_node.remove() # we don't want to blow up tiny images!
-        end
+    super
+
+    i = self.element.querySelector(%(a[slot="image"] img))
+    if i
+      i.onload = ->() do
+        # we don't want to blow up tiny images!
+        i.parent_node.remove() if i.natural_width < 200 && i.natural_height < 200
       end
     end
 
     set_timeout 100 do
       self.element.class_list.add("load-complete")
+    end
+  end
+
+  def bookmark(event)
+    button = event.target
+    if event.target.name == :bookmark
+      self.stimulate "Bookmark#toggle", button
+      button.name = :'bookmark-star'
+      button.set_attribute :bookmarked, true
+      raise_toast "Bookmark Saved"
+    else
+      button.name = :bookmark
+      button.remove_attribute :bookmarked
+      raise_toast "Bookmark Removed", :danger
     end
   end
 

@@ -23,6 +23,8 @@ require "feed_processing/titles"
 #  index_posts_on_source_id     (source_id)
 #
 class Post < ApplicationRecord
+  include Bookmarkable
+
   belongs_to :source
   belongs_to :feed, optional: true
 

@@ -46,6 +46,10 @@ sl-card-footer { /* not part of Shoelace — I made it up =) */
   align-items: center;
   margin-top: -0.5em;
   font-size: 20px;
+
+  & sl-icon-button[bookmarked]::part(base) {
+    color: var(--color-text);
+  }
 }
 
 tag-list {

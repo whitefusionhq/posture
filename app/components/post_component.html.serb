@@ -53,7 +53,13 @@
   </small></p>
 
   <sl-card-footer slot="footer">
-    <sl-icon-button name="bookmark" label="Read Later">
+    <sl-icon-button
+      name="{{ "bookmark" + ( @bookmarked ? "-star" : "" ) }}"
+      label="Read Later"
+      data-action="click->timeline-post#bookmark"
+      data-post-id="{{ @post.id }}"
+      {{ "bookmarked" if @bookmarked }}
+    >
     </sl-icon-button>
     <sl-icon-button data-action="click->timeline-post#share" data-share-url="{{ @post.qualified_url }}" name="box-arrow-up" label="Share">
     </sl-icon-button>
