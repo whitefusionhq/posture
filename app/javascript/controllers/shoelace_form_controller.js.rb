@@ -1,5 +1,7 @@
-class ShoelaceFormController < Controller
+class ShoelaceFormController < ApplicationController
   def connect()
+    super
+
     self.element.add_event_listener("sl-submit", submit_form.bind(self))
     self.element.closest("form").add_event_listener(
       "turbo:submit-end", submit_end.bind(self)
