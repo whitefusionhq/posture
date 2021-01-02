@@ -4,17 +4,17 @@ nav[fixed] {
   left: 0;
   right: 0;
   z-index: 100;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
 }
 
 body > nav {
-  background: color(#eaeae6 transparentize(0.85));
+  background: color(#eaeae6 transparentize(0.7));
   height: 3.25rem;
 }
 @media (prefers-color-scheme: dark) {
   body > nav {
-    background: color(#000 transparentize(0.85));
+    background: color(#000 transparentize(0.7));
   }
 }
 
