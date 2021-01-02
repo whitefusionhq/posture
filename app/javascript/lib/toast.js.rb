@@ -7,6 +7,9 @@ def raise_toast(message, type = :success)
   alert = document.create_element("sl-alert").tap do |a|
             a.type = type
             a.duration = 5000
+            a.add_event_listener :click do
+              a.hide()
+            end
           end
   render contents, alert
 
