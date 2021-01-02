@@ -2,15 +2,15 @@ class ShoelaceFormController < ApplicationController
   def connect()
     super
 
-    self.element.add_event_listener("sl-submit", submit_form.bind(self))
-    self.element.closest("form").add_event_listener(
-      "turbo:submit-end", submit_end.bind(self)
+    self.element.add_event_listener(%s:sl-submit:, submit_form.bind(self))
+    self.element.closest(:form).add_event_listener(
+      %s;turbo:submit-end;, submit_end.bind(self)
     )
   end
 
   def submit_form(e)
-    form = self.element.closest("form")
-    submitter = self.element.query_selector("sl-button[submit]")
+    form = self.element.closest(:form)
+    submitter = self.element.query_selector(%s:sl-button[submit]:)
 
     return if submitter.disabled? # form already submitted, not submitting twice
 
@@ -19,19 +19,19 @@ class ShoelaceFormController < ApplicationController
 
     e.detail.form_data.each do |entry|
       k, v = entry
-      el = document.create_element("input")
-      el.type = "hidden"
+      el = document.create_element(:input)
+      el.type = :hidden
       el.name = k
       el.value = v
       el.delete_me_later = true
       form.append(el)
     end
 
-    el = document.create_element("input")
-    el.name = "commit"
-    el.type = "submit"
+    el = document.create_element(:input)
+    el.name = :commit
+    el.type = :submit
     el.value = submitter.inner_html
-    el.style.display = "none"
+    el.style.display = :none
     el.delete_me_later = true
     form.append(el)
 
@@ -39,7 +39,7 @@ class ShoelaceFormController < ApplicationController
   end
 
   def submit_end(e)
-    submitter = e.target.query_selector("sl-button[submit]")
+    submitter = e.target.query_selector(%s:sl-button[submit]:)
     if submitter
       submitter.loading = false
       submitter.disabled = false
@@ -48,10 +48,10 @@ class ShoelaceFormController < ApplicationController
   end
 
   def reset(form)
-    form.query_selector("sl-form").get_form_controls().then do |controls|
+    form.query_selector(%s:sl-form:).get_form_controls().then do |controls|
       controls.each do |control|
         case control.tag_name.downcase()
-        when "sl-checkbox", "sl-radio"
+        when %s:sl-checkbox:, %s:sl-radio:
           control.checked = false
         else
           control.value = ""
@@ -59,7 +59,7 @@ class ShoelaceFormController < ApplicationController
       end
     end
 
-    form.query_selector_all("input").each do |control|
+    form.query_selector_all(:input).each do |control|
       control.remove() if control.delete_me_later?
     end
   end

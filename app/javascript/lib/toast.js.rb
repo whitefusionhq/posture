@@ -4,11 +4,11 @@ def raise_toast(message, type = :success)
     #{message}
   HTML
 
-  alert = document.create_element("sl-alert").tap do |a|
+  alert = document.create_element(%s:sl-alert:).tap do |a|
             a.type = type
             a.duration = 5000
-            a.add_event_listener :click do
-              a.hide()
+            %i:click touchmove:.each do |event_type|
+              a.add_event_listener(event_type) { a.hide() }
             end
           end
   render contents, alert
