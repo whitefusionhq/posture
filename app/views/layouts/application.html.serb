@@ -5,12 +5,14 @@
     {%= csrf_meta_tags %}
     {%= csp_meta_tag %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="turbo-cache-control" content="no-preview">
 
     {%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %}
     {%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %}
   </head>
 
   <body>
+    <actions-loader></actions-loader>
     {%= render "topbar" %}
 
     {%= yield %}

@@ -27,6 +27,7 @@ class Post < ApplicationRecord
 
   belongs_to :source
   belongs_to :feed, optional: true
+  has_many :post_actions
 
   def import_thumbnail!(url = nil)
     if url.nil?

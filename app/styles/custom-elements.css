@@ -48,7 +48,7 @@ sl-card-footer { /* not part of Shoelace — I made it up =) */
   font-size: 20px;
 
   & sl-icon-button[bookmarked]::part(base) {
-    color: var(--color-text);
+    color: var(--color-green);
   }
 }
 

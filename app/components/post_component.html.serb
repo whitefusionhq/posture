@@ -10,8 +10,10 @@
       <a href="#">
         {{ @source.title }}
       </a>
-      <sl-icon-button style="font-size: .82em" name="dash-circle" label="Hide" onclick="this.closest('source-header').parentNode.querySelectorAll('[data-source-id=&quot;{{ @source.id }}&quot;]').forEach(node => node.hidden = !node.hidden);this.name = this.name == 'dash-circle' ? 'plus-circle' : 'dash-circle'">
-      </sl-icon-button>
+      {% unless @hide_hide_toggle %}
+        <sl-icon-button style="font-size: .82em" name="dash-circle" label="Hide" onclick="this.closest('source-header').parentNode.querySelectorAll('[data-source-id=&quot;{{ @source.id }}&quot;]').forEach(node => node.hidden = !node.hidden);this.name = this.name == 'dash-circle' ? 'plus-circle' : 'dash-circle'">
+        </sl-icon-button>
+      {% end %}
     </h2>
 
     <sl-dropdown placement="bottom-end">
@@ -32,7 +34,11 @@
   </source-header>
 {% end %}
 
-<sl-card data-controller="timeline-post" data-source-id="{{ @source.id }}">
+<sl-card
+  data-controller="timeline-post"
+  data-post-id="{{ @post.id }}"
+  data-source-id="{{ @source.id }}"
+>
   {% if !@post.feed&.no_thumbnails and @post.thumbnail_url %}
     <a href="{{ @post.qualified_url }}" target="_blank" slot="image"><img
       src="{{ @post.thumbnail_url }}" 
@@ -54,11 +60,10 @@
 
   <sl-card-footer slot="footer">
     <sl-icon-button
-      name="{{ "bookmark" + ( @bookmarked ? "-star" : "" ) }}"
+      name="bookmark"
       label="Read Later"
       data-action="click->timeline-post#bookmark"
       data-post-id="{{ @post.id }}"
-      {{ "bookmarked" if @bookmarked }}
     >
     </sl-icon-button>
     <sl-icon-button data-action="click->timeline-post#share" data-share-url="{{ @post.qualified_url }}" name="box-arrow-up" label="Share">

@@ -1,4 +1,4 @@
-<nav class="navbar is-primary is-fixed-top" role="navigation" aria-label="dropdown navigation">
+<nav fixed role="navigation" aria-label="navigation">
   <div class="navbar-brand mr-2">
     <a href="/" class="navbar-item posture">
       Posture
@@ -6,6 +6,7 @@
   </div>
 
   <div class="navbar-start">
+    <a class="navbar-item" href="/bookmarks"><sl-icon name="bookmark-star" style="font-size:120%" class="mr-2"></sl-icon> <span class="is-hidden-mobile">Bookmarks</span></a>
     <a class="navbar-item" href="/go/discover"><sl-icon name="compass" style="font-size:120%" class="mr-2"></sl-icon> <span class="is-hidden-mobile">Discover</span></a>
     {% if current_user %}
       <a class="navbar-item" href="/go/feeds/new"><i class="typcn typcn-plus"></i> <span class="is-hidden-mobile">Add</span></a>
@@ -43,3 +44,4 @@
     </div>
   {% end %}
 </nav>
+<layout-spacer underneath-navbar></layout-spacer>

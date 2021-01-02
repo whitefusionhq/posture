@@ -2,6 +2,8 @@ class TimelinePostController < ApplicationController
   def connect()
     super
 
+    self.load_actions()
+
     i = self.element.querySelector(%(a[slot="image"] img))
     if i
       i.onload = ->() do
@@ -15,6 +17,10 @@ class TimelinePostController < ApplicationController
     end
   end
 
+  async def load_actions()
+    await document.query_selector("actions-loader").load_actions_for_post(self.element)
+  end
+
   def bookmark(event)
     button = event.target
     if event.target.name == :bookmark
@@ -23,6 +29,7 @@ class TimelinePostController < ApplicationController
       button.set_attribute :bookmarked, true
       raise_toast "Bookmark Saved"
     else
+      self.stimulate "Bookmark#toggle", button
       button.name = :bookmark
       button.remove_attribute :bookmarked
       raise_toast "Bookmark Removed", :danger

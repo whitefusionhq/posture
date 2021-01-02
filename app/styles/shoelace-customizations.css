@@ -4,6 +4,9 @@ sl-button::part(base) {
   text-transform: uppercase;
   -webkit-font-smoothing: antialiased;
 }
+sl-button[loading]::part(base) {
+  cursor: default;
+}
 
 sl-card {
   --border-width: 0;
@@ -78,4 +81,11 @@ sl-menu-item::part(suffix) {
     left: 50%;
     margin-left: -14rem;
   }
+}
+
+/* avoid FOUC */
+sl-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
 }

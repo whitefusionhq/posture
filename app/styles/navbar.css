@@ -1,0 +1,30 @@
+nav[fixed] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+}
+
+body > nav {
+  background: color(#eaeae6 transparentize(0.85));
+  height: 3.25rem;
+}
+@media (prefers-color-scheme: dark) {
+  body > nav {
+    background: color(#000 transparentize(0.85));
+  }
+}
+
+.navbar-brand {
+  margin-left: 1rem;
+}
+.navbar-item {
+  margin-right: 1rem;
+}
+
+layout-spacer[underneath-navbar] {
+  height: 1rem;
+}

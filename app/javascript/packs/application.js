@@ -20,6 +20,7 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 import "controllers"
+import "../components"
 
 setAssetPath(document.currentScript.src)
 defineCustomElements()

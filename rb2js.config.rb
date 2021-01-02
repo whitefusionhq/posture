@@ -17,10 +17,12 @@ module Ruby2JS
         include: :class,
         underscored_private: true,
         autoimports: {
-          :ApplicationController      => "controllers/application_controller",
-          [:html, :render] => "lit-html",
-          :raiseToast      => "lib/toast.js.rb",
-        }
+          :ApplicationController => "controllers/application_controller",
+          [:ApplicationElement]  => "application_element.js.rb",
+          [:html, :css]          => "lit-element",
+          [:render]              => "lit-html",
+          :raiseToast            => "lib/toast.js.rb",
+        },
       }
     end
 
