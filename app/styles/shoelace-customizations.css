@@ -76,6 +76,10 @@ sl-menu-item::part(suffix) {
   margin-left: 1em;
 }
 
+.sl-toast-stack {
+  top: 3.25rem;
+}
+
 @media (min-width: 28rem) {
   .sl-toast-stack {
     left: 50%;
