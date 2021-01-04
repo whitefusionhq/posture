@@ -77,7 +77,7 @@ sl-menu-item::part(suffix) {
 }
 
 .sl-toast-stack {
-  top: 3.25rem;
+  top: 3.1rem;
 }
 
 @media (min-width: 28rem) {
