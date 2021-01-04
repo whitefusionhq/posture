@@ -4,17 +4,19 @@ nav[fixed] {
   left: 0;
   right: 0;
   z-index: 100;
-  backdrop-filter: blur(12px);
-  box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
 }
 
 body > nav {
-  background: color(#eaeae6 transparentize(0.7));
+  background: color(#fff transparentize(0.7));
   height: 3.25rem;
+  backdrop-filter: blur(15px);
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+  border-bottom: solid 1px #cfcfcf;
 }
 @media (prefers-color-scheme: dark) {
   body > nav {
     background: color(#000 transparentize(0.7));
+    border-bottom-color: #2f2f2f;
   }
 }
 
@@ -26,5 +28,5 @@ body > nav {
 }
 
 layout-spacer[underneath-navbar] {
-  height: 1rem;
+  height: 2rem;
 }
