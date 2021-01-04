@@ -1,13 +1,16 @@
 <nav fixed role="navigation" aria-label="navigation">
-  <div class="navbar-brand mr-2">
+  <div class="navbar-start">
+    <a class="navbar-item" href="/go/discover"><sl-icon name="compass"></sl-icon> <span class="is-hidden-mobile">Discover</span></a>
+  </div>
+
+  <div class="navbar-brand">
     <a href="/" class="navbar-item posture">
       Posture
     </a>
   </div>
 
-  <div class="navbar-start">
-    <a class="navbar-item" href="/bookmarks"><sl-icon name="bookmark-star" style="font-size:120%" class="mr-2"></sl-icon> <span class="is-hidden-mobile">Bookmarks</span></a>
-    <a class="navbar-item" href="/go/discover"><sl-icon name="compass" style="font-size:120%" class="mr-2"></sl-icon> <span class="is-hidden-mobile">Discover</span></a>
+  <div class="navbar-end">
+    <a class="navbar-item" href="/bookmarks"><sl-icon name="bookmark-star"></sl-icon> <span class="is-hidden-mobile">Bookmarks</span></a>
     {% if current_user %}
       <a class="navbar-item" href="/go/feeds/new"><i class="typcn typcn-plus"></i> <span class="is-hidden-mobile">Add</span></a>
       <a class="navbar-item" href="/go/readlist"><i class="typcn typcn-bookmark"></i> <span class="is-hidden-mobile">Readlist</span></a>
