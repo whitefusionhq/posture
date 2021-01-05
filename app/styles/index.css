@@ -71,6 +71,17 @@
 
     --sl-color-black: var(--color-white);
     --sl-color-white: var(--color-black);
+
+    --sl-panel-border-color: var(--color-wintermint);
+  }
+
+  sl-alert, sl-menu-item {
+    --sl-color-gray-700: var(--color-text);
+    --sl-color-gray-200: var(--color-wintermint);
+  }
+  sl-menu-item {
+    --sl-color-primary-50: var(--color-green-dark);
+    --sl-color-primary-500: var(--color-white);
   }
 
   sl-card {
