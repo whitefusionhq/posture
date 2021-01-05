@@ -39,6 +39,7 @@ body > nav {
     vertical-align: -0.1rem;
   }
   & svg {
+    width: auto;
     height: 1rem;
     fill: var(--sl-color-black);
   }
