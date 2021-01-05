@@ -35,7 +35,13 @@ body > nav {
   font-weight: 900;
   font-size: 1.25em;
   letter-spacing: 0.05em;
-  & a { color: var(--color-text); }
+  & a {
+    vertical-align: -0.1rem;
+  }
+  & svg {
+    height: 1rem;
+    fill: var(--sl-color-black);
+  }
 }
 .navbar-start {
   & .navbar-item {

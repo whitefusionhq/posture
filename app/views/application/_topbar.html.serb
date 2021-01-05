@@ -5,7 +5,9 @@
 
   <div class="navbar-brand">
     <a href="/" class="navbar-item posture">
-      Posture
+      {%= inline_svg_pack_tag "media/images/posture-logotype.svg",
+                              title: "Posture",
+                              aria: true %}
     </a>
   </div>
 
