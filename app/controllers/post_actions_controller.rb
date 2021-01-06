@@ -6,6 +6,7 @@ class PostActionsController < ApplicationController
     render json: {
       post_id: post.id,
       bookmarked: post.post_actions.bookmark.exists?,
+      favorited: post.post_actions.favorite.exists?,
     }
   end
 end

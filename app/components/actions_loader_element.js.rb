@@ -10,5 +10,11 @@ class ActionsLoaderElement < ApplicationElement
       button.name = %s:bookmark-star:
       button.set_attribute :bookmarked, true
     end
+
+    if data.favorited
+      button = post.query_selector %s:sl-icon-button[name="heart"]:
+      button.name = %s:heart-fill:
+      button.set_attribute :favorited, true
+    end
   end
 end

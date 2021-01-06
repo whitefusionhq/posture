@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Bookmarkable
   def toggle_bookmark_for_user
     # TODO: support users!

@@ -3,5 +3,5 @@
 class PostAction < ApplicationRecord
   belongs_to :post
 
-  enum action_type: [:bookmark, :flag, :like]
+  enum action_type: [:bookmark, :flag, :favorite]
 end

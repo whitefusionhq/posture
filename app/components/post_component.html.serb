@@ -66,7 +66,13 @@
       data-post-id="{{ @post.id }}"
     >
     </sl-icon-button>
-    <sl-icon-button data-action="click->timeline-post#favorite" name="heart" label="Favorite">
+    <sl-icon-button
+      name="heart"
+      label="Favorite"
+      data-action="click->timeline-post#favorite"
+      data-post-id="{{ @post.id }}"
+    >
+    >
     </sl-icon-button>
     <sl-icon-button data-action="click->timeline-post#share" data-share-url="{{ @post.qualified_url }}" name="box-arrow-up" label="Share">
     </sl-icon-button>

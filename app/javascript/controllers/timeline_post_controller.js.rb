@@ -40,6 +40,7 @@ class TimelinePostController < ApplicationController
 
   def favorite(event)
     button = event.target
+    self.stimulate "Favorite#toggle", button
 
     if event.target.name == :heart
       button.name = %s:heart-fill:

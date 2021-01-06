@@ -16,5 +16,7 @@
     {%= render "topbar" %}
 
     {%= yield %}
+
+    {%= render "footer" %}
   </body>
 </html>

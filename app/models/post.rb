@@ -24,6 +24,7 @@ require "feed_processing/titles"
 #
 class Post < ApplicationRecord
   include Bookmarkable
+  include Favoritable
 
   belongs_to :source
   belongs_to :feed, optional: true
