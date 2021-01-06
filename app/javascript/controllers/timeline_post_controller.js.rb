@@ -28,12 +28,30 @@ class TimelinePostController < ApplicationController
     if event.target.name == :bookmark
       button.name = %s:bookmark-star:
       button.set_attribute :bookmarked, true
-      raise_toast "Bookmark Saved"
+      raise_toast %s:bookmark-star:, "Bookmark Saved"
     else
       button.name = :bookmark
       button.remove_attribute :bookmarked
-      raise_toast "Bookmark Removed", :danger
+      raise_toast :bookmark, "Bookmark Removed", :danger
     end
+
+    button.class_list.add("changed")
+  end
+
+  def favorite(event)
+    button = event.target
+
+    if event.target.name == :heart
+      button.name = %s:heart-fill:
+      button.set_attribute :favorited, true
+      raise_toast %s:heart-fill:, "Added to Favorites"
+    else
+      button.name = :heart
+      button.remove_attribute :favorited
+      raise_toast :heart, "Removed from Favorites", :danger
+    end
+
+    button.class_list.add("changed")
   end
 
   def share(event)

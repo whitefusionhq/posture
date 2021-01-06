@@ -1,6 +1,6 @@
-def raise_toast(message, type = :success)
+def raise_toast(icon, message, type = :success)
   contents = html <<~HTML
-    <sl-icon name="bookmark-star" slot="icon"></sl-icon>
+    <sl-icon name="#{icon}" slot="icon"></sl-icon>
     #{message}
   HTML
 
