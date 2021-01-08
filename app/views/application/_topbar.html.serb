@@ -1,4 +1,4 @@
-<nav fixed role="navigation" aria-label="navigation">
+<nav id="topbar" fixed role="navigation" aria-label="navigation" data-turbo-permanent>
   <div class="navbar-start">
     <a class="navbar-item" href="/go/discover"><sl-icon name="compass"></sl-icon> <span class="is-hidden-mobile">Discover</span></a>
   </div>

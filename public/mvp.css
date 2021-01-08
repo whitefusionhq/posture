@@ -256,8 +256,13 @@ a {
 }
 
 a:hover {
-  filter: brightness(var(--hover-brightness));
   text-decoration: underline;
+}
+
+@media (hover: hover) {
+  a:hover {
+    filter: brightness(var(--hover-brightness));
+  }
 }
 
 /* a b,
