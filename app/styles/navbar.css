@@ -17,8 +17,12 @@ body > nav {
     text-decoration: none;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 675px) {
     font-size: 0.95em;
+
+    & .is-hidden-mobile {
+      display: none;
+    }
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -45,18 +49,24 @@ body > nav {
   }
 }
 .navbar-start {
+  padding-right: 6.6rem;
+
+  @media (max-width: 675px) {
+    padding-right: 1.2rem;
+  }
+
   & .navbar-item {
     margin-left: 1rem;
-    @media (max-width: 600px) {
-      margin-left: 0.5rem;
+    @media (max-width: 675px) {
+      margin-left: 0.75rem;
     }
   }
 }
 .navbar-end {
   & .navbar-item {
     margin-right: 1rem;
-    @media (max-width: 600px) {
-      margin-right: 0.5rem;
+    @media (max-width: 675px) {
+      margin-right: 0.75rem;
     }
   }
 }
@@ -64,7 +74,7 @@ body > nav {
   & sl-icon {
     font-size: 120%;
     vertical-align: -0.2em;
-    @media (max-width: 600px) {
+    @media (max-width: 675px) {
       font-size: 130%;
     }
   }

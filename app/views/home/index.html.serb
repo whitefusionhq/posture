@@ -1,5 +1,4 @@
 <main>
-
   <h1>Sources Say</h1>
 
   <tag-list>
@@ -11,6 +10,4 @@
   <main-content id="timeline">
     {%@ "posts" %}
   </main-content>
-
-  <layout-spacer style="height: 300px"></layout-spacer>
 </main>

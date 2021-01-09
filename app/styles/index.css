@@ -167,6 +167,12 @@ nav {
   height: 3rem;
 }
 
+body > footer {
+  padding-top: 200px;
+  color: var(--color-grey-dark);
+  font-size: 0.85em;
+}
+
 .turbo-progress-bar {
   background: var(--color-orange-dark);
 }

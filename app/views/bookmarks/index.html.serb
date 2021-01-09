@@ -1,10 +1,7 @@
 <main>
-
   <h1>Bookmarks</h1>
 
   <main-content id="timeline">
     {%@ "posts" %}
   </main-content>
-
-  <layout-spacer style="height: 300px"></layout-spacer>
 </main>

@@ -1,9 +1,5 @@
 <footer style="text-align: center">
   <nav style="justify-content: center" role="navigation" aria-label="navigation">
-    <a class="navbar-item" href="/favorites">
-      <sl-icon name="heart-fill"></sl-icon>
-      Favorites
-    </a>
   </nav>
 
   <p>Posture: Open News Comunities</p>

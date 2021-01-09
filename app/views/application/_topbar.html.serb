@@ -1,6 +1,9 @@
 <nav id="topbar" fixed role="navigation" aria-label="navigation" data-turbo-permanent>
   <div class="navbar-start">
-    <a class="navbar-item" href="/go/discover"><sl-icon name="compass"></sl-icon> <span class="is-hidden-mobile">Discover</span></a>
+    <a class="navbar-item" href="/go/discover">
+      <sl-icon name="compass"></sl-icon>
+      <ui-label class="is-hidden-mobile">Discover</ui-label>
+    </a>
   </div>
 
   <div class="navbar-brand">
@@ -12,7 +15,14 @@
   </div>
 
   <div class="navbar-end">
-    <a class="navbar-item" href="/bookmarks"><sl-icon name="bookmark-star"></sl-icon> <span class="is-hidden-mobile">Bookmarks</span></a>
+    <a class="navbar-item" href="/bookmarks">
+      <sl-icon name="bookmark"></sl-icon>
+      <ui-label class="is-hidden-mobile">Bookmarks</ui-label>
+    </a>
+    <a class="navbar-item" href="/favorites">
+      <sl-icon name="heart"></sl-icon>
+      <ui-label class="is-hidden-mobile">Favorites</ui-label>
+    </a>
     {% if current_user %}
       <a class="navbar-item" href="/go/feeds/new"><i class="typcn typcn-plus"></i> <span class="is-hidden-mobile">Add</span></a>
       <a class="navbar-item" href="/go/readlist"><i class="typcn typcn-bookmark"></i> <span class="is-hidden-mobile">Readlist</span></a>
