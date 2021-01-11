@@ -49,25 +49,24 @@ body > nav {
   }
 }
 .navbar-start {
-  padding-right: 6.6rem;
+  padding-right: 8.2rem;
 
   @media (max-width: 675px) {
-    padding-right: 1.2rem;
+    padding-right: 2.2rem;
   }
 
   & .navbar-item {
-    margin-left: 1rem;
-    @media (max-width: 675px) {
-      margin-left: 0.75rem;
-    }
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 .navbar-end {
   & .navbar-item {
-    margin-right: 1rem;
-    @media (max-width: 675px) {
+    padding-right: 1rem;
+    padding-left: 1rem;
+/*    @media (max-width: 675px) {
       margin-right: 0.75rem;
-    }
+    } */
   }
 }
 .navbar-item {
