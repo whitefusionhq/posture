@@ -40,7 +40,7 @@
   --width-card: 285px;
   --width-card-medium: 460px;
   --width-card-wide: 800px;
-  --width-content: 1000px;
+  --width-content: 1040px;
 
   /* Shoelace Variables */
   --sl-color-black: var(--color-black);
@@ -105,11 +105,16 @@
 
 html {
   font-size: 18px;
+  box-sizing: border-box;
 }
 @media (max-width: 600px) {
   html {
     font-size: 16px;
   }
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 body {
