@@ -61,10 +61,10 @@ source-header {
     display: flex;
     align-items: center;
     min-height: 44px;
-    margin: 1rem 0;
+    margin: var(--sl-spacing-medium) 0;
 
     & a {
-      padding-right: 0.75rem;
+      padding-right: var(--sl-spacing-small);
     }
   }
   & img {
@@ -80,7 +80,7 @@ source-header {
   }
 
   & > sl-dropdown {
-    padding-left: 0.5rem;
+    padding-left: var(--sl-spacing-x-small);
   }
 }
 @media (max-width: 600px) {

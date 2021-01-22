@@ -3,7 +3,6 @@
   {% show_source = post.source != last_source %}
   {% last_source = post.source %}
   {%@ PostComponent post: post, show_source: show_source %}
-  <layout-spacer data-source-id="{{ post.source.id }}" style="height: 20px"></layout-spacer>
 {% end %}
 
 {%@ ReadMoreComponent id: "timeline-read-more", url: root_path(last_source_id: @posts.last.source_id) do %}

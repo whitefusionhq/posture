@@ -33,7 +33,7 @@ body > nav {
 }
 
 .navbar-brand {
-  margin-left: 1rem;
+  margin-left: var(--sl-spacing-medium);
   text-transform: uppercase;
   font-family: var(--heading-font-family);
   font-weight: 900;
@@ -44,7 +44,7 @@ body > nav {
   }
   & svg {
     width: auto;
-    height: 1rem;
+    height: var(--sl-spacing-medium);
     fill: var(--sl-color-black);
   }
 }
@@ -56,14 +56,14 @@ body > nav {
   }
 
   & .navbar-item {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: var(--sl-spacing-medium);
+    padding-right: var(--sl-spacing-medium);
   }
 }
 .navbar-end {
   & .navbar-item {
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-right: var(--sl-spacing-medium);
+    padding-left: var(--sl-spacing-medium);
 /*    @media (max-width: 675px) {
       margin-right: 0.75rem;
     } */

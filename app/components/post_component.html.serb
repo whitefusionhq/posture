@@ -38,6 +38,7 @@
   data-controller="timeline-post"
   data-post-id="{{ @post.id }}"
   data-source-id="{{ @source.id }}"
+  style="{{ %(margin-bottom: var(--sl-spacing-large)) unless @no_spacing }}"
 >
   {% if !@post.feed&.no_thumbnails and @post.thumbnail_url %}
     <a href="{{ @post.qualified_url }}" target="_blank" slot="image"><img
@@ -47,7 +48,11 @@
   {% end %}
 
   {% if @post.has_real_title? %}
-    <h3>{{ @post.title | sanitize_tags: %w(strong em b i u) | link_to @post.qualified_url, target: '_blank', class: "link" }}</h3>
+    <h3>{{
+      @post.title |>
+      sanitize_tags: %w(strong em b i u) |>
+      link_to: @post.qualified_url, target: '_blank', class: "link"
+    }}</h3>
   {% end %}
 
   {{ @post.excerpt | safe }}
@@ -71,7 +76,6 @@
       label="Favorite"
       data-action="click->timeline-post#favorite"
       data-post-id="{{ @post.id }}"
-    >
     >
     </sl-icon-button>
     <sl-icon-button data-action="click->timeline-post#share" data-share-url="{{ @post.qualified_url }}" name="box-arrow-up" label="Share">

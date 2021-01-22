@@ -153,7 +153,7 @@ h2 {
 
 h2,
 h3 {
-  font-size: 1.5rem;
+  font-size: var(--sl-font-size-x-large);
 }
 
 h3 {
@@ -163,7 +163,7 @@ h3 {
 @media (max-width: 600px) {
   h2,
   h3 {
-    font-size: 1.3rem;
+    font-size: calc(var(--sl-font-size-x-large) - 0.2rem);
   }
 }
 
@@ -183,7 +183,7 @@ body > footer {
 }
 
 #timeline-read-more {
-  margin-top: 1.25rem;
+  margin-top: var(--sl-spacing-large);
   & sl-button {
     width: 100%;
   }

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationComponent < ViewComponent::Base
+  include ApplicationHelper
+
   def set_props(&block) # rubocop:disable Naming/AccessorMethodName
     local_binding = block.binding
     local_binding.local_variables.each do |key|
