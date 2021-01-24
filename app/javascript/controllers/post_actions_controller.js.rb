@@ -1,26 +1,4 @@
-class TimelinePostController < ApplicationController
-  def connect()
-    super
-
-    self.load_actions()
-
-    i = self.element.querySelector %s:a[slot="image"] img:
-    if i
-      i.onload = ->() do
-        # we don't want to blow up tiny images!
-        i.parent_node.remove() if i.natural_width < 200 && i.natural_height < 200
-      end
-    end
-
-    set_timeout 100 do
-      self.element.class_list.add %s:load-complete:
-    end
-  end
-
-  async def load_actions()
-    await document.query_selector(%s:actions-loader:).load_actions_for_post(self.element)
-  end
-
+class PostActionsController < ApplicationController
   def bookmark(event)
     button = event.target
     self.stimulate "Bookmark#toggle", button
@@ -35,7 +13,7 @@ class TimelinePostController < ApplicationController
       raise_toast :bookmark, "Bookmark Removed", :danger
     end
 
-    button.class_list.add("changed")
+    button.class_list.add :changed
   end
 
   def favorite(event)
@@ -52,7 +30,7 @@ class TimelinePostController < ApplicationController
       raise_toast :heart, "Removed from Favorites", :danger
     end
 
-    button.class_list.add("changed")
+    button.class_list.add :changed
   end
 
   def share(event)
@@ -70,4 +48,4 @@ class TimelinePostController < ApplicationController
   end
 end
 
-export default TimelinePostController
+export default PostActionsController

@@ -47,6 +47,14 @@
   }
 }
 
+body.animate-loading timeline-post {
+  opacity: 0;
+  transition: opacity 0.1s ease-out;
+}
+body.animate-loading timeline-post.load-complete {
+  opacity: 1;
+}
+
 layout-spacer {
   display: block;
 }

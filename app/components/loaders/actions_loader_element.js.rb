@@ -1,8 +1,8 @@
 class ActionsLoaderElement < ApplicationElement
-  define "actions-loader"
+  define %s:actions-loader:
 
   async def load_actions_for_post(post)
-    response = await fetch "/post_actions/#{post.dataset.post_id}"
+    response = await fetch "/post_actions/#{post.post_id}"
     data = await response.json()
 
     if data.bookmarked

@@ -69,14 +69,6 @@ sl-card {
   }
 }
 
-body.animate-loading sl-card[data-controller="timeline-post"] {
-  opacity: 0;
-  transition: opacity 0.1s ease-out;
-}
-body.animate-loading sl-card[data-controller="timeline-post"].load-complete {
-  opacity: 1;
-}
-
 sl-dialog::part(panel) {
   filter: blur(6px);
   transition: var(--sl-transition-medium) opacity, var(--sl-transition-medium) transform,
