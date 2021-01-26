@@ -10,27 +10,30 @@
       <a href="#">
         {{ @source.title }}
       </a>
-      {% unless @hide_hide_toggle %}
-        <sl-icon-button style="font-size: .82em" name="dash-circle" label="Hide" onclick="this.closest('source-header').parentNode.querySelectorAll('[source-id=&quot;{{ @source.id }}&quot;]').forEach(node => node.hidden = !node.hidden);this.name = this.name == 'dash-circle' ? 'plus-circle' : 'dash-circle'">
-        </sl-icon-button>
-      {% end %}
     </h2>
 
-    <sl-dropdown placement="bottom-end">
-      <sl-icon-button name="gear" label="Options" slot="trigger">
-      </sl-icon-button>
-      <sl-menu>
-        <sl-menu-item>
-          Menu Item
-          <sl-icon slot="suffix" name="gift"></sl-icon>
-        </sl-menu-item>
-        <sl-menu-divider></sl-menu-divider>
-        <a href="#"><sl-menu-item>
-          Suffix Icon
-          <sl-icon slot="suffix" name="heart"></sl-icon>
-        </sl-menu-item></a>
-      </sl-menu>
-    </sl-dropdown>
+    <layout-spacer style="white-space: nowrap">
+      <sl-dropdown placement="bottom">
+        <sl-icon-button name="gear" label="Options" slot="trigger">
+        </sl-icon-button>
+        <sl-menu>
+          <sl-menu-item>
+            Menu Item
+            <sl-icon slot="suffix" name="gift"></sl-icon>
+          </sl-menu-item>
+          <sl-menu-divider></sl-menu-divider>
+          <a href="#"><sl-menu-item>
+            Suffix Icon
+            <sl-icon slot="suffix" name="heart"></sl-icon>
+          </sl-menu-item></a>
+        </sl-menu>
+      </sl-dropdown>
+
+      {% unless @hide_hide_toggle %}
+        <sl-icon-button style="margin-left: var(--sl-spacing-small)" name="dash-circle" label="Hide" onclick="this.closest('source-header').parentNode.querySelectorAll('[source-id=&quot;{{ @source.id }}&quot;]').forEach(node => node.hidden = !node.hidden);this.name = this.name == 'dash-circle' ? 'plus-circle' : 'dash-circle'">
+        </sl-icon-button>
+      {% end %}
+    </layout-spacer>
   </source-header>
 {% end %}
 
