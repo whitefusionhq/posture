@@ -1,7 +1,7 @@
 class TimelinePostElement < ApplicationElement
   self.properties = {
     post_id: { attribute: %s:post-id:, type: String },
-    source_id: { attribute: %s:source-id:, type: String }
+    source_id: { attribute: %s:source-id:, type: String },
   }
 
   define %s:timeline-post:
@@ -13,7 +13,7 @@ class TimelinePostElement < ApplicationElement
 
     i = self.querySelector %s:a[slot="image"] img:
     if i
-      i.onload = ->() do
+      i.onload = -> do
         # we don't want to blow up tiny images!
         i.parent_node.remove() if i.natural_width < 200 && i.natural_height < 200
       end
@@ -27,7 +27,7 @@ class TimelinePostElement < ApplicationElement
   end
 
   async def load_actions()
-    await custom_elements.when_defined %s:actions-loader:
-    await document.query_selector(%s:actions-loader:).load_actions_for_post(self)
+    actions_loader = await self.context_element(%s:actions-loader:)
+    await actions_loader.load_actions_for_post(self)
   end
 end

@@ -8,7 +8,7 @@ class ShoelaceFormController < ApplicationController
     )
   end
 
-  def submit_form(e)
+  def submit_form(event)
     form = self.element.closest(:form)
     submitter = self.element.query_selector(%s:sl-button[submit]:)
 
@@ -17,7 +17,7 @@ class ShoelaceFormController < ApplicationController
     submitter.loading = true
     submitter.disabled = true
 
-    e.detail.form_data.each do |entry|
+    event.detail.form_data.each do |entry|
       k, v = entry
       el = document.create_element(:input)
       el.type = :hidden
@@ -38,12 +38,12 @@ class ShoelaceFormController < ApplicationController
     el.click()
   end
 
-  def submit_end(e)
-    submitter = e.target.query_selector(%s:sl-button[submit]:)
+  def submit_end(event)
+    submitter = event.target.query_selector(%s:sl-button[submit]:)
     if submitter
       submitter.loading = false
       submitter.disabled = false
-      reset(e.target)
+      reset(event.target)
     end
   end
 

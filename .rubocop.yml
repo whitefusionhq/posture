@@ -17,7 +17,15 @@ AllCops:
     - db/**/*
     - config/**/*
     - rb2js.config.rb
-    - "**/*.js.rb"
+    - "**/*.js.rb" # doesn't work :(
 
 Style/Lambda:
   EnforcedStyle: literal
+
+# minor changes to aid in Ruby2JS files:
+Style/RedundantSelf:
+  Enabled: false
+Style/MethodCallWithoutArgsParentheses:
+  Enabled: false
+Style/DefWithParentheses:
+  Enabled: false
