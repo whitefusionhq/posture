@@ -2,7 +2,7 @@ class ActionsLoaderElement < ApplicationElement
   define %s:actions-loader:
 
   async def load_actions_for_post(post)
-    response = await fetch "/post_actions/#{post.post_id}"
+    response = await fetch "#{self.get_attribute("href")}/#{post.post_id}"
     data = await response.json()
 
     if data.bookmarked

@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <actions-loader></actions-loader>
+    <actions-loader href="{{ post_actions_path }}"></actions-loader>
     {%= render "topbar" %}
 
     {%= yield %}
