@@ -49,14 +49,15 @@
 
 timeline-post {
   display: block;
-  will-change: opacity;
 }
 
 body.animate-loading timeline-post {
+  will-change: opacity;
   opacity: 0.1;
   transition: opacity 0.15s ease-out;
 }
 body.animate-loading timeline-post.load-complete {
+  will-change: auto;
   opacity: 1;
 }
 
