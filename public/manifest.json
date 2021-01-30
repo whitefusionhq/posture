@@ -1,0 +1,14 @@
+{
+  "name": "Posture",
+  "short_name": "Posture",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#211624",
+  "description": "A better way to engage the news.",
+  "scope": "/",
+  "icons": [{
+    "src": "/apple-touch-icon.png",
+    "sizes": "180x180",
+    "type": "image/png"
+  }]
+}

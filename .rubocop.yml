@@ -17,15 +17,17 @@ AllCops:
     - db/**/*
     - config/**/*
     - rb2js.config.rb
-    - "**/*.js.rb" # doesn't work :(
-
-Style/Lambda:
-  EnforcedStyle: literal
 
 # minor changes to aid in Ruby2JS files:
 Style/RedundantSelf:
-  Enabled: false
+  Exclude:
+    - "**/*.js.rb"
 Style/MethodCallWithoutArgsParentheses:
-  Enabled: false
+  Exclude:
+    - "**/*.js.rb"
 Style/DefWithParentheses:
-  Enabled: false
+  Exclude:
+    - "**/*.js.rb"
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - "**/*.js.rb"
