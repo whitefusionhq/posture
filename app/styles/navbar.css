@@ -22,6 +22,11 @@ body > nav {
     box-shadow: 0px -3px 13px rgba(0,0,0,0.08);
     border-top: solid 1px #cfcfcf;
     border-bottom: none;
+
+    @media (max-width: 1000px) {
+      height: calc(env(safe-area-inset-bottom, 0) + 3.2rem);
+      padding-bottom: calc(env(safe-area-inset-bottom, 0) - 0.75rem);
+    }
   }
 
   & a:hover {
@@ -29,8 +34,6 @@ body > nav {
   }
 
   @media (max-width: 1000px) {
-    font-size: 0.95em;
-
     & a:hover {
       filter: unset;
     }
@@ -83,7 +86,9 @@ body > nav {
   & sl-icon {
     font-size: 120%;
     vertical-align: -0.2em;
-    @media (max-width: 675px) {
+    width: 1.16em;
+    height: 1.16em;
+    @media (max-width: 600px) {
       font-size: 130%;
     }
   }
