@@ -25,8 +25,20 @@ import "../components"
 setAssetPath(document.currentScript.src)
 defineCustomElements()
 
+const setMobileBarIcons = () => {
+  const mobilebar = document.querySelector("#mobilebar")
+  mobilebar.querySelector('[href="/"] > sl-icon').name =
+    (location.pathname == "/" || location.pathname.startsWith("/?")) ? "collection-fill" : "collection"
+  mobilebar.querySelector('[href="/bookmarks"] > sl-icon').name =
+    location.pathname.startsWith("/bookmarks") ? "bookmark-fill" : "bookmark"
+  mobilebar.querySelector('[href="/favorites"] > sl-icon').name =
+    location.pathname.startsWith("/favorites") ? "heart-fill" : "heart"
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   await import("@github/time-elements")
+
+  setMobileBarIcons()
 
   let scrollTop = 0
   addEventListener("turbo:click", ({ target }) => {
@@ -40,5 +52,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       document.scrollingElement.scrollTo(0, scrollTop)
     }
     scrollTop = 0
+
+    setMobileBarIcons()
   })
 })

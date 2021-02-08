@@ -129,4 +129,5 @@ tag-list {
   display: block;
   --hover-brightness: 1;
   margin-bottom: var(--tag-list-spacing, 1rem);
+  height: 2rem;
 }

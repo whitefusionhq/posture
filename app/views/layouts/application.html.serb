@@ -17,7 +17,7 @@
 
   <body>
     <actions-loader href="{{ post_actions_path }}"></actions-loader>
-    {%= render "topbar" %}
+    {%= render "navbars" %}
 
     {%= yield %}
 
