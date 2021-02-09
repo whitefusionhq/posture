@@ -65,7 +65,7 @@ body > nav {
   font-size: 1.25em;
   letter-spacing: 0.05em;
   & a {
-    vertical-align: -0.2rem;
+    vertical-align: -0.1rem;
   }
   & svg {
     width: auto;
