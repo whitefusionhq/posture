@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "site_processing/absolute_url"
-
 module SiteProcessing
   class Icons
     def initialize(htmldom, base_url)

@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "route_constraints/user_constraint"
-
 module RouteConstraints
   class AdminRequiredConstraint
     include RouteConstraints::UserConstraint

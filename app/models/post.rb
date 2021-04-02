@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "feed_processing/titles"
-
 # == Schema Information
 #
 # Table name: posts

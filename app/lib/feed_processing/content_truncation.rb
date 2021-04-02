@@ -22,10 +22,10 @@ module FeedProcessing
       end
 
       content
-        .yield_self { |str| Loofah.fragment(str).scrub!(scrubber).to_s }
-        .yield_self { |str| str.gsub("</p>", "</p> ") }
-        .yield_self { |str| white_list_sanitizer.sanitize(str, tags: %w(a strong em b i u)) }
-        .yield_self { |str| HTML_Truncator.truncate(str, word_count) }
+        .then { |str| Loofah.fragment(str).scrub!(scrubber).to_s }
+        .then { |str| str.gsub("</p>", "</p> ") }
+        .then { |str| white_list_sanitizer.sanitize(str, tags: %w(a strong em b i u)) }
+        .then { |str| HTML_Truncator.truncate(str, word_count) }
     end
   end
 end
