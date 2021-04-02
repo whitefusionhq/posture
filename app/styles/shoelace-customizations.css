@@ -40,7 +40,7 @@ sl-card {
     border-bottom: 3px solid var(--color-wintermint);
     /* border-left: 6px solid var(--color-orange); */
   }
-  & [slot=image] {
+  & [slot="image"] {
     --hover-brightness: 1;
     width: 100%;
 
@@ -53,7 +53,7 @@ sl-card {
       object-position: center top;
     }
   }
-  
+
   & h3 {
     margin-top: 0;
     margin-bottom: 0.75rem;
@@ -65,7 +65,7 @@ sl-card {
 
   &::part(footer) {
     padding-top: 0;
-    padding-bottom: 0.80rem;
+    padding-bottom: 0.8rem;
   }
 }
 
@@ -93,7 +93,7 @@ sl-menu-item::part(suffix) {
   .sl-toast-stack {
     left: 50%;
     transform: translateX(-50%);
-/*    margin-left: -14rem; */
+    /*    margin-left: -14rem; */
   }
 }
 

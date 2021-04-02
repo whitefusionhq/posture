@@ -103,7 +103,8 @@ source-header {
   }
 }
 
-sl-card-footer { /* not part of Shoelace — I made it up =) */
+sl-card-footer {
+  /* not part of Shoelace — I made it up =) */
   display: flex;
   justify-content: space-around;
   align-items: center;
