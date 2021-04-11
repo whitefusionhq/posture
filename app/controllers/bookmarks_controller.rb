@@ -9,4 +9,12 @@ class BookmarksController < ApplicationController
       format.html
     end
   end
+
+  def toggle
+    Post
+      .find(params[:id])
+      .toggle_bookmark_for_user
+
+    head :created
+  end
 end

@@ -66,21 +66,19 @@
       <sl-icon-button
         name="bookmark"
         label="Read Later"
-        data-action="click->post-actions#bookmark"
-        data-post-id="{{ @post.id }}"
+        timeline-post-action="bookmark"
       >
       </sl-icon-button>
       <sl-icon-button
         name="heart"
         label="Favorite"
-        data-action="click->post-actions#favorite"
-        data-post-id="{{ @post.id }}"
+        timeline-post-action="favorite"
       >
       </sl-icon-button>
       <sl-icon-button
         name="box-arrow-up"
         label="Share"
-        data-action="click->post-actions#share"
+        timeline-post-action="share"
         data-share-url="{{ @post.qualified_url }}"
       >
       </sl-icon-button>

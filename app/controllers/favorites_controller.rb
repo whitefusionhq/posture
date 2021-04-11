@@ -9,4 +9,12 @@ class FavoritesController < ApplicationController
       format.html
     end
   end
+
+  def toggle
+    Post
+      .find(params[:id])
+      .toggle_favorite_for_user
+
+    head :created
+  end
 end

@@ -21,7 +21,8 @@ module Ruby2JS
           [:ApplicationElement]  => "application_element.js.rb",
           [:html, :css]          => "lit-element",
           [:render]              => "lit-html",
-          :raiseToast            => "lib/toast.js.rb",
+          :Toaster               => "lib/toaster.js.rb",
+          :Daniel                => "lib/daniel.js.rb",
         },
       }
     end

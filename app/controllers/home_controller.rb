@@ -2,7 +2,6 @@
 
 class HomeController < ApplicationController
   def index
-    #sleep 10
     load_posts_from_sources
 
     respond_to do |format|
