@@ -61,6 +61,17 @@ body.animate-loading timeline-post.load-complete {
   opacity: 1;
 }
 
+form-field {
+  display: block;
+  margin-top: var(--sl-spacing-medium);
+}
+
+form-footer {
+  display: block;
+  margin-top: var(--sl-spacing-x-large);
+  text-align: center;
+}
+
 layout-spacer {
   display: block;
 }

@@ -28,10 +28,10 @@ module SiteProcessing
 
     def favicon
       favicon = @htmldom.at_css('link[rel="icon"]') || @htmldom.at_css('link[rel="shortcut icon"]')
-      if favicon
-        favicon = favicon["href"]
-        @abs_url.resolve favicon
-      end
+      return unless favicon
+
+      favicon = favicon["href"]
+      @abs_url.resolve favicon
     end
 
     def choose_best_icon

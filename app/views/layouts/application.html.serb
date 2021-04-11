@@ -17,10 +17,14 @@
 
   <body>
     <actions-loader href="{{ post_actions_path }}"></actions-loader>
-    {%= render "navbars" %}
+    {%@frame :flash do %}
+      {%@ "application/flashes" %}
+    {% end %}
+
+    {%@ "application/navbars" %}
 
     {%= yield %}
 
-    {%= render "footer" %}
+    {%@ "application/footer" %}
   </body>
 </html>

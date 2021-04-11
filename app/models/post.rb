@@ -50,14 +50,12 @@ class Post < ApplicationRecord
     end
   end
 
-  def has_real_title?
-    title.present? && !(title == url || title =~ %r!^https?://!)
-  end
+  def real_title? = title.present? && !(title == url || title =~ %r!^https?://!)
 
   def list_title
     processor = FeedProcessing::Titles.new
 
-    if has_real_title?
+    if real_title?
       processor.list(title)
     else
       processor.list(excerpt, process_excerpt: true)
@@ -65,15 +63,14 @@ class Post < ApplicationRecord
   end
 
   def qualified_url
-    if url.match? %r!^http!
+    case url
+    when %r!^http!
       url
+    when %r!^/!
+      source.url.sub(%r!/$!, "") + url
     else
-      if url.match? %r!^/!
-        source.url.sub(%r!/$!, "") + url
-      else
-        # something weird going on
-        source.url
-      end
+      # something weird going on
+      source.url
     end
   end
 end

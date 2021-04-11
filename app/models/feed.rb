@@ -24,7 +24,5 @@ class Feed < ApplicationRecord
 
   delegate :import!, to: :importer
 
-  def importer
-    @importer ||= Importers::FeedImporter.new(self)
-  end
+  def importer = @importer ||= Importers::FeedImporter.new(self)
 end

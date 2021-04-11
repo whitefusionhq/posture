@@ -41,14 +41,14 @@ class Daniel
     headers = {
       "X-CSRF-Token": self.csrf_token(),
     }
-    headers["Content-Type"] = "application/json" unless @params.class == FormData
+    headers["Content-Type"] = "application/json" unless @params.instance_of?(FormData)
 
     if @method == :GET
       await fetch(@url,
                   method: @method,
                   headers: headers)
     else
-      body = @params.class == FormData ? @params : @params.inspect
+      body = @params.instance_of?(FormData) ? @params : @params.inspect
       await fetch(@url,
                   method: @method,
                   headers: headers,

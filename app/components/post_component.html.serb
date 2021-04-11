@@ -46,7 +46,7 @@
       /></a>
     {% end %}
 
-    {% if @post.has_real_title? %}
+    {% if @post.real_title? %}
       <h3>{{
         @post.title |>
         sanitize_tags: %w(strong em b i u) |>

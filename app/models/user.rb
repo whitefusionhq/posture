@@ -21,5 +21,5 @@ class User < ApplicationRecord
             presence: true,
             uniqueness: true,
             format: { with: %r{\A(.+)@(.+)\z}, message: "is invalid" }
-  validates :password, length: { minimum: 8 }
+  validates :password, length: { minimum: 8 }, if: ->(user) { !user.password.nil? }
 end

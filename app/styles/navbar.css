@@ -29,6 +29,13 @@ body > nav {
     }
   }
 
+  & sl-menu-item > a {
+    color: inherit;
+  }
+  & sl-menu-item input[type="submit"] {
+    cursor: pointer;
+  }
+
   & a:hover {
     text-decoration: none;
   }

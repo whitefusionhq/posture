@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   resources :favorites, concerns: :toggleable
   resources :post_actions
 
-  post "/test-submit", to: "home#test_submit"
+  get "/login", to: "sessions#new", as: :login
+  post "/login", to: "sessions#create"
+  match "/logout", to: "sessions#destroy", via: [:delete, :post]
 
   put "/", to: "home#index"
   root to: "home#index"

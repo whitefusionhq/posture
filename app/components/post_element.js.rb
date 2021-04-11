@@ -9,7 +9,7 @@ class TimelinePostElement < ApplicationElement
 
     self.load_actions()
 
-    i = self.query_selector %s:a[slot="image"] img:
+    i = self.query_selector :"a[slot=\"image\"] img"
     if i
       i.onload = -> do
         # we don't want to blow up tiny images!

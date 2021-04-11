@@ -260,7 +260,7 @@ a:hover {
 }
 
 @media (hover: hover) {
-  a:hover {
+  a:hover:not([wraps-button]) {
     filter: brightness(var(--hover-brightness));
   }
 }

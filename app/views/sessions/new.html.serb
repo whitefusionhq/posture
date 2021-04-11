@@ -1,0 +1,19 @@
+<main>
+  <h1>Sign Into Posture</h1>
+    
+  {%= form_with url: login_path do %}
+    <sl-form data-controller="shoelace-form" class="form-overview">
+      <form-field>
+        <sl-input autocomplete="on" name="email" type="email" label="Email"></sl-input>
+      </form-field>
+
+      <form-field>
+        <sl-input autocomplete="on" name="password" type="password" label="Password"></sl-input>
+      </form-field>
+
+      <form-footer>
+        <sl-button type="primary" submit>Login</sl-button>
+      </form-footer>
+    </sl-form>
+  {% end %}
+</main>

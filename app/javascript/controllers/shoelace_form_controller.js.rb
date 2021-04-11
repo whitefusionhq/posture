@@ -8,7 +8,7 @@ class ShoelaceFormController < ApplicationController
     )
   end
 
-  def submit_form(event)
+  def submit_form(event) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     form = self.element.closest(:form)
     submitter = self.element.query_selector(%s:sl-button[submit]:)
 
@@ -40,11 +40,15 @@ class ShoelaceFormController < ApplicationController
 
   def submit_end(event)
     submitter = event.target.query_selector(%s:sl-button[submit]:)
-    if submitter
-      submitter.loading = false
-      submitter.disabled = false
-      reset(event.target)
+    return unless submitter
+
+    set_timeout 100 do
+      Toaster.toast_all()
     end
+
+    submitter.loading = false
+    submitter.disabled = false
+    reset(event.target)
   end
 
   def reset(form)
@@ -57,6 +61,10 @@ class ShoelaceFormController < ApplicationController
           control.value = ""
         end
       end
+    end
+
+    form.query_selector(%s:sl-form:).get_form_controls().then do |controls|
+      controls.first.set_focus()
     end
 
     form.query_selector_all(:input).each do |control|

@@ -1,6 +1,8 @@
 class Toaster
   SECONDS_VISIBLE = 4
 
+  def self.toast_all() = document.query_selector_all("sl-alert[type]").each { |el| el.toast() }
+
   def self.raise(icon, message, type: :success)
     contents = html <<~HTML
       <sl-icon name="#{icon}" slot="icon"></sl-icon>

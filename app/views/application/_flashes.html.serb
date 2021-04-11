@@ -1,0 +1,12 @@
+{% if flash.notice %}
+  <sl-alert type="success" duration="4000" closable>
+    <sl-icon slot="icon" name="check2-circle"></sl-icon>
+    {{ flash.notice | safe }}
+  </sl-alert>
+{% end %}
+{% if flash[:alert] || flash[:error] %}
+  <sl-alert type="danger" duration="4000" closable>
+    <sl-icon slot="icon" name="exclamation-octagon"></sl-icon>
+    {{ flash[:alert] || flash[:error] | safe }}
+  </sl-alert>
+{% end %}
