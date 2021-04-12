@@ -2,7 +2,10 @@
 
 class BookmarksController < ApplicationController
   def index
-    @posts = Post.joins(:post_actions).merge(PostAction.bookmark).order(published_at: :desc)
+    @posts = Post
+      .joins(:post_actions)
+      .merge(PostAction.by_user(current_user).bookmark)
+      .order(published_at: :desc)
 
     respond_to do |format|
       format.turbo_stream if params[:last_post_id]

@@ -4,3 +4,11 @@
   {% last_source = post.source %}
   {%@ PostComponent post: post, show_source: show_source, hide_hide_toggle: true %}
 {% end %}
+
+{% unless @posts.present? %}
+  <p style="text-align:center; margin-top:var(--sl-spacing-xx-large)">
+    <sl-icon name="heart-fill" style="margin-right:var(--sl-spacing-x-small)"></sl-icon>
+    Posts which you favorite will show up here.
+    <sl-icon name="heart-fill" style="margin-left:var(--sl-spacing-x-small)"></sl-icon>
+  </p>
+{% end %}

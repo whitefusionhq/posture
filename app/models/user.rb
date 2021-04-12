@@ -17,6 +17,9 @@
 class User < ApplicationRecord
   has_secure_password
 
+  has_many :source_subscriptions
+  has_many :sources, through: :source_subscriptions
+
   validates :email,
             presence: true,
             uniqueness: true,

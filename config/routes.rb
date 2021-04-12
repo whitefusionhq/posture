@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   match "/logout", to: "sessions#destroy", via: [:delete, :post]
 
   put "/", to: "home#index"
+  get "/navbars", to: "home#navbars", as: :navbars
   root to: "home#index"
 end

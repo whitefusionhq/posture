@@ -28,7 +28,7 @@ class TimelinePostElement < ApplicationElement
   end
 
   def bookmark(event)
-    button = event.target
+    event.target => button
     Daniel.post("/bookmarks/toggle", id: self.post_id)
 
     if event.target.name == :bookmark
@@ -45,7 +45,7 @@ class TimelinePostElement < ApplicationElement
   end
 
   def favorite(event)
-    button = event.target
+    event.target => button
     Daniel.post("/favorites/toggle", id: self.post_id)
 
     if event.target.name == :heart
@@ -62,7 +62,7 @@ class TimelinePostElement < ApplicationElement
   end
 
   def share(event)
-    share_url = event.current_target.dataset.share_url
+    event.current_target.dataset.share_url => share_url
 
     if navigator.share
       navigator.share url: share_url
@@ -74,11 +74,5 @@ class TimelinePostElement < ApplicationElement
 
   def copy_link(_event)
     alert "copying!"
-  end
-
-  def perform_action(path)
-    Daniel.post("/#{path}", {
-      id: button.dataset.post_id,
-    })
   end
 end

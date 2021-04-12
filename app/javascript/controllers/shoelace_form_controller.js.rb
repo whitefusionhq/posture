@@ -19,23 +19,24 @@ class ShoelaceFormController < ApplicationController
 
     event.detail.form_data.each do |entry|
       k, v = entry
-      el = document.create_element(:input)
-      el.type = :hidden
-      el.name = k
-      el.value = v
-      el.delete_me_later = true
-      form.append(el)
+      Elemental.create :input do |el|
+        el.type = :hidden
+        el.name = k
+        el.value = v
+        el.delete_me_later = true
+        form.append(el)
+      end
     end
 
-    el = document.create_element(:input)
-    el.name = :commit
-    el.type = :submit
-    el.value = submitter.inner_html
-    el.style.display = :none
-    el.delete_me_later = true
-    form.append(el)
-
-    el.click()
+    Elemental.create :input do |el|
+      el.name = :commit
+      el.type = :submit
+      el.value = submitter.inner_html
+      el.style.display = :none
+      el.delete_me_later = true
+      form.append(el)
+      el.click()
+    end
   end
 
   def submit_end(event)

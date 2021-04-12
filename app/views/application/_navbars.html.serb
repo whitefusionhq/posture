@@ -3,7 +3,7 @@
     {% if current_user %}
       <a class="navbar-item" href="/explore" onclick="alert('Explore!');return false">
         <sl-icon name="compass"></sl-icon>
-        <ui-label class="is-hidden-mobile">Explore</ui-label>
+        <ui-label class="is-hidden-mobile">{{ "nav.explore" | t }}</ui-label>
       </a>
     {% end %}
   </div>
@@ -19,17 +19,19 @@
   <div class="navbar-end">
     {% user_button = capture do %}
         <sl-icon name="person-circle"></sl-icon>
-        <ui-label class="is-hidden-mobile">{{ current_user ? "Me" : "Sign In" }}</ui-label>
+        <ui-label class="is-hidden-mobile">
+          {{ current_user ? "users.me" : "users.sign_in" | t }}
+        </ui-label>
     {% end %}
 
     {% if current_user %}
       <a class="navbar-item is-hidden-mobile" href="/bookmarks">
         <sl-icon name="bookmark"></sl-icon>
-        <ui-label>Bookmarks</ui-label>
+        <ui-label>{{ "nav.bookmarks" | t }}</ui-label>
       </a>
       <a class="navbar-item is-hidden-mobile" href="/favorites">
         <sl-icon name="heart"></sl-icon>
-        <ui-label>Favorites</ui-label>
+        <ui-label>{{ "nav.favorites" | t }}</ui-label>
       </a>
 
       <nav-dropdown>
@@ -51,7 +53,7 @@
             <sl-menu-divider></sl-menu-divider>
 
             <sl-menu-item nav-dropdown-action="itemClick">
-              {{ "Sign Out" | button_to: logout_path, class: "unstyled" }}
+              {{ "users.sign_out" | t | button_to: logout_path, class: "unstyled" }}
             </sl-menu-item>
           </sl-menu>
         </sl-dropdown>
@@ -70,15 +72,15 @@
   <nav id="mobilebar" fixed bottom aria-label="mobile bottom navigation" data-turbo-permanent style="justify-content: space-around;">
     <a class="navbar-item" href="/">
       <sl-icon name="collection"></sl-icon>
-      <ui-label class="is-hidden-mobile">Sources Say</ui-label>
+      <ui-label class="is-hidden-mobile">{{ "nav.sources" | t }}</ui-label>
     </a>
     <a class="navbar-item" href="/bookmarks">
       <sl-icon name="bookmark"></sl-icon>
-      <ui-label class="is-hidden-mobile">Bookmarks</ui-label>
+      <ui-label class="is-hidden-mobile">{{ "nav.bookmarks" | t }}</ui-label>
     </a>
     <a class="navbar-item" href="/favorites">
       <sl-icon name="heart"></sl-icon>
-      <ui-label class="is-hidden-mobile">Favorites</ui-label>
+      <ui-label class="is-hidden-mobile">{{ "nav.favorites" | t }}</ui-label>
     </a>
   </nav>
 {% end %}

@@ -12,6 +12,8 @@ class ApplicationController < ActionController::Base
 
   def reset_session_and_redirect_to(path)
     reset_session
+    delete_remember_me_token
+    flash[:reload_navbars] = true
     redirect_to path
   end
 end

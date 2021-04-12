@@ -17,6 +17,10 @@ class HomeController < ApplicationController
     end
   end
 
+  def navbars
+    render partial: "navbars"
+  end
+
   def test_submit
     #    sleep 3
     #    redirect_to "/"
@@ -42,18 +46,20 @@ class HomeController < ApplicationController
     end
   end
 
-  def load_sources # rubocop:disable Metrics/AbcSize
+  def load_sources
     if params[:last_source_id]
-      ids = session[:timeline_source_ids]
-      source_index = Source.where(id: ids).to_a.group_by(&:id)
-      sources = ids.map { |i| source_index[i].first }
+      session[:timeline_source_ids]             => ids
+      Source.where(id: ids).to_a.group_by(&:id) => source_index
+      ids.map { |i| source_index[i].first }     => sources
 
-      index = sources.index { |source| source.id == params[:last_source_id].to_i }
-      sources[(index + 1)..]
+      sources.index { |source| source.id == params[:last_source_id].to_i } + 1 => last_index
+      sources[last_index..]
     else
-      sources = Source.where.not(latest_post_at: nil).order(latest_post_at: :desc)
-      session[:timeline_source_ids] = sources.map(&:id)
-      sources
+      current_user
+        .sources
+        .where.not(latest_post_at: nil)
+        .order(latest_post_at: :desc)
+        .tap { |sources| session[:timeline_source_ids] = sources.map(&:id) }
     end
   end
 end

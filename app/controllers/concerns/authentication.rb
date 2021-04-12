@@ -15,6 +15,7 @@ module Authentication
     authenticated_user = locate_user_in_session_or_cookie
     return unless authenticated_user
 
+    session[:current_user_id] = authenticated_user.id
     Current.user = authenticated_user
   end
 
@@ -34,5 +35,9 @@ module Authentication
 
   def save_remember_me_token_for_user(user)
     cookies.encrypted.permanent[:remember_me] = { value: user.id, httponly: true }
+  end
+
+  def delete_remember_me_token
+    cookies.delete :remember_me
   end
 end

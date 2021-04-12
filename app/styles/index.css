@@ -67,12 +67,15 @@
     --color-bg: var(--color-black);
     --color-slateblue: #9ba8ff;
     --color-wintermint: #333;
-
     --color-shadow: #111;
 
     --sl-color-black: var(--color-white);
     --sl-color-white: var(--color-black);
-
+    --sl-color-primary-text: var(--color-white);
+    --sl-input-color: var(--color-text);
+    --sl-input-color-hover: var(--color-white);
+    --sl-input-color-focus: var(--color-text);
+    --sl-input-border-color: var(--color-grey-dark);
     --sl-panel-border-color: var(--color-wintermint);
   }
 

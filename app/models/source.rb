@@ -23,7 +23,10 @@
 #  index_sources_on_type  (type)
 #
 class Source < ApplicationRecord
+  include Subscribable
+
   has_many :posts
+  has_many :subscriptions, class_name: "SourceSubscription"
 
   def self.generate_private_handle
     100.times do
