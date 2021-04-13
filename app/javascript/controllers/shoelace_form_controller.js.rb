@@ -6,6 +6,15 @@ class ShoelaceFormController < ApplicationController
     self.element.closest(:form).add_event_listener(
       %s;turbo:submit-end;, submit_end.bind(self)
     )
+
+    self.element.query_selector_all("sl-light-input > input").each do |input|
+      input.add_event_listener :focus do |event|
+        event.target.parent_node.class_list.add %s:input--focused:
+      end
+      input.add_event_listener :blur do |event|
+        event.target.parent_node.class_list.remove %s:input--focused:
+      end
+    end
   end
 
   def submit_form(event) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
@@ -64,8 +73,12 @@ class ShoelaceFormController < ApplicationController
       end
     end
 
-    form.query_selector(%s:sl-form:).get_form_controls().then do |controls|
-      controls.first.set_focus()
+    if form.query_selector("sl-light-input input[autofocus]")
+      form.query_selector("sl-light-input input[autofocus]").focus()
+    else
+      form.query_selector(%s:sl-form:).get_form_controls().then do |controls|
+        controls.first.set_focus()
+      end
     end
 
     form.query_selector_all(:input).each do |control|
