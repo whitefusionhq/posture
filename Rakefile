@@ -4,3 +4,13 @@
 require_relative "config/application"
 
 Rails.application.load_tasks
+
+task :reboot => :environment do
+  puts "♻️ Rebooting Posture..."
+  system "git pull"
+  Rake::Task["db:migrate"].invoke
+  system "rm tmp/cache/webpacker/last-compilation-digest-production"
+  system "overmind quit"
+  Rake::Task["assets:precompile"].invoke
+  system "overmind start -D"
+end
