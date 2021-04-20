@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :bookmarks, concerns: :toggleable
   resources :favorites, concerns: :toggleable
   resources :post_actions
+  resources :sources
 
   get "/login", to: "sessions#new", as: :login
   post "/login", to: "sessions#create"

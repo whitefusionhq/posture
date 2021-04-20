@@ -2,9 +2,9 @@
   <h1>Sources Say</h1>
 
   <tag-list>
-    <a data-turbo-preserve-scroll href="/{%= "?tag=apple" unless params[:tag] == "apple" %}"><sl-tag type="{%= params[:tag] == "apple"? :success : :info %}" pill {%= :clearable if params[:tag] == "apple" %}>#apple</sl-tag></a>
-    <a data-turbo-preserve-scroll href="/{%= "?tag=portland" unless params[:tag] == "portland" %}"><sl-tag type="{%= params[:tag] == "portland"? :success : :info %}" pill {%= :clearable if params[:tag] == "portland" %}>#portland</sl-tag></a>
-    <a data-turbo-preserve-scroll href="/{%= "?tag=ruby" unless params[:tag] == "ruby" %}"><sl-tag type="{%= params[:tag] == "ruby"? :success : :info %}" pill {%= :clearable if params[:tag] == "ruby" %}>#ruby</sl-tag></a>
+    {% current_user.tags.order(:name).each do |tag| %}
+      <a data-turbo-preserve-scroll href="/{%= "?tag=#{tag.name}" unless params[:tag] == tag.name %}"><sl-tag type="{%= params[:tag] == tag.name ? :success : :info %}" pill {%= :clearable if params[:tag] == tag.name %}>#{{ tag.name }}</sl-tag></a>
+    {% end %}
   </tag-list>
 
   <main-content id="timeline">

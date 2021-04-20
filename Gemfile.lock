@@ -60,6 +60,8 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    acts-as-taggable-on (7.0.0)
+      activerecord (>= 5.0, < 6.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     annotate (3.1.1)
@@ -103,6 +105,9 @@ GEM
     faraday-net_http (1.0.1)
     faraday_middleware (1.0.0)
       faraday (~> 1.0)
+    feedbag (0.10.1)
+      nokogiri (~> 1.8, >= 1.8.2)
+      open_uri_redirections (~> 0.2)
     feedjira (3.1.2)
       loofah (>= 2.3.1)
       sax-machine (>= 1.0)
@@ -154,6 +159,7 @@ GEM
     nokogiri (1.11.3)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
+    open_uri_redirections (0.2.1)
     parallel (1.20.1)
     parser (3.0.1.0)
       ast (~> 2.4.1)
@@ -331,6 +337,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on (~> 7.0)
   annotate (~> 3.1)
   bcrypt (~> 3.1)
   bootsnap (>= 1.4.2)
@@ -338,6 +345,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   cloudinary (~> 1.17)
   faraday_middleware (~> 1.0)
+  feedbag (~> 0.10.1)
   feedjira (~> 3.1)
   html_truncator (~> 0.4)
   inline_svg

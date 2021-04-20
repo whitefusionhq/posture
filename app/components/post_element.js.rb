@@ -9,16 +9,17 @@ class TimelinePostElement < ApplicationElement
 
     self.load_actions()
 
-    i = self.query_selector :"a[slot=\"image\"] img"
-    if i
-      i.onload = -> do
-        # we don't want to blow up tiny images!
-        i.parent_node.remove() if i.natural_width < 200 && i.natural_height < 200
-      end
-    end
-
     set_timeout 100 do
       self.class_list.add %s:load-complete:
+
+      i = self.query_selector "img.post-thumbnail"
+      if i
+        i.onload = -> do
+          # we don't want to blow up tiny images!
+          i.parent_node.remove() if i.natural_width < 200 && i.natural_height < 200
+        end
+        i.onload() if i.complete # already loaded!
+      end
     end
   end
 

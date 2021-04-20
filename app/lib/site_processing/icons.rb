@@ -5,8 +5,14 @@ module SiteProcessing
     def initialize(htmldom, base_url)
       @htmldom = htmldom
       @base_url = base_url
-      @abs_url = AbsoluteURL.new @base_url
+      @abs_url = AbsoluteUrl.new @base_url
     end
+
+    def choose_best_icon
+      touch_icon || favicon
+    end
+
+    private
 
     def touch_icon
       touch_icons = @htmldom.css(
@@ -32,10 +38,6 @@ module SiteProcessing
 
       favicon = favicon["href"]
       @abs_url.resolve favicon
-    end
-
-    def choose_best_icon
-      touch_icon || favicon
     end
   end
 end

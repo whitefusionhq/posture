@@ -69,3 +69,7 @@ gem "sidekiq", "~> 6.1"
 gem "sidekiq-cron", "~> 1.2"
 gem "turbo-rails"
 gem "view_component", "~> 2.18"
+
+gem "acts-as-taggable-on", "~> 7.0"
+
+gem "feedbag", "~> 0.10.1"

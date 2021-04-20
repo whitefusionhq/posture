@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module SiteProcessing
-  class AbsoluteURL
+  class AbsoluteUrl
     def initialize(base_url)
       @base_url = base_url
     end
@@ -14,7 +14,9 @@ module SiteProcessing
         "#{scheme}#{url}"
       elsif !url.starts_with?("http")
         if url.starts_with?("/")
-          "#{@base_url}#{url}"
+          scheme, _sep, domain = @base_url.split("/")
+
+          "#{scheme}//#{domain}#{url}"
         else
           "#{@base_url}/#{url}"
         end

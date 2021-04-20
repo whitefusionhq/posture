@@ -20,9 +20,19 @@ class User < ApplicationRecord
   has_many :source_subscriptions
   has_many :sources, through: :source_subscriptions
 
+  has_many :tags, through: :source_subscriptions
+
   validates :email,
             presence: true,
             uniqueness: true,
             format: { with: %r{\A(.+)@(.+)\z}, message: "is invalid" }
   validates :password, length: { minimum: 8 }, if: ->(user) { !user.password.nil? }
+
+  def subscribed_to?(source)
+    sources.where("sources.id = ?", source.id).count.positive?
+  end
+
+  def subscription_for_source(source)
+    source_subscriptions.joins(:source).where("sources.id = ?", source.id).first
+  end
 end

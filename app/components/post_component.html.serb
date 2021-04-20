@@ -1,13 +1,13 @@
 {% if @show_source %}
   <source-header>
     <h2>
-      <a href="#">
+      <a href="/sources/@{{ @source.handle }}">
         {% if @source.icon_cloudinary_id %}
           {%= cl_image_tag(@source.icon_cloudinary_id, width: 80, height: 80,
         crop: :thumb, format: :jpg, quality: 60) %}
         {% end %}
       </a>
-      <a href="#">
+      <a href="/sources/@{{ @source.handle }}">
         {{ @source.title }}
       </a>
     </h2>
@@ -43,6 +43,7 @@
       <a href="{{ @post.qualified_url }}" target="_blank" slot="image"><img
         src="{{ @post.thumbnail_url }}" 
         alt="article thumbnail"
+        class="post-thumbnail"
       /></a>
     {% end %}
 

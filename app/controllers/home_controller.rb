@@ -46,6 +46,7 @@ class HomeController < ApplicationController
     end
   end
 
+  # rubocop:todo Metrics/AbcSize, Style/MultilineBlockChain
   def load_sources
     if params[:last_source_id]
       session[:timeline_source_ids]             => ids
@@ -57,9 +58,17 @@ class HomeController < ApplicationController
     else
       current_user
         .sources
+        .then do |query|
+          if params[:tag]
+            query.joins(subscriptions: :tags).where("tags.name = ?", params[:tag])
+          else
+            query
+          end
+        end
         .where.not(latest_post_at: nil)
         .order(latest_post_at: :desc)
         .tap { |sources| session[:timeline_source_ids] = sources.map(&:id) }
     end
   end
+  # rubocop:enable Metrics/AbcSize, Style/MultilineBlockChain
 end
