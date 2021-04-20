@@ -5,6 +5,10 @@
   {%@ PostComponent post: post, show_source: show_source %}
 {% end %}
 
+{% if @posts.present? %}
 {%@ ReadMoreComponent id: "timeline-read-more", url: root_path(last_source_id: @posts.last.source_id) do %}
   Load More
 {%@ %}
+{% else %}
+  <p style="text-align:center; margin-top:var(--sl-spacing-xx-large)">That’s all folks!</p>
+{% end %}

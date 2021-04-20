@@ -1,9 +1,9 @@
-require: rubocop-bridgetown
-inherit_gem:
-  rubocop-bridgetown: .rubocop.yml
+require:
+  - rubocop-performance
 
 AllCops:
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.0
+  NewCops: enable
   Exclude:
     - bin/**/*
     - exe/**/*
@@ -18,16 +18,114 @@ AllCops:
     - config/**/*
     - rb2js.config.rb
 
+Layout/HashAlignment:
+  EnforcedHashRocketStyle: table
+Layout/IndentationWidth:
+  Severity: error
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+Lint/EmptyBlock:
+  Exclude:
+    - "app/components/**/*.rb"
+Layout/EmptyComment:
+  Enabled: false
+Layout/EndAlignment:
+  Severity: error
+Lint/MissingSuper:
+  Enabled: false
+Lint/UnusedMethodArgument:
+  Exclude:
+    - "app/components/**/*.rb"
+Lint/UnreachableCode:
+  Severity: error
+Metrics/AbcSize:
+  Max: 24
+Metrics/ClassLength:
+  Max: 240
+Layout/LineLength:
+  Max: 100
+  Severity: warning
+Metrics/MethodLength:
+  CountComments: false
+  Max: 20
+  Severity: error
+Metrics/ModuleLength:
+  Max: 240
+Metrics/ParameterLists:
+  Max: 4
+Metrics/PerceivedComplexity:
+  Max: 8
+Naming/FileName:
+  Enabled: false
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+Style/AccessModifierDeclarations:
+  Enabled: false
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+Style/AndOr:
+  Severity: error
+Style/Documentation:
+  Enabled: false
+Style/DoubleNegation:
+  Enabled: false
+#Style/GuardClause:
+#  Enabled: false
+#Style/HashTransformKeys:
+#  Enabled: false
+Style/Lambda:
+  EnforcedStyle: literal
+Style/LambdaCall:
+  Enabled: false
+Style/ModuleFunction:
+  Enabled: false
+Style/MultilineTernaryOperator:
+  Severity: error
+Style/PercentLiteralDelimiters:
+  Enabled: false
+Style/RegexpLiteral:
+  EnforcedStyle: percent_r
+Style/RescueModifier:
+  Enabled: false
+Style/SignalException:
+  EnforcedStyle: only_raise
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+Style/SymbolArray:
+  Enabled: false
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
 # minor changes to aid in Ruby2JS files:
-Style/RedundantSelf:
+Lint/SymbolConversion:
   Exclude:
     - "**/*.js.rb"
-Style/MethodCallWithoutArgsParentheses:
+Style/AsciiComments:
   Exclude:
     - "**/*.js.rb"
 Style/DefWithParentheses:
   Exclude:
     - "**/*.js.rb"
 Style/FrozenStringLiteralComment:
+  SafeAutoCorrect: true
+  Exclude:
+    - "**/*.js.rb"
+Style/MethodCallWithoutArgsParentheses:
+  Exclude:
+    - "**/*.js.rb"
+Style/RedundantSelf:
+  Exclude:
+    - "**/*.js.rb"
+Style/SymbolProc:
   Exclude:
     - "**/*.js.rb"

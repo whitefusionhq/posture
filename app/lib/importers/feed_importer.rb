@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "feed_processing/content_truncation"
-
 module Importers
   class FeedImporter
     CHECK_INTERVAL = 10

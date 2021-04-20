@@ -14,14 +14,16 @@ module Ruby2JS
       # Change the options for your configuration here:
       {
         eslevel: 2021,
-        include: :class,
+        include: [:class, :call],
         underscored_private: true,
         autoimports: {
           :ApplicationController => "controllers/application_controller",
           [:ApplicationElement]  => "application_element.js.rb",
           [:html, :css]          => "lit-element",
           [:render]              => "lit-html",
-          :raiseToast            => "lib/toast.js.rb",
+          :Toaster               => "lib/toaster.js.rb",
+          :Daniel                => "lib/daniel.js.rb",
+          :Elemental             => "lib/elemental.js.rb",
         },
       }
     end

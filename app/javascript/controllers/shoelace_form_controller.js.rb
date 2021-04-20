@@ -6,9 +6,18 @@ class ShoelaceFormController < ApplicationController
     self.element.closest(:form).add_event_listener(
       %s;turbo:submit-end;, submit_end.bind(self)
     )
+
+    self.element.query_selector_all("sl-light-input > input").each do |input|
+      input.add_event_listener :focus do |event|
+        event.target.parent_node.class_list.add %s:input--focused:
+      end
+      input.add_event_listener :blur do |event|
+        event.target.parent_node.class_list.remove %s:input--focused:
+      end
+    end
   end
 
-  def submit_form(event)
+  def submit_form(event) # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     form = self.element.closest(:form)
     submitter = self.element.query_selector(%s:sl-button[submit]:)
 
@@ -19,32 +28,37 @@ class ShoelaceFormController < ApplicationController
 
     event.detail.form_data.each do |entry|
       k, v = entry
-      el = document.create_element(:input)
-      el.type = :hidden
-      el.name = k
-      el.value = v
-      el.delete_me_later = true
-      form.append(el)
+      Elemental.create :input do |el|
+        el.type = :hidden
+        el.name = k
+        el.value = v
+        el.delete_me_later = true
+        form.append(el)
+      end
     end
 
-    el = document.create_element(:input)
-    el.name = :commit
-    el.type = :submit
-    el.value = submitter.inner_html
-    el.style.display = :none
-    el.delete_me_later = true
-    form.append(el)
-
-    el.click()
+    Elemental.create :input do |el|
+      el.name = :commit
+      el.type = :submit
+      el.value = submitter.inner_html
+      el.style.display = :none
+      el.delete_me_later = true
+      form.append(el)
+      el.click()
+    end
   end
 
   def submit_end(event)
     submitter = event.target.query_selector(%s:sl-button[submit]:)
-    if submitter
-      submitter.loading = false
-      submitter.disabled = false
-      reset(event.target)
+    return unless submitter
+
+    set_timeout 100 do
+      Toaster.toast_all()
     end
+
+    submitter.loading = false
+    submitter.disabled = false
+    reset(event.target)
   end
 
   def reset(form)
@@ -56,6 +70,14 @@ class ShoelaceFormController < ApplicationController
         else
           control.value = ""
         end
+      end
+    end
+
+    if form.query_selector("sl-light-input input[autofocus]")
+      form.query_selector("sl-light-input input[autofocus]").focus()
+    else
+      form.query_selector(%s:sl-form:).get_form_controls().then do |controls|
+        controls.first.set_focus()
       end
     end
 

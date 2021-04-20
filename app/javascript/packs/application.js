@@ -7,7 +7,8 @@ import "../../../public/mvp.css"
 import "@shoelace-style/shoelace/dist/shoelace/shoelace.css"
 import "../../styles/index.css"
 import { defineCustomElements, setAssetPath } from "@shoelace-style/shoelace"
-import { Turbo, cable } from "@hotwired/turbo-rails"
+import "@hotwired/turbo-rails"
+import Toaster from "../lib/toaster.js.rb"
 
 require("@rails/activestorage").start()
 require("channels")
@@ -27,18 +28,21 @@ defineCustomElements()
 
 const setMobileBarIcons = () => {
   const mobilebar = document.querySelector("#mobilebar")
-  mobilebar.querySelector('[href="/"] > sl-icon').name =
-    (location.pathname == "/" || location.pathname.startsWith("/?")) ? "collection-fill" : "collection"
-  mobilebar.querySelector('[href="/bookmarks"] > sl-icon').name =
-    location.pathname.startsWith("/bookmarks") ? "bookmark-fill" : "bookmark"
-  mobilebar.querySelector('[href="/favorites"] > sl-icon').name =
-    location.pathname.startsWith("/favorites") ? "heart-fill" : "heart"
+  if (mobilebar) {
+    mobilebar.querySelector('[href="/"] > sl-icon').name =
+      (location.pathname == "/" || location.pathname.startsWith("/?")) ? "collection-fill" : "collection"
+    mobilebar.querySelector('[href="/bookmarks"] > sl-icon').name =
+      location.pathname.startsWith("/bookmarks") ? "bookmark-fill" : "bookmark"
+    mobilebar.querySelector('[href="/favorites"] > sl-icon').name =
+      location.pathname.startsWith("/favorites") ? "heart-fill" : "heart"
+  }
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
   await import("@github/time-elements")
 
   setMobileBarIcons()
+  Toaster.toastAll()
 
   let scrollTop = 0
   addEventListener("turbo:click", ({ target }) => {
@@ -54,5 +58,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     scrollTop = 0
 
     setMobileBarIcons()
+    Toaster.toastAll()
   })
 })

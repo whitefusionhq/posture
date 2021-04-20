@@ -864,18 +864,18 @@
   resolved "https://registry.yarnpkg.com/@github/time-elements/-/time-elements-3.1.1.tgz#b52be933a87a0b585a5df6fd2dea6ccda5d776b9"
   integrity sha512-95TquDedxMpNb8BUrVIt9NEfdNBw4DRjdcECDPx4Ix6gkksI2npKRJBOV9XJMYjEIBo50iAiJzUuwL/fh3ptFw==
 
-"@hotwired/turbo-rails@^7.0.0-beta.2":
-  version "7.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/@hotwired/turbo-rails/-/turbo-rails-7.0.0-beta.3.tgz#478aa47682465713d0b2e48858be9dfcd43a0e8e"
-  integrity sha512-hoYEawFwkr1MdrkqRTivAnXPDHZ+Hk4m1FrjmbO3eMBUs8Xw3L+a3U7aeH8RPtUBo4k93qc9CivlR9yTxZsZkA==
+"@hotwired/turbo-rails@^7.0.0-beta.5":
+  version "7.0.0-beta.5"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo-rails/-/turbo-rails-7.0.0-beta.5.tgz#a0efdb7a20613845c43afe6f376b353e62f7e68d"
+  integrity sha512-zj+ZYbs2IHeJHtLavcLX5K0oW/3K8s3zjok4lpujxqLactp3OpuqBZxKBr+tgODnAX/WYFoKLpzivyx3xVRfTw==
   dependencies:
-    "@hotwired/turbo" "^7.0.0-beta.2"
+    "@hotwired/turbo" "^7.0.0-beta.4"
     "@rails/actioncable" "^6.1.0"
 
-"@hotwired/turbo@^7.0.0-beta.2":
-  version "7.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-7.0.0-beta.2.tgz#0f20c1f5b67fe07472a5f1eda2e3f79146324512"
-  integrity sha512-3YyWDaImtkU8MJ+//qV8nmV8KeFInN/nptqwJo1Bl5UjROmixPr3w9tPHyA499Mo1mBJOur8jiXVowbX6VWLUg==
+"@hotwired/turbo@^7.0.0-beta.4":
+  version "7.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-7.0.0-beta.4.tgz#be6d7014902d45121f56358d360e0810bad4c19e"
+  integrity sha512-koox7UeA2Na0tLBPesxNO3nk/gtezRxF33NHKbAx+zv5s2k1Xh/orB5xNr5dAckoUj3Pdpytnw41WH4QB1jYBg==
 
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
@@ -910,7 +910,7 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.6.0.tgz#f022195afdfc942e088ee2101285a1d31c7d727f"
   integrity sha512-cPqjjzuFWNK3BSKLm0abspP0sp/IGOli4p5I5fKFAzdS8fvjdOwDCfZqAaIiXd9lPkOWi3SUUfZof3hEb7J/uw==
 
-"@rails/actioncable@>= 6.0", "@rails/actioncable@^6.0.0":
+"@rails/actioncable@^6.0.0":
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-6.0.3.tgz#722b4b639936129307ddbab3a390f6bcacf3e7bc"
   integrity sha512-I01hgqxxnOgOtJTGlq0ZsGJYiTEEiSGVEGQn3vimZSqEP1HqzyFNbzGTq14Xdyeow2yGJjygjoFF1pmtE+SQaw==
@@ -1766,13 +1766,6 @@ bytes@3.1.0:
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-3.1.0.tgz#f6cf7933a360e0588fa9fde85651cdc7f805d1f6"
   integrity sha512-zauLjrfCG+xvoyaqLoV8bLVXXNGC4JqlxFCutSDWA6fJrTo2ZuvLYTqZ7aHBLZSMOopbzwv8f+wZcVzfVTI2Dg==
 
-"cable_ready@>= 4.4":
-  version "4.4.6"
-  resolved "https://registry.yarnpkg.com/cable_ready/-/cable_ready-4.4.6.tgz#a46c879ec48b722d78cb1fbe0c1850d2f6b2762a"
-  integrity sha512-nqo50yrnOlV0CKc+ysXnIzwulk7q54hGYUwbJb1s0pBY0eu1yjDhgdU8g9dxfO5xapK6S7oceuEnZ4FQawbU5g==
-  dependencies:
-    morphdom "^2.6.1"
-
 cacache@^12.0.2:
   version "12.0.4"
   resolved "https://registry.yarnpkg.com/cacache/-/cacache-12.0.4.tgz#668bcbd105aeb5f1d92fe25570ec9525c8faa40c"
@@ -2353,9 +2346,9 @@ crypto-browserify@^3.11.0:
     randomfill "^1.0.3"
 
 crystalline-element@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/crystalline-element/-/crystalline-element-1.4.1.tgz#61bd5357f88700e62c49f08e808bc0021c9a6a27"
-  integrity sha512-6Vx8yomAEl4K0/F/icFavlbq/ZfQgfG7HOzzvGqwiwdxCe4yK5zG+Knshkpm/bqpkM1/1WW6/a7If7cqkOr+qA==
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/crystalline-element/-/crystalline-element-1.7.0.tgz#1d334236b3c4eb4bac08473fb8a8639229e7bca3"
+  integrity sha512-5u7rz82GGF0PVyelnj8EMyFQ+PGhy0MFcJc78hb2Ymqdiz62IrJFeOMLaeOAkRmnalXtVo6gjbGGtrkYBwgE6w==
   dependencies:
     lit-element "^2.4.0"
 
@@ -4742,11 +4735,6 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
-morphdom@^2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/morphdom/-/morphdom-2.6.1.tgz#e868e24f989fa3183004b159aed643e628b4306e"
-  integrity sha512-Y8YRbAEP3eKykroIBWrjcfMw7mmwJfjhqdpSvoqinu8Y702nAwikpXcNFDiIkyvfCLxLM9Wu95RZqo4a9jFBaA==
-
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -6995,14 +6983,6 @@ stimulus@^2.0.0:
   dependencies:
     "@stimulus/core" "^2.0.0"
     "@stimulus/webpack-helpers" "^2.0.0"
-
-stimulus_reflex@3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/stimulus_reflex/-/stimulus_reflex-3.4.0.tgz#3f8d4c77cf9e9fb7cd5bdce25fe52dddad22874f"
-  integrity sha512-hZrEzlmt8LWBZlmHadwPQh/JLqqLmwpkqxRN2DaDkEIXLhIUVL1kXvjsR4w/m4WIFDnFKiL0HEiCKHk8gfho6w==
-  dependencies:
-    "@rails/actioncable" ">= 6.0"
-    cable_ready ">= 4.4"
 
 stream-browserify@^2.0.1:
   version "2.0.2"

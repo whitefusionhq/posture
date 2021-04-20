@@ -67,16 +67,20 @@
     --color-bg: var(--color-black);
     --color-slateblue: #9ba8ff;
     --color-wintermint: #333;
-
     --color-shadow: #111;
 
     --sl-color-black: var(--color-white);
     --sl-color-white: var(--color-black);
-
+    --sl-color-primary-text: var(--color-white);
+    --sl-input-color: var(--color-text);
+    --sl-input-color-hover: var(--color-white);
+    --sl-input-color-focus: var(--color-text);
+    --sl-input-border-color: var(--color-grey-dark);
     --sl-panel-border-color: var(--color-wintermint);
   }
 
-  sl-alert, sl-menu-item {
+  sl-alert,
+  sl-menu-item {
     --sl-color-gray-700: var(--color-text);
     --sl-color-gray-200: var(--color-wintermint);
   }
@@ -113,7 +117,9 @@ html {
   }
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -170,6 +176,16 @@ h3 {
 nav {
   margin-bottom: 2rem;
   height: 3rem;
+}
+
+input[type="submit"].unstyled {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  margin: 0;
 }
 
 body > footer {

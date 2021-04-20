@@ -1,0 +1,13 @@
+<main>
+  <h1 style="margin-top:var(--sl-spacing-xxxx-large)">Posture</h1>
+
+  <h2 style="text-align:center">A better way to engage the news.</h2>
+
+  <p style="text-align:center; margin-top:var(--sl-spacing-xxxx-large)">Coming Soon. Summer 2021.</p>
+
+  <p style="text-align:center; margin-top:var(--sl-spacing-xxxx-large)">
+    <a href="/login" wraps-button>
+      <sl-button type="primary">Sign In</sl-button>
+    </a>
+  </p>
+</main>

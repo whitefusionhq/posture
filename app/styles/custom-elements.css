@@ -61,6 +61,17 @@ body.animate-loading timeline-post.load-complete {
   opacity: 1;
 }
 
+form-field {
+  display: block;
+  margin-top: var(--sl-spacing-medium);
+}
+
+form-footer {
+  display: block;
+  margin-top: var(--sl-spacing-x-large);
+  text-align: center;
+}
+
 layout-spacer {
   display: block;
 }
@@ -103,7 +114,8 @@ source-header {
   }
 }
 
-sl-card-footer { /* not part of Shoelace — I made it up =) */
+sl-card-footer {
+  /* not part of Shoelace — I made it up =) */
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -122,6 +134,73 @@ sl-card-footer { /* not part of Shoelace — I made it up =) */
   }
   & sl-icon-button.changed[favorited] {
     animation: animateHeart 1s;
+  }
+}
+
+/* Replicate sl-input in light DOM for username/password fields */
+sl-light-input {
+  --focus-ring: 0 0 0 var(--sl-focus-ring-width) var(--sl-focus-ring-color-primary);
+  flex: 1 1 auto;
+  display: inline-flex;
+  align-items: stretch;
+  justify-content: start;
+  position: relative;
+  width: 100%;
+  font-family: var(--sl-input-font-family);
+  font-weight: var(--sl-input-font-weight);
+  letter-spacing: var(--sl-input-letter-spacing);
+  background-color: var(--sl-input-background-color);
+  border: solid var(--sl-input-border-width) var(--sl-input-border-color);
+  vertical-align: middle;
+  overflow: hidden;
+  transition: var(--sl-transition-fast) color, var(--sl-transition-fast) border,
+    var(--sl-transition-fast) box-shadow;
+  cursor: text;
+
+  border-radius: var(--sl-input-border-radius-medium);
+  font-size: var(--sl-input-font-size-medium);
+  height: var(--sl-input-height-medium);
+
+  &.input--focused {
+    background-color: var(--sl-input-background-color-focus);
+    border-color: var(--sl-input-border-color-focus);
+    box-shadow: var(--focus-ring);
+  }
+
+  &:hover {
+    background-color: var(--sl-input-background-color-hover);
+    border-color: var(--sl-input-border-color-hover);
+  }
+}
+
+sl-light-input > label {
+  display: inline-block;
+  color: var(--sl-input-label-color);
+  margin-bottom: var(--sl-spacing-xxx-small);
+}
+
+sl-light-input > input {
+  flex: 1 1 auto;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  min-width: 0;
+  height: 100%;
+  color: var(--sl-input-color);
+  border: none;
+  background: none;
+  box-shadow: none;
+  padding: 0 var(--sl-input-spacing-medium);
+  margin: 0;
+  cursor: inherit;
+  -webkit-appearance: none;
+  height: calc(var(--sl-input-height-medium) - var(--sl-input-border-width) * 2);
+
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    color: var(--sl-input-color-hover);
   }
 }
 

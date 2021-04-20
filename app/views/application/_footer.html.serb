@@ -3,5 +3,5 @@
   </nav>
 
   <p>Posture: Open News Comunities</p>
-  <p>Powered by Ruby & Whitefusion</p>
+  <p>Powered by <a href="https://www.ruby-lang.org" target="_blank" rel="noopener">Ruby</a> & <a href="https://www.whitefusion.studio" target="_blank" rel="noopener">Whitefusion</a></p>
 </footer>

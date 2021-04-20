@@ -1,0 +1,50 @@
+<main>
+  <header style="text-align:center">
+    <h1>
+      {% if @source.icon_cloudinary_id %}
+        {%= cl_image_tag(@source.icon_cloudinary_id, width: 80, height: 80,
+      crop: :thumb, format: :jpg, quality: 60) %}
+      {% end %}
+      <br/>
+      {{ @source.title }}
+    </h1>
+    
+    <p style="margin-bottom:var(--sl-spacing-x-large)">
+      {{ @source.description }}
+      <br/>
+      <a href="{{ @source.url }}" target="_blank" rel="noopener" rel="noreferrer">{{ @source.url | split: "/" | then: ->(input) { input[2..] } | join: "/" }}</a>
+    </p>
+    
+    {%@frame :source_actions do %}
+      <p style="margin-bottom:var(--sl-spacing-xx-large)">
+        {% if current_user.subscribed_to?(@source) %}
+          <sl-button type="primary" size="small" pill>
+            <sl-icon name="check2-circle" slot="prefix"></sl-icon>
+            Subscribed
+          </sl-button>
+        {% else %}
+          <sl-button type="default" size="small" pill>
+            <sl-icon name="check2" slot="prefix"></sl-icon>
+            Subscribe
+          </sl-button>
+        {% end %}
+        
+         <tag-list style="margin-left:var(--sl-spacing-medium); display:inline-block; vertical-align: -1px">
+          {% current_user.subscription_for_source(@source).tag_list.sort.each do |tag| %}
+            <a href="/{%= "?tag=#{tag}" %}" data-turbo-frame="_top"><sl-tag type="success" pill clearable>#{{ tag }}</sl-tag></a>
+          {% end %}
+          
+          <sl-button type="default" size="small" pill>
+            <sl-icon name="tag" slot="prefix"></sl-icon>
+            Add Tag
+          </sl-button>
+        </tag-list>
+      </p>
+    {% end %}
+  </header>
+
+  <main-content id="timeline">
+    {%@ "posts" %}
+  </main-content>
+</main>
+

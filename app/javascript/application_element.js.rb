@@ -1,4 +1,4 @@
-import [ CrystallineElement ], from: "crystalline-element"
+import [CrystallineElement], from: "crystalline-element"
 
 class ApplicationElement < CrystallineElement
   async def context_element(element_name)
@@ -7,4 +7,4 @@ class ApplicationElement < CrystallineElement
   end
 end
 
-export [ ApplicationElement ]
+export [ApplicationElement]

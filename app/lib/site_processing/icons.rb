@@ -1,14 +1,18 @@
 # frozen_string_literal: true
 
-require "site_processing/absolute_url"
-
 module SiteProcessing
   class Icons
     def initialize(htmldom, base_url)
       @htmldom = htmldom
       @base_url = base_url
-      @abs_url = AbsoluteURL.new @base_url
+      @abs_url = AbsoluteUrl.new @base_url
     end
+
+    def choose_best_icon
+      touch_icon || favicon
+    end
+
+    private
 
     def touch_icon
       touch_icons = @htmldom.css(
@@ -30,14 +34,10 @@ module SiteProcessing
 
     def favicon
       favicon = @htmldom.at_css('link[rel="icon"]') || @htmldom.at_css('link[rel="shortcut icon"]')
-      if favicon
-        favicon = favicon["href"]
-        @abs_url.resolve favicon
-      end
-    end
+      return unless favicon
 
-    def choose_best_icon
-      touch_icon || favicon
+      favicon = favicon["href"]
+      @abs_url.resolve favicon
     end
   end
 end

@@ -16,7 +16,7 @@ gem "jbuilder", "~> 2.7"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem "bcrypt", "~> 3.1"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -37,7 +37,8 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
 
-  gem "rubocop-bridgetown"
+  gem "rubocop", "~> 1.12", require: false
+  gem "rubocop-performance", "~> 1.10", require: false
   gem "solargraph"
 end
 
@@ -54,15 +55,21 @@ gem "annotate", "~> 3.1", group: :development
 gem "cloudinary", "~> 1.17"
 gem "faraday_middleware", "~> 1.0"
 gem "feedjira", "~> 3.1"
-gem "html_truncator", "~> 0.4.2"
+gem "html_truncator", "~> 0.4"
 gem "inline_svg"
+gem "nokogiri", "~> 1.11"
+gem "pundit", "~> 2.1"
 gem "redis-rails", "~> 5.0"
-gem "ruby2js", "~> 3.6"
+gem "ruby2js", ">= 4.1.3"
+# gem "ruby2js", path: "../ruby2js"
 gem "serbea", "~> 0.11"
-#gem "serbea", path: "../BRIDGETOWN/serbea"
+# gem "serbea", path: "../BRIDGETOWN/serbea"
+gem "shoulda", "~> 4.0"
 gem "sidekiq", "~> 6.1"
 gem "sidekiq-cron", "~> 1.2"
-gem "sorcery", "~> 0.15.0"
-gem "stimulus_reflex", "~> 3.2"
 gem "turbo-rails"
 gem "view_component", "~> 2.18"
+
+gem "acts-as-taggable-on", "~> 7.0"
+
+gem "feedbag", "~> 0.10.1"
