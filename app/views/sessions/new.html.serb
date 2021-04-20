@@ -1,4 +1,4 @@
-<main>
+<main style="--width-content: 32rem">
   <h1>{{ "users.sign_into_posture" | t }}</h1>
 
   {%= form_with url: login_path do %}
