@@ -18,8 +18,8 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :source_subscriptions
+  alias_method :subscriptions, :source_subscriptions
   has_many :sources, through: :source_subscriptions
-
   has_many :tags, through: :source_subscriptions
 
   validates :email,
