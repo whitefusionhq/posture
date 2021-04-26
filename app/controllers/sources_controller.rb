@@ -4,7 +4,8 @@ class SourcesController < ApplicationController
   def show
     @source = Source.find_by_handle(params[:id].sub(%r!^@!, ""))
 
-    @posts = @source.posts.order(published_at: :desc)
+    # TODO: add pagination!
+    @posts = @source.posts.order(published_at: :desc).limit(30)
 
     respond_to do |format|
       format.turbo_stream if params[:last_post_id]

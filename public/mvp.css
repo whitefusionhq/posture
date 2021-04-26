@@ -62,6 +62,7 @@ hr {
   margin: 4rem 0;
 }
 
+/*
 section {
   display: flex;
   flex-wrap: wrap;
@@ -84,6 +85,7 @@ section aside:hover {
 section aside img {
   max-width: 100%;
 }
+*/
 
 [hidden] {
   display: none;

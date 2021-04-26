@@ -47,6 +47,21 @@
   }
 }
 
+@keyframes animateFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+main-content#timeline {
+  display: block;
+  animation: animateFadeIn 0.4s;
+}
+
+emoji-preview,
 timeline-post {
   display: block;
 }
@@ -206,7 +221,7 @@ sl-light-input > input {
 
 tag-list {
   display: block;
+  animation: animateFadeIn 0.4s;
   --hover-brightness: 1;
   margin-bottom: var(--tag-list-spacing, 1rem);
-  height: 2rem;
 }

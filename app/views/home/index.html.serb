@@ -1,11 +1,14 @@
 <main>
   <h1>Sources Say</h1>
 
-  <tag-list>
-    {% current_user.tags.order(:name).each do |tag| %}
-      <a data-turbo-preserve-scroll href="/{%= "?tag=#{tag.name}" unless params[:tag] == tag.name %}"><sl-tag type="{%= params[:tag] == tag.name ? :success : :info %}" pill {%= :clearable if params[:tag] == tag.name %}>#{{ tag.name }}</sl-tag></a>
-    {% end %}
-  </tag-list>
+  {% tags = current_user.tags.distinct.order(:name) %}
+  {% if tags.count.positive? %}
+    <tag-list>
+      {% tags.each do |tag| %}
+        <a data-turbo-preserve-scroll href="/{%= "?tag=#{tag.name}" unless params[:tag] == tag.name %}"><sl-tag type="{%= params[:tag] == tag.name ? :success : :info %}" pill {%= :clearable if params[:tag] == tag.name %}>#{{ tag.name }}</sl-tag></a>
+      {% end %}
+    </tag-list>
+  {% end %}
 
   <main-content id="timeline">
     {%@ "posts" %}
