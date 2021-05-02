@@ -225,3 +225,9 @@ tag-list {
   --hover-brightness: 1;
   margin-bottom: var(--tag-list-spacing, 1rem);
 }
+
+@media (max-width: 410px) {
+  emoji-picker {
+    --emoji-size: 1rem;
+  }
+}
