@@ -8,17 +8,21 @@ require_relative "config/application"
 Rails.application.load_tasks
 
 task :webpack_rebuild do
-  FileUtils.rm "tmp/cache/webpacker/last-compilation-digest-production"
+  "tmp/cache/webpacker/last-compilation-digest-production".tap do |path|
+    FileUtils.rm(path) if File.exist?(path)
+  end
   Rake::Task["webpacker:compile"].invoke
-  system "overmind restart web"
+  sh "overmind restart web"
 end
 
-task :reboot => :environment do
+task reboot: :environment do
   puts "♻️ Rebooting Posture..."
-  system "git pull"
+  sh "git pull"
   Rake::Task["db:migrate"].invoke
-  FileUtils.rm "tmp/cache/webpacker/last-compilation-digest-production"
-  system "overmind quit"
+  "tmp/cache/webpacker/last-compilation-digest-production".tap do |path|
+    FileUtils.rm(path) if File.exist?(path)
+  end
+  sh "overmind quit"
   Rake::Task["assets:precompile"].invoke
-  system "overmind start -D"
+  sh "overmind start -D"
 end
