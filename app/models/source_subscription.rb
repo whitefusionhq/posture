@@ -18,6 +18,14 @@ class SourceSubscription < ApplicationRecord
 
   before_create :copy_tags_from_source
 
+  def visible? = Rails.cache.read("source_subscriptions/#{id}/visible") != false
+
+  def hidden? = !visible?
+
+  def toggle_visibility!
+    Rails.cache.write("source_subscriptions/#{id}/visible", !visible?, expires_in: 30.days)
+  end
+
   private
 
   # populate the user's tags with the initial curator's tags

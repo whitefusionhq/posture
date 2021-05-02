@@ -1,5 +1,5 @@
 {% if @show_source %}
-  <source-header>
+  <source-header source-id="{{ @source.id }}" subscription-id="{{ @subscription&.id }}" source-header-action="togglePosts">
     <h2>
       <a href="/sources/@{{ @source.handle }}">
         {% if @source.icon_cloudinary_id %}
@@ -30,14 +30,14 @@
       </sl-dropdown>
 
       {% unless @hide_hide_toggle %}
-        <sl-icon-button style="margin-left: var(--sl-spacing-small)" name="dash-circle" label="Hide" onclick="this.closest('source-header').parentNode.querySelectorAll('[source-id=&quot;{{ @source.id }}&quot;]').forEach(node => node.hidden = !node.hidden);this.name = this.name == 'dash-circle' ? 'plus-circle' : 'dash-circle'">
+        <sl-icon-button style="margin-left: var(--sl-spacing-small)" name="dash-circle" label="Hide" source-header-action="togglePosts" source-header-target="togglebutton">
         </sl-icon-button>
       {% end %}
     </layout-spacer>
   </source-header>
 {% end %}
 
-<timeline-post post-id="{{ @post.id }}" source-id="{{ @source.id }}">
+<timeline-post post-id="{{ @post.id }}" source-id="{{ @source.id }}" {{ "hidden" if hide_posts? }}>
   <sl-card style="{{ %(margin-bottom: var(--sl-spacing-large)) unless @no_spacing }}">
     {% if !@post.feed&.no_thumbnails and @post.thumbnail_url %}
       <a href="{{ @post.qualified_url }}" target="_blank" slot="image"><img

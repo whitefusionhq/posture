@@ -17,9 +17,7 @@ class HomeController < ApplicationController
     end
   end
 
-  def navbars
-    render partial: "navbars"
-  end
+  def navbars = render(partial: "navbars")
 
   def test_submit
     #    sleep 3

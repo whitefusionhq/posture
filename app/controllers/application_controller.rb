@@ -16,4 +16,16 @@ class ApplicationController < ActionController::Base
     flash[:reload_navbars] = true
     redirect_to path
   end
+
+  def respond_with_redirect(path)
+    yield
+
+    redirect_to path
+  end
+
+  def respond_with_head(status, options = {})
+    yield
+
+    head status, options
+  end
 end

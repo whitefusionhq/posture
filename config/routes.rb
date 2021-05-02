@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   resources :favorites, concerns: :toggleable
   resources :post_actions
   resources :sources
-  resources :source_subscriptions
+  resources :source_subscriptions do
+    member do
+      post :toggle_visibility
+    end
+  end
 
   get "/login", to: "sessions#new", as: :login
   post "/login", to: "sessions#create"

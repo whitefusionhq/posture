@@ -31,7 +31,7 @@ sl-card {
   --color-text: var(--color-grey-darkest);
   color: var(--color-text);
   width: 100%;
-  min-height: 200px;
+  min-height: 11rem;
   display: block;
   word-break: break-word;
 

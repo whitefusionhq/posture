@@ -15,11 +15,5 @@ class FavoritesController < ApplicationController
     end
   end
 
-  def toggle
-    Post
-      .find(params[:id])
-      .toggle_favorite_for_user
-
-    head :created
-  end
+  def toggle = respond_with_head(:created) { Post.find(params[:id]).toggle_favorite_for_user }
 end

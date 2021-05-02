@@ -9,19 +9,22 @@ class SourceSubscriptionsController < ApplicationController
   end
 
   def update
-    @sub = current_user.source_subscriptions.find(params[:id])
-
     if params.dig(:source_subscription, :tag_list)
-      @sub.update(tag_list: params[:source_subscription][:tag_list])
+      user_sub.update(tag_list: params[:source_subscription][:tag_list])
     end
 
-    redirect_to source_path(@sub.source.handle)
+    redirect_to source_path(user_sub.source.handle)
   end
 
-  def destroy
-    @sub = current_user.source_subscriptions.find(params[:id])
-    @sub.destroy
+  def destroy = respond_with_redirect(source_path(user_sub_source.handle)) { user_sub.destroy }
 
-    redirect_to source_path(@sub.source.handle)
-  end
+  def toggle_visibility = respond_with_head(:created) { user_sub.toggle_visibility! }
+
+  private
+
+  # @return [SourceSubscription]
+  def user_sub = @user_sub ||= current_user.source_subscriptions.find(params[:id])
+
+  # @return [Source]
+  def user_sub_source = user_sub.source
 end

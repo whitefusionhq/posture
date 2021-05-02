@@ -15,11 +15,5 @@ class BookmarksController < ApplicationController
     end
   end
 
-  def toggle
-    Post
-      .find(params[:id])
-      .toggle_bookmark_for_user
-
-    head :created
-  end
+  def toggle = respond_with_head(:created) { Post.find(params[:id]).toggle_bookmark_for_user }
 end

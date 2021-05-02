@@ -32,6 +32,8 @@ class User < ApplicationRecord
     sources.where("sources.id = ?", source.id).count.positive?
   end
 
+  # @param source [Source]
+  # @return [SourceSubscription]
   def subscription_for_source(source)
     source_subscriptions.joins(:source).where("sources.id = ?", source.id).first
   end
