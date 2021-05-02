@@ -30,7 +30,7 @@
       </sl-dropdown>
 
       {% unless @hide_hide_toggle %}
-        <sl-icon-button style="margin-left: var(--sl-spacing-small)" name="dash-circle" label="Hide" source-header-action="togglePosts" source-header-target="togglebutton">
+        <sl-icon-button style="margin-left: var(--sl-spacing-small)" name="{{ hide_posts? ? "plus-circle" : "dash-circle" }}" label="Hide" source-header-action="togglePosts" source-header-target="togglebutton">
         </sl-icon-button>
       {% end %}
     </layout-spacer>
