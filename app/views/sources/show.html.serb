@@ -71,15 +71,14 @@
 
 <add-tag-dialog>
   <sl-dialog label="Add Tag">
-    <form-field>
+    <form-field style="margin-top: 0">
       <sl-input placeholder="Add tag name here">
         <emoji-preview slot="prefix"></emoji-preview>
       </sl-input>
     </form-field>
 
     <form-field>
-      <!-- emoji-preview></emoji-preview -->
-      <sl-dropdown style="min-height: 420px">
+      <sl-dropdown class="contains-emoji-picker">
         <sl-button slot="trigger" type="primary" size="small">Choose an emoji (optional)</sl-button>
 
         <emoji-picker></emoji-picker>

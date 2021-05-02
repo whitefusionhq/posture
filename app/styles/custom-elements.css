@@ -226,6 +226,23 @@ tag-list {
   margin-bottom: var(--tag-list-spacing, 1rem);
 }
 
+sl-dropdown.contains-emoji-picker {
+  --emoji-picker-container-height: 24rem;
+  --emoji-picker-height: 22.5rem;
+
+  min-height: var(--emoji-picker-container-height);
+}
+emoji-picker {
+  height: var(--emoji-picker-height);
+}
+
+@media (max-width: 449px) {
+  sl-dropdown.contains-emoji-picker {
+    --emoji-picker-container-height: 16rem;
+    --emoji-picker-height: 15rem;
+  }
+}
+
 @media (max-width: 410px) {
   emoji-picker {
     --emoji-size: 1rem;
