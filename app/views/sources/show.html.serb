@@ -72,14 +72,20 @@
 <add-tag-dialog>
   <sl-dialog label="Add Tag">
     <form-field>
-      <sl-input placeholder="Add tag names here"></sl-input>
+      <sl-input placeholder="Add tag name here">
+        <emoji-preview slot="prefix"></emoji-preview>
+      </sl-input>
     </form-field>
+
     <form-field>
-      <emoji-preview></emoji-preview>
+      <!-- emoji-preview></emoji-preview -->
+      <sl-dropdown style="min-height: 420px">
+        <sl-button slot="trigger" type="primary" size="small">Choose an emoji (optional)</sl-button>
+
+        <emoji-picker></emoji-picker>
+      </sl-dropdown>
     </form-field>
-    <form-field>
-      <emoji-picker></emoji-picker>
-    </form-field>
+
     <sl-button add-tag-dialog-action="saveAndClose" slot="footer" type="primary">Save</sl-button>
   </sl-dialog>
 </add-tag-dialog>

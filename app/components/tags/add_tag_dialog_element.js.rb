@@ -23,20 +23,29 @@ class AddTagDialogElement < ApplicationElement
       end
       @emoji_picker.add_event_listener %s:emoji-click: do |event|
         @emoji_preview.text_content = event.detail.unicode
+        event.target.closest("sl-dropdown").hide()
       end
     end
   end
 
   def show()
     @tag_input.value = ""
-    @emoji_preview.text_content = ""
+    @emoji_preview.text_content = "#"
     @dialog.show()
   end
 
   def save_and_close()
+    if @new_tags.blank?
+      Toaster.raise %s:exclamation-octagon:, "Please enter a tag", type: :danger
+      return
+    end
+
+    added_tag = @new_tags
+    added_tag += " #{@emoji_preview.text_content}" if @emoji_preview.text_content != "#"
+
     Elemental.query("tag-list").tap do |list|
       list.save_list(
-        list.list_input.value + ",#{@new_tags} #{@emoji_preview.text_content}"
+        list.list_input.value + ",#{added_tag}"
       )
     end
 

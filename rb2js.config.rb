@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "ruby2js/filter/functions"
+require "ruby2js/filter/active_functions"
 require "ruby2js/filter/camelCase"
 require "ruby2js/filter/return"
 require "ruby2js/filter/esm"
