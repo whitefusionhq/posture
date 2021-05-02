@@ -8,34 +8,40 @@
       <br/>
       {{ @source.title }}
     </h1>
-    
+
     <section style="margin-bottom:var(--sl-spacing-x-large)">
       {{ @source.description }}
       <br/>
-      <a href="{{ @source.url }}" target="_blank" rel="noopener" rel="noreferrer">{{ @source.url | split: "/" | then: ->(input) { input[2..] } | join: "/" }}</a>
+      <a href="{{ @source.url }}" target="_blank" rel="noopener" rel="noreferrer">{{ @source.url | split: "/" | then: ->input { input[2..] } | join: "/" }}</a>
     </section>
-    
+
     {%@frame :source_actions do %}
       <section style="margin-bottom:var(--sl-spacing-xx-large)">
-        {% if current_user.subscribed_to?(@source) %}
-          <sl-button type="primary" size="small" pill>
-            <sl-icon name="check2-circle" slot="prefix"></sl-icon>
-            Subscribed
-          </sl-button>
-        {% else %}
-          <sl-button type="default" size="small" pill>
-            <sl-icon name="check2" slot="prefix"></sl-icon>
-            Subscribe
-          </sl-button>
+        {%@form current_user.subscription_for_source(@source).then { |obj|  obj || SourceSubscription.new }, html: { style: "display:inline" } do |f| %}
+          <sl-form inline data-controller="shoelace-form">
+            {% if current_user.subscribed_to?(@source) %}
+              {%= hidden_field_tag :_method, "delete" %}
+              <sl-button type="primary" size="small" pill submit>
+                <sl-icon name="check2-circle" slot="prefix"></sl-icon>
+                Subscribed
+              </sl-button>
+            {% else %}
+              {%= f.hidden_field :source_id, value: @source.id %}
+              <sl-button type="default" size="small" pill submit>
+                <sl-icon name="check2" slot="prefix"></sl-icon>
+                Subscribe
+              </sl-button>
+            {% end %}
+          </sl-form>
         {% end %}
-        
-        <tag-list style="margin-left:var(--sl-spacing-medium); display:inline-block; vertical-align: -1px">
-          {% current_user.subscription_for_source(@source).tag_list.sort.each do |tag| %}
-            <a href="/{%= "?tag=#{tag}" %}" data-turbo-frame="_top"><sl-tag type="success" pill clearable>#{{ tag }}</sl-tag></a>
-          {% end %}
-          
-          {% if current_user.subscribed_to?(@source) %}
-            <sl-button id="add-tag-button" type="default" size="small" pill>
+
+        {% if current_user.subscribed_to?(@source) %}
+          <tag-list editable="true" style="margin-left:var(--sl-spacing-medium); display:inline-block; vertical-align: -1px">
+            {% current_user.subscription_for_source(@source).tag_list.sort.each do |tag| %}
+              <sl-tag type="success" pill clearable>#{{ tag }}</sl-tag>
+            {% end %}
+
+            <sl-button tag-list-action="addTag" type="default" size="small" pill>
               <sl-icon name="tag" slot="prefix"></sl-icon>
               Add Tag
             </sl-button>
@@ -44,8 +50,14 @@
               {%= f.hidden_field :tag_list, value: f.object.tag_list.join(",") %}
               {%= f.submit %}
             {% end %}
-          {% end %}
-        </tag-list>
+          </tag-list>
+        {% else %}
+          <tag-list style="margin-left:var(--sl-spacing-medium); display:inline-block; vertical-align: -1px">
+            {% @source.tags.each do |tag| %}
+              <a data-turbo-preserve-scroll data-turbo-frame="_top" href="/tags/{%= tag.name %}"><sl-tag type="{%= params[:tag] == tag.name ? :success : :info %}" pill {%= :clearable if params[:tag] == tag.name %}>#{{ tag.name }}</sl-tag></a>
+            {% end %}
+          </tag-list>
+        {% end %}
       </section>
     {% end %}
   </header>
@@ -68,45 +80,6 @@
     <form-field>
       <emoji-picker></emoji-picker>
     </form-field>
-    <sl-button slot="footer" type="primary">Save</sl-button>
+    <sl-button add-tag-dialog-action="saveAndClose" slot="footer" type="primary">Save</sl-button>
   </sl-dialog>
 </add-tag-dialog>
-
-<script type="module">
-class AddTagDialog extends HTMLElement {
-  connectedCallback() {
-    const dialog = this.querySelector('sl-dialog');
-    const input = dialog.querySelector('sl-input');
-    const tagForm = document.querySelector('tag-list > form');
-    const openButton = document.querySelector('#add-tag-button');
-    const closeButton = dialog.querySelector('sl-button[slot="footer"]');
-    const emojiPreview = dialog.querySelector('emoji-preview')
-
-    let newTags = ""
-    openButton.addEventListener('click', () => {
-      newTags = ""
-      dialog.show()
-    });
-    closeButton.addEventListener('click', () => {
-      tagForm.querySelector(`input[name="source_subscription[tag_list]"]`).value += `,${newTags} ${emojiPreview.textContent}`
-      tagForm.querySelector(`input[type=submit]`).click()
-      dialog.hide()
-    });
-
-    dialog.addEventListener('sl-initial-focus', event => {
-      event.preventDefault();
-      input.focus({ preventScroll: true });
-    });
-    input.addEventListener('sl-input', event => {
-      newTags = event.target.value
-    })
-
-    this.querySelector("emoji-picker").addEventListener('emoji-click', event => { console.log(event.detail);
-
-      emojiPreview.textContent = event.detail.unicode
-    })
-
-  }
-}
-customElements.define("add-tag-dialog", AddTagDialog)
-</script>

@@ -1,0 +1,46 @@
+class AddTagDialogElement < ApplicationElement
+  target :dialog,        "sl-dialog"
+  target :tag_input,     "sl-dialog sl-input"
+  target :close_button,  %(sl-button[slot="footer"])
+  target :emoji_picker,  "emoji-picker"
+  target :emoji_preview, "emoji-preview"
+
+  define %s:add-tag-dialog:, shadow_dom: false
+
+  def connected_callback()
+    super()
+
+    @new_tags = ""
+
+    set_timeout 0 do
+      # Isn't working :(
+      #      @dialog.add_event_listener %s:sl-initial-focus: do |event|
+      #        event.prevent_default()
+      #        @tag_input.focus(prevent_scroll: true)
+      #      end
+      @tag_input.add_event_listener %s:sl-input: do |event|
+        @new_tags = event.target.value
+      end
+      @emoji_picker.add_event_listener %s:emoji-click: do |event|
+        @emoji_preview.text_content = event.detail.unicode
+      end
+    end
+  end
+
+  def show()
+    @tag_input.value = ""
+    @emoji_preview.text_content = ""
+    @dialog.show()
+  end
+
+  def save_and_close()
+    Elemental.query("tag-list").tap do |list|
+      list.save_list(
+        list.list_input.value + ",#{@new_tags} #{@emoji_preview.text_content}"
+      )
+    end
+
+    @dialog.hide()
+    @new_tags = ""
+  end
+end

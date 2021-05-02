@@ -78,6 +78,14 @@ sl-dialog[open]::part(panel) {
   filter: blur(0);
 }
 
+sl-form[inline] {
+  display: inline;
+
+  &::part(base) {
+    display: inline;
+  }
+}
+
 sl-menu {
   --hover-brightness: 1;
 }
