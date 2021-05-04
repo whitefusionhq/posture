@@ -62,7 +62,8 @@ main-content#timeline {
 }
 
 emoji-preview,
-timeline-post {
+timeline-post,
+post-excerpt {
   display: block;
 }
 

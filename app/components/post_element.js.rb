@@ -12,6 +12,8 @@ class TimelinePostElement < ApplicationElement
     set_timeout 100 do
       self.class_list.add %s:load-complete:
 
+      self.add_blank_targets_to_links()
+
       i = self.query_selector "img.post-thumbnail"
       if i
         i.onload = -> do
@@ -26,6 +28,12 @@ class TimelinePostElement < ApplicationElement
   async def load_actions()
     actions_loader = await self.context_element(%s:actions-loader:)
     await actions_loader.load_actions_for_post(self)
+  end
+
+  def add_blank_targets_to_links()
+    self.query_selector_all("post-excerpt a").each do |link|
+      link.target = "_blank"
+    end
   end
 
   def bookmark(event)

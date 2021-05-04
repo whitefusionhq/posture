@@ -55,7 +55,7 @@
       }}</h3>
     {% end %}
 
-    {{ @post.excerpt | safe }}
+    <post-excerpt>{{ @post.excerpt | safe }}</post-excerpt>
 
     <p style="margin-bottom: 0"><small>
       <relative-time datetime="{{ @post.published_at.getutc.iso8601 }}">
