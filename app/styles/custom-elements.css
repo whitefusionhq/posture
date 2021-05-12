@@ -92,44 +92,6 @@ layout-spacer {
   display: block;
 }
 
-source-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  & h2 {
-    --color: var(--color-slateblue);
-    display: flex;
-    align-items: center;
-    min-height: 44px;
-    margin: var(--sl-spacing-medium) 0;
-
-    & a {
-      padding-right: var(--sl-spacing-small);
-    }
-  }
-  & img {
-    width: 40px;
-    height: 40px;
-    display: inline-block;
-    border-radius: 8px;
-    vertical-align: -0.35em;
-    box-shadow: var(--box-shadow) var(--color-shadow);
-  }
-  & a:hover {
-    text-decoration: none;
-  }
-
-  & > sl-dropdown {
-    padding-left: var(--sl-spacing-x-small);
-  }
-}
-@media (max-width: 600px) {
-  source-header img {
-    vertical-align: -0.5em;
-  }
-}
-
 sl-card-footer {
   /* not part of Shoelace — I made it up =) */
   display: flex;
@@ -220,14 +182,7 @@ sl-light-input > input {
   }
 }
 
-tag-list {
-  display: block;
-  animation: animateFadeIn 0.4s;
-  --hover-brightness: 1;
-  margin-bottom: var(--tag-list-spacing, 1rem);
-}
-
-sl-dropdown.contains-emoji-picker {
+sl-dropdown[contains-emoji-picker] {
   --emoji-picker-container-height: 24rem;
   --emoji-picker-height: 22.5rem;
 
@@ -238,7 +193,7 @@ emoji-picker {
 }
 
 @media (max-width: 449px) {
-  sl-dropdown.contains-emoji-picker {
+  sl-dropdown[contains-emoji-picker] {
     --emoji-picker-container-height: 16rem;
     --emoji-picker-height: 15rem;
   }

@@ -43,7 +43,6 @@
       <a href="{{ @post.qualified_url }}" target="_blank" slot="image"><img
         src="{{ @post.thumbnail_url }}" 
         alt="article thumbnail"
-        class="post-thumbnail"
       /></a>
     {% end %}
 
@@ -87,7 +86,10 @@
         <sl-icon-button name="three-dots" label="Options" slot="trigger">
         </sl-icon-button>
         <sl-menu>
-          <sl-menu-item data-action="click->post-actions#copyLink">
+          <sl-menu-item
+            timeline-post-action="copyLink"
+            data-share-url="{{ @post.qualified_url }}"
+          >
             Copy Link
             <sl-icon slot="suffix" name="link-45deg"></sl-icon>
           </sl-menu-item>

@@ -1,0 +1,37 @@
+source-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & h2 {
+    --color: var(--color-slateblue);
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    margin: var(--sl-spacing-medium) 0;
+
+    & a {
+      padding-right: var(--sl-spacing-small);
+    }
+  }
+  & img {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 8px;
+    vertical-align: -0.35em;
+    box-shadow: var(--box-shadow) var(--color-shadow);
+  }
+  & a:hover {
+    text-decoration: none;
+  }
+
+  & > sl-dropdown {
+    padding-left: var(--sl-spacing-x-small);
+  }
+}
+@media (max-width: 600px) {
+  source-header img {
+    vertical-align: -0.5em;
+  }
+}

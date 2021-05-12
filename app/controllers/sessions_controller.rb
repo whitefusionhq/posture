@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       flash[:reload_navbars] = true
       redirect_to "/"
     else
-      flash.now[:alert] = "Account not found or incorrect password"
+      flash.now.alert = "Account not found or incorrect password"
       render_flash
     end
   end

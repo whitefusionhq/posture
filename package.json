@@ -17,6 +17,7 @@
   "version": "0.1.0",
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.10.5",
+    "@linthtml/linthtml": "^0.7.2",
     "copy-webpack-plugin": "^6.1.0",
     "webpack-dev-server": "^3.11.0"
   },

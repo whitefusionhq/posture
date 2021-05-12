@@ -1,3 +1,5 @@
+import "./tag_list_element.css"
+
 class TagListElement < ApplicationElement
   target :form, :form
   target :list_input, %(input[name="source_subscription[tag_list]"])
@@ -8,27 +10,22 @@ class TagListElement < ApplicationElement
 
   def connected_callback()
     super()
+    return unless self.get_attribute(:editable)
 
-    if self.get_attribute(:editable)
-      self.add_event_listener %s:sl-clear: do |event|
-        tag_name = event.target.text_content.sub("#", "").strip
-        tags = @list_input.value.split(",")
-        tags = tags.select { |tag| tag != tag_name } # rubocop:disable Style/InverseMethods
-        save_list tags.join(",")
-      end
+    self.add_event_listener %s:sl-clear: do |event|
+      tag_name = event.target.text_content.sub("#", "").strip
+      tags = @list_input.value.split(",")
+      tags = tags.select { |tag| tag != tag_name } # rubocop:disable Style/InverseMethods
+      save_list tags.join(",")
     end
   end
 
-  def add_tag()
-    dialog.show()
-  end
+  def add_tag() = dialog.show()
 
   def save_list(new_value)
     @list_input.value = new_value
     @submit_button.click()
   end
 
-  def dialog
-    Elemental.query("body > add-tag-dialog")
-  end
+  def dialog = Elemental.query("body > add-tag-dialog")
 end

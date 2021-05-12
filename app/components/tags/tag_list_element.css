@@ -1,0 +1,10 @@
+tag-list {
+  display: block;
+  animation: animateFadeIn 0.4s;
+  --hover-brightness: 1;
+  margin-bottom: var(--tag-list-spacing, 0.7rem);
+
+  & sl-tag {
+    margin-bottom: var(--sl-spacing-x-small);
+  }
+}

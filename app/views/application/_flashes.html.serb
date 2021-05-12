@@ -4,9 +4,13 @@
     {{ flash.notice | safe }}
   </sl-alert>
 {% end %}
-{% if flash[:alert] || flash[:error] %}
+{% if flash.alert || flash[:error] %}
   <sl-alert type="danger" duration="4000" closable>
     <sl-icon slot="icon" name="exclamation-octagon"></sl-icon>
-    {{ flash[:alert] || flash[:error] | safe }}
+    {{ flash.alert || flash[:error] | safe }}
   </sl-alert>
+{% end %}
+
+{% if request.format.turbo_stream? %}
+  <toast-alerts></toast-alerts>
 {% end %}

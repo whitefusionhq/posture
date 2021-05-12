@@ -65,7 +65,8 @@ body > nav {
   }
 }
 
-.navbar-brand {
+navbar-brand {
+  display: block;
   text-transform: uppercase;
   font-family: var(--heading-font-family);
   font-weight: 900;
@@ -80,13 +81,15 @@ body > nav {
     fill: var(--sl-color-black);
   }
 }
-.navbar-start,
-.navbar-end {
+navbar-start,
+navbar-end {
+  display: block;
   width: 40vw;
 }
-.navbar-end {
+navbar-end {
   text-align: right;
 }
+
 .navbar-item {
   padding-left: var(--sl-spacing-medium);
   padding-right: var(--sl-spacing-medium);

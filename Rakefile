@@ -26,3 +26,7 @@ task reboot: :environment do
   Rake::Task["assets:precompile"].invoke
   sh "overmind start -D"
 end
+
+task :linthtml do
+  sh "yarn linthtml 'app/**/*.{html,serb}'"
+end

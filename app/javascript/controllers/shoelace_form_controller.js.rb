@@ -52,10 +52,6 @@ class ShoelaceFormController < ApplicationController
     submitter = event.target.query_selector(%s:sl-button[submit]:)
     return unless submitter
 
-    set_timeout 100 do
-      Toaster.toast_all()
-    end
-
     submitter.loading = false
     submitter.disabled = false
     reset(event.target)

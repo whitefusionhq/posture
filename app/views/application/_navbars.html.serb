@@ -1,22 +1,23 @@
+<!-- linthtml-configure attr-bans="false" -->
 <nav id="topbar" fixed aria-label="navigation" data-turbo-permanent>
-  <div class="navbar-start">
+  <navbar-start>
     {% if current_user %}
       <a class="navbar-item" href="/explore" onclick="alert('Explore!');return false">
         <sl-icon name="compass"></sl-icon>
         <ui-label class="is-hidden-mobile">{{ "nav.explore" | t }}</ui-label>
       </a>
     {% end %}
-  </div>
+  </navbar-start>
 
-  <div class="navbar-brand">
+  <navbar-brand>
     <a href="/" class="navbar-item posture">
       {%= inline_svg_pack_tag "media/images/posture-logotype.svg",
                               title: "Posture",
                               aria: true %}
     </a>
-  </div>
+  </navbar-brand>
 
-  <div class="navbar-end">
+  <navbar-end>
     {% user_button = capture do %}
         <sl-icon name="person-circle"></sl-icon>
         <ui-label class="is-hidden-mobile">
@@ -65,7 +66,7 @@
         {{ user_button }}
       </a>
     {% end %}
-  </div>
+  </navbar-end>
 </nav>
 
 {% if current_user %}
@@ -84,5 +85,5 @@
     </a>
   </nav>
 {% end %}
-
+<!-- linthtml-configure attr-bans="true" -->
 <layout-spacer underneath-navbar></layout-spacer>
