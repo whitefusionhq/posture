@@ -28,11 +28,10 @@ module.exports = function(api) {
       (isProductionEnv || isDevelopmentEnv) && [
         '@babel/preset-env',
         {
-          forceAllTransforms: true,
-          useBuiltIns: 'entry',
           corejs: 3,
-          modules: false,
-          exclude: ['transform-typeof-symbol']
+          exclude: ['transform-typeof-symbol'],
+          targets: [">1%", "not ie 11", "not samsung 4"],
+          useBuiltIns: "usage"
         }
       ]
     ].filter(Boolean),
