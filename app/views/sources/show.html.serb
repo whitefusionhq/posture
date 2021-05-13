@@ -38,7 +38,7 @@
         {% if current_user.subscribed_to?(@source) %}
           <tag-list editable="true" style="margin-left:var(--sl-spacing-medium); display:inline-block; vertical-align: -1px">
             {% current_user.subscription_for_source(@source).tag_list.sort.each do |tag| %}
-              <sl-tag type="success" pill clearable>#{{ tag }}</sl-tag>
+              <sl-tag type="info" pill clearable>#{{ tag }}</sl-tag>
             {% end %}
 
             <sl-button tag-list-action="addTag" type="default" size="small" pill>
@@ -51,10 +51,10 @@
               {%= f.submit %}
             {% end %}
           </tag-list>
-        {% else %}
+        {% elsif @source.tags.count.positive? %}
           <tag-list style="margin-left:var(--sl-spacing-medium); display:inline-block; vertical-align: -1px">
             {% @source.tags.each do |tag| %}
-              <a data-turbo-preserve-scroll data-turbo-frame="_top" href="/tags/{%= tag.name %}"><sl-tag type="{%= params[:tag] == tag.name ? :success : :info %}" pill {%= :clearable if params[:tag] == tag.name %}>#{{ tag.name }}</sl-tag></a>
+              <a data-turbo-preserve-scroll data-turbo-frame="_top" href="/tags/{%= tag.name %}"><sl-tag type="info" pill>#{{ tag.name }}</sl-tag></a>
             {% end %}
           </tag-list>
         {% end %}

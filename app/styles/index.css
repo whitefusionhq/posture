@@ -68,6 +68,7 @@
     --color-slateblue: #9ba8ff;
     --color-wintermint: #333;
     --color-shadow: #111;
+    --color-slateblue-dark: #303768;
 
     --sl-color-black: var(--color-white);
     --sl-color-white: var(--color-black);
@@ -91,6 +92,25 @@
 
   sl-card {
     --sl-color-white: var(--color-darkmode);
+  }
+
+  sl-button {
+    --sl-color-gray-300: var(--color-green);
+    --sl-color-gray-600: var(--color-text);
+
+    --sl-color-primary-50: var(--color-green);
+    --sl-color-primary-300: var(--color-green);
+    --sl-color-primary-600: white;
+  }
+
+  sl-tag {
+    --sl-color-info-100: transparent;
+    --sl-color-info-200: var(--color-slateblue);
+    --sl-color-info-700: var(--color-text);
+
+    --sl-color-success-100: var(--color-slateblue-dark);
+    --sl-color-success-200: var(--color-slateblue);
+    --sl-color-success-700: white;
   }
 
   h1,
@@ -192,6 +212,10 @@ body > footer {
   padding-top: 200px;
   color: var(--color-grey-dark);
   font-size: 0.85em;
+
+  @media (max-width: 1000px) {
+    padding-bottom: var(--sl-spacing-xxx-large);
+  }
 }
 
 .turbo-progress-bar {

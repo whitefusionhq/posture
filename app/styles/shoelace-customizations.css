@@ -14,6 +14,16 @@ sl-alert[open]::part(base) {
   transform: none;
 }
 
+sl-button {
+  --sl-color-white: transparent;
+  --sl-color-gray-300: var(--color-green);
+  --sl-color-gray-600: var(--color-green-dark);
+
+  --sl-color-primary-50: var(--color-green);
+  --sl-color-primary-300: var(--color-green);
+  --sl-color-primary-600: var(--color-white);
+}
+
 sl-button::part(base) {
   font-family: var(--sl-font-family);
   font-weight: 700;
@@ -31,7 +41,7 @@ sl-card {
   --color-text: var(--color-grey-darkest);
   color: var(--color-text);
   width: 100%;
-  min-height: 11rem;
+  min-height: 9rem;
   display: block;
   word-break: break-word;
 
@@ -110,4 +120,13 @@ sl-icon {
   display: inline-block;
   width: 1em;
   height: 1em;
+}
+
+sl-tag {
+  --sl-color-info-200: var(--color-grey);
+  --sl-color-info-700: var(--color-slateblue);
+
+  --sl-color-success-100: var(--color-slateblue);
+  --sl-color-success-200: transparent;
+  --sl-color-success-700: white;
 }
