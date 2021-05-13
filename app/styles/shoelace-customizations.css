@@ -89,7 +89,7 @@ sl-dialog[open]::part(panel) {
 }
 
 sl-form[inline] {
-  display: inline;
+  display: inline-block;
 
   &::part(base) {
     display: inline;

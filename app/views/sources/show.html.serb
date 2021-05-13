@@ -16,9 +16,9 @@
     </section>
 
     {%@frame :source_actions do %}
-      <section style="margin-bottom:var(--sl-spacing-xx-large)">
+      <section style="margin-bottom:var(--sl-spacing-x-large)">
         {%@form current_user.subscription_for_source(@source).then { |obj|  obj || SourceSubscription.new }, html: { style: "display:inline" } do |f| %}
-          <sl-form inline data-controller="shoelace-form">
+          <sl-form inline style="margin-bottom:var(--sl-spacing-x-small)" data-controller="shoelace-form">
             {% if current_user.subscribed_to?(@source) %}
               {%= hidden_field_tag :_method, "delete" %}
               <sl-button type="primary" size="small" pill submit>
