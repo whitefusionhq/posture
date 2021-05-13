@@ -105,11 +105,11 @@
 
   sl-tag {
     --sl-color-info-100: transparent;
-    --sl-color-info-200: var(--color-slateblue);
+    --sl-color-info-200: var(--color-slateblue-dark);
     --sl-color-info-700: var(--color-text);
 
     --sl-color-success-100: var(--color-slateblue-dark);
-    --sl-color-success-200: var(--color-slateblue);
+    --sl-color-success-200: var(--color-slateblue-dark);
     --sl-color-success-700: white;
   }
 
