@@ -18,7 +18,7 @@ source-header {
     width: 40px;
     height: 40px;
     display: inline-block;
-    border-radius: 8px;
+    border-radius: var(--sl-border-radius-large);
     vertical-align: -0.35em;
     box-shadow: var(--box-shadow) var(--color-shadow);
   }

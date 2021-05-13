@@ -1,9 +1,23 @@
 <main>
-  <header style="text-align:center; padding-bottom: 0">
+  <header style="text-align:center; padding-bottom:0">
     <h1>
       {% if @source.icon_cloudinary_id %}
-        {%= cl_image_tag(@source.icon_cloudinary_id, width: 80, height: 80,
-      crop: :thumb, format: :jpg, quality: 60) %}
+        {%=
+          cl_image_tag(
+            @source.icon_cloudinary_id,
+            style: "
+              width: 80px;
+              height: 80px;
+              border-radius: var(--sl-border-radius-x-large);
+              box-shadow: var(--box-shadow) var(--color-shadow);
+            ",
+            width: 160,
+            height: 160,
+            crop: :thumb,
+            format: :jpg,
+            quality: 60
+          )
+        %}
       {% end %}
       <br/>
       {{ @source.title }}
