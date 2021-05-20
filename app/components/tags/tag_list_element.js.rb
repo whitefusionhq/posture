@@ -14,9 +14,11 @@ class TagListElement < ApplicationElement
 
     self.add_event_listener %s:sl-clear: do |event|
       tag_name = event.target.text_content.sub("#", "").strip
-      tags = @list_input.value.split(",")
-      tags = tags.select { |tag| tag != tag_name } # rubocop:disable Style/InverseMethods
-      save_list tags.join(",")
+      if confirm("Are you sure you want to remove the tag ##{tag_name}?")
+        tags = @list_input.value.split(",")
+        tags = tags.select { |tag| tag != tag_name } # rubocop:disable Style/InverseMethods
+        save_list tags.join(",")
+      end
     end
   end
 

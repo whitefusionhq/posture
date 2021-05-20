@@ -6,7 +6,7 @@
     <tag-list style="text-align:center">
       {% tags.each do |tag| %}
         <a data-turbo-preserve-scroll href="/{%= "?tag=#{tag.name}" unless params[:tag] == tag.name %}">
-          <sl-tag type="{%= params[:tag] == tag.name ? :success : :info %}" pill {%= :clearable if params[:tag] == tag.name %}>#{{ tag.name }}</sl-tag>
+          <sl-tag type="{%= params[:tag] == tag.name ? :success : :info %}" pill>#{{ tag.name }}</sl-tag>
         </a>
       {% end %}
     </tag-list>
