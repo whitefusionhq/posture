@@ -26,22 +26,28 @@ import "../components"
 setAssetPath(document.currentScript.src)
 defineCustomElements()
 
-const setMobileBarIcons = () => {
-  const mobilebar = document.querySelector("#mobilebar")
-  if (mobilebar) {
-    mobilebar.querySelector('[href="/"] > sl-icon').name =
-      (location.pathname == "/" || location.pathname.startsWith("/?")) ? "collection-fill" : "collection"
-    mobilebar.querySelector('[href="/bookmarks"] > sl-icon').name =
+const setNavBarsIcons = () => {
+  const updateIcons = bar => {
+    if (bar.querySelector('[href="/"] > sl-icon')) {
+      bar.querySelector('[href="/"] > sl-icon').name = (
+        location.pathname == "/" || location.pathname.startsWith("/?")
+      ) ? "collection-fill" : "collection"
+    }
+    bar.querySelector('[href="/bookmarks"] > sl-icon').name =
       location.pathname.startsWith("/bookmarks") ? "bookmark-fill" : "bookmark"
-    mobilebar.querySelector('[href="/favorites"] > sl-icon').name =
+    bar.querySelector('[href="/favorites"] > sl-icon').name =
       location.pathname.startsWith("/favorites") ? "heart-fill" : "heart"
   }
+
+  updateIcons(document.querySelector("#topbar"))
+  const mobilebar = document.querySelector("#mobilebar")
+  if (mobilebar) updateIcons(mobilebar)
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
   await import("@github/time-elements")
 
-  setMobileBarIcons()
+  setNavBarsIcons()
   Toaster.toastAll()
 
   let scrollTop = 0
@@ -57,7 +63,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     scrollTop = 0
 
-    setMobileBarIcons()
+    setNavBarsIcons()
     Toaster.toastAll()
   })
 })
