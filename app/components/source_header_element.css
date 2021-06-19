@@ -2,8 +2,10 @@ source-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  -webkit-break-inside: avoid;
+  break-inside: avoid;
 
-  & h2 {
+  & h2, & h3 {
     --color: var(--color-slateblue);
     display: flex;
     align-items: center;

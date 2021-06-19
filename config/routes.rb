@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/explore", to: "explore#index", as: :explore
+
   get "/login", to: "sessions#new", as: :login
   post "/login", to: "sessions#create"
   match "/logout", to: "sessions#destroy", via: [:delete, :post]

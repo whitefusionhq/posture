@@ -1,0 +1,29 @@
+<main>
+  <h1>Explore</h1>
+
+  <p style="text-align:center; margin-bottom: var(--sl-spacing-xx-large)">Pardon our dust as we work on building out a more robust directory. In the meantime, here's a brief selection:</p>
+
+  <main-content id="timeline">
+    {% @tags.each do |tag| %}
+      <h2 style="margin-top:var(--sl-spacing-xx-large);margin-bottom:0">#{{ tag.tag.name }}</h2>
+
+      <sources-list style="display:block; columns:2">
+        {% tag.sources.each do |source| %}
+          <source-header>
+            <h3 style="font-size:1.3rem">
+              <a href="/sources/@{{ source.handle }}">
+                {% if source.icon_cloudinary_id %}
+                  {%= cl_image_tag(source.icon_cloudinary_id, width: 80, height: 80,
+                crop: :thumb, format: :jpg, quality: 60) %}
+                {% end %}
+              </a>
+              <a href="/sources/@{{ source.handle }}">
+                {{ source.title }}
+              </a>
+            </h3>
+          </source-header>
+        {% end %}
+      </sources-list>
+    {% end %}
+  </main-content>
+</main>

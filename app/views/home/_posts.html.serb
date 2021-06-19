@@ -16,5 +16,11 @@
   Load More
 {%@ %}
 {% else %}
-  <p style="text-align:center; margin-top:var(--sl-spacing-xx-large)">That’s all folks!</p>
+  <p style="text-align:center; margin-top:var(--sl-spacing-xx-large)">
+    {% if current_user.sources.count == 0 %}
+      Welcome to the early beta of Posture! <br/><br/><a href="/explore">Check out Explore</a> for some publications you can subscribe to.
+    {% else %}
+      That’s all folks!
+    {% end %}
+  </p>
 {% end %}

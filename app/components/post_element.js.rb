@@ -2,7 +2,7 @@ class TimelinePostElement < ApplicationElement
   property :post_id, String, attribute: %s:post-id:
   property :source_id, String, attribute: %s:source-id:
 
-  target :post_thumbnail, "img.post-thumbnail"
+  target :post_image, "[slot=image] img"
   target :excerpt_links, ["post-excerpt a"]
 
   define %s:timeline-post:
@@ -17,8 +17,8 @@ class TimelinePostElement < ApplicationElement
 
       self.add_blank_targets_to_links()
 
-      if @post_thumbnail
-        i = @post_thumbnail # cache query for speed
+      if @post_image
+        i = @post_image # cache query for speed
         i.onload = -> do
           # we don't want to blow up tiny images!
           i.parent_node.remove() if i.natural_width < 200 && i.natural_height < 200

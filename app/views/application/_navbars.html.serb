@@ -2,7 +2,7 @@
 <nav id="topbar" fixed aria-label="navigation" data-turbo-permanent>
   <navbar-start>
     {% if current_user %}
-      <a class="navbar-item" href="/explore" onclick="alert('Explore!');return false">
+      <a class="navbar-item" href="/explore">
         <sl-icon name="compass"></sl-icon>
         <ui-label class="is-hidden-mobile">{{ "nav.explore" | t }}</ui-label>
       </a>

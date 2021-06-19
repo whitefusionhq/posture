@@ -1,5 +1,6 @@
 class AddTagDialogElement < ApplicationElement
   target :dialog,        "sl-dialog"
+  target :recent_tags,   "sl-dialog sl-select"
   target :tag_input,     "sl-dialog sl-input"
   target :close_button,  %(sl-button[slot="footer"])
   target :emoji_picker,  "emoji-picker"
@@ -18,6 +19,10 @@ class AddTagDialogElement < ApplicationElement
       #        event.prevent_default()
       #        @tag_input.focus(prevent_scroll: true)
       #      end
+      @recent_tags.add_event_listener %s:sl-change: do |event|
+        @new_tags = event.target.value
+        self.save_and_close()
+      end
       @tag_input.add_event_listener %s:sl-input: do |event|
         @new_tags = event.target.value
       end

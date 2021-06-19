@@ -17,9 +17,8 @@
             format: :jpg,
             quality: 60
           )
-        %}
+        %}<br/>
       {% end %}
-      <br/>
       {{ @source.title }}
     </h1>
 
@@ -85,7 +84,19 @@
 
 <add-tag-dialog>
   <sl-dialog label="Add Tag">
-    <form-field style="margin-top: 0">
+    {% if @recent_tags.present? %}
+      <form-field style="margin-top: 0">
+        <sl-select pill placeholder="Recent Tags…">
+          {% @recent_tags.each do |tag| %}
+            <sl-menu-item value="{{ tag }}">{{ tag }}</sl-menu-item>
+          {% end %}
+        </sl-select>
+      </form-field>
+
+      <hr style="margin: 1rem 0" />
+    {% end %}
+
+    <form-field{{ @recent_tags.blank? ? ' style="margin-top: 0"' : '' }}>
       <sl-input placeholder="Add tag name here">
         <emoji-preview slot="prefix"></emoji-preview>
       </sl-input>
