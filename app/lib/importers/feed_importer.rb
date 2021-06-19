@@ -95,7 +95,9 @@ module Importers
       end
       @raw_feed_data ||= conn.get(feed_record.url).body
     rescue FaradayMiddleware::RedirectLimitReached
-      Rails.logger.warn "*** ERROR: unable to parse #{feed_record.url} : ID (#{feed_record.id})"
+      Rails.logger.warn "*** ERROR (too many redirects): #{feed_record.url} : ID (#{feed_record.id})"
+    rescue Faraday::TimeoutError
+      Rails.logger.warn "*** ERROR (timeout): #{feed_record.url} : ID (#{feed_record.id})"
     end
 
     def should_cancel_import?
