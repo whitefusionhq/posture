@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: posture_production
-  username: posture
+  username: jared
   password: <%= ENV['POSTURE_DATABASE_PASSWORD'] %>
