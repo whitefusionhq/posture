@@ -31,6 +31,15 @@ class Daniel
     response
   end
 
+  async def self.delete(url, params)
+    conn = self.new(url, method: :delete, params: params)
+    response = await conn.request()
+
+    puts("* Daniel response:", response) if self.debug
+
+    response
+  end
+
   def initialize(url, method:, params:)
     @url = url
     @method = method.upcase()

@@ -41,7 +41,9 @@ class SourceHeaderElement < ApplicationElement
   end
 
   def unsubscribe()
-    # TODO: need to DELETE the route here:
-    # current_user.subscription_for_source(@source)
+    self.get_attribute(%s:subscription-id:) => subscription_id
+    Daniel.delete("/source_subscriptions/#{subscription_id}", {})
+
+    Toaster.raise %s:slash-circle:, "Successfully Unsubscribed", type: :danger
   end
 end
