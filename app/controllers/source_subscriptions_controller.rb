@@ -20,6 +20,13 @@ class SourceSubscriptionsController < ApplicationController
 
   def toggle_visibility = respond_with_head(:created) { user_sub.toggle_visibility! }
 
+  def change_number_of_posts
+    user_sub.number_of_recent_posts = params[:number]
+    @posts = user_sub_source.posts.order(published_at: :desc).limit(params[:number])
+
+    render partial: "sources/posts"
+  end
+
   private
 
   # @return [SourceSubscription]

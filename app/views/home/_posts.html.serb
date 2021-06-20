@@ -1,14 +1,8 @@
 {% last_source = nil %}
-{% subscriptions = {} %}
 {% @posts.each do |post| %}
-  {%
-    unless subscriptions[post.source]
-      subscriptions[post.source] = Current.user.subscription_for_source(post.source)
-    end
-  %}
   {% show_source = post.source != last_source %}
   {% last_source = post.source %}
-  {%@ PostComponent post: post, subscription: subscriptions[post.source], show_source: show_source %}
+  {%@ PostComponent post: post, subscription: post.source.subscription, show_source: show_source %}
 {% end %}
 
 {% if @posts.present? %}

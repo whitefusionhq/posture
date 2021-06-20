@@ -1,6 +1,7 @@
 import "./source_header_element.css"
 
 class SourceHeaderElement < ApplicationElement
+  target :number_of_posts_menus, ["sl-menu-item[data-num]"]
   target :toggle_button, "@togglebutton"
   define %s:source-header:, shadow_dom: false
 
@@ -18,5 +19,29 @@ class SourceHeaderElement < ApplicationElement
     end
 
     @toggle_button.name = @toggle_button.name == "dash-circle" ? "plus-circle" : "dash-circle"
+  end
+
+  async def change_number_of_posts(event)
+    self.get_attribute(%s:source-id:)       => source_id
+    self.get_attribute(%s:subscription-id:) => subscription_id
+    number = event.target.dataset.num
+    tposts = %(timeline-post[source-id="#{source_id}"])
+
+    @number_of_posts_menus.each do |item|
+      item.checked = false
+    end
+    event.target.checked = true
+
+    resp = await Daniel.post("/source_subscriptions/#{subscription_id}/change_number_of_posts", {number: number})
+    html = await resp.text()
+
+    nodes_to_delete = self.parent_node.query_selector_all(tposts)
+    self.parent_node.query_selector(tposts).insertAdjacentHTML("beforebegin", html)
+    nodes_to_delete.each { |el| el.remove() }
+  end
+
+  def unsubscribe()
+    # TODO: need to DELETE the route here:
+    # current_user.subscription_for_source(@source)
   end
 end

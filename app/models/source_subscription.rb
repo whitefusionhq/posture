@@ -26,6 +26,12 @@ class SourceSubscription < ApplicationRecord
     Rails.cache.write("source_subscriptions/#{id}/visible", !visible?, expires_in: 30.days)
   end
 
+  def number_of_recent_posts = Rails.cache.read("source_subscriptions/#{id}/recent_posts") || 5
+
+  def number_of_recent_posts=(num)
+    Rails.cache.write("source_subscriptions/#{id}/recent_posts", num.to_i, expires_in: nil)
+  end
+
   private
 
   # populate the user's tags with the initial curator's tags

@@ -1,0 +1,52 @@
+<source-header
+  source-id="{{ @source.id }}"
+  subscription-id="{{ @subscription&.id }}"
+  source-header-action="togglePosts"
+>
+  <h2>
+    <a href="/sources/@{{ @source.handle }}">
+      {% if @source.icon_cloudinary_id %}
+        {%= cl_image_tag(@source.icon_cloudinary_id, width: 80, height: 80,
+      crop: :thumb, format: :jpg, quality: 60) %}
+      {% end %}
+    </a>
+    <a href="/sources/@{{ @source.handle }}">
+      {{ @source.title }}
+    </a>
+  </h2>
+
+  <layout-spacer style="white-space: nowrap">
+    {% if @subscription %}
+      <sl-dropdown placement="bottom">
+        <sl-icon-button name="gear" label="Options" slot="trigger">
+        </sl-icon-button>
+        <sl-menu>
+          {% unless @hide_hide_toggle %}
+            <sl-menu-item data-num="2" source-header-action="changeNumberOfPosts" {{ 'checked' if @subscription.number_of_recent_posts == 2 }}>
+              Show 2 Most Recent
+              <sl-icon slot="suffix" name="list-ol"></sl-icon>
+            </sl-menu-item>
+            <sl-menu-item data-num="5" source-header-action="changeNumberOfPosts" {{ 'checked' if @subscription.number_of_recent_posts == 5 }}>
+              Show 5 Most Recent
+              <sl-icon slot="suffix" name="list-ol"></sl-icon>
+            </sl-menu-item>
+            <sl-menu-item data-num="10" source-header-action="changeNumberOfPosts" {{ 'checked' if @subscription.number_of_recent_posts == 10 }}>
+              Show 10 Most Recent
+              <sl-icon slot="suffix" name="list-ol"></sl-icon>
+            </sl-menu-item>
+            <sl-menu-divider></sl-menu-divider>
+          {% end %}
+          <sl-menu-item source-header-action="unsubscribe">
+            Unsubscribe
+            <sl-icon slot="suffix" name="slash-circle"></sl-icon>
+          </sl-menu-item>
+        </sl-menu>
+      </sl-dropdown>
+    {% end %}
+
+    {% unless @hide_hide_toggle %}
+      <sl-icon-button style="margin-left: var(--sl-spacing-small)" name="{{ hide_posts? ? "plus-circle" : "dash-circle" }}" label="Hide" source-header-action="togglePosts" source-header-target="togglebutton">
+      </sl-icon-button>
+    {% end %}
+  </layout-spacer>
+</source-header>

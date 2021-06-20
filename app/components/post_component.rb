@@ -17,6 +17,6 @@ class PostComponent < ApplicationComponent
   # rubocop:enable Metrics/ParameterLists
 
   def hide_posts?
-    !@hide_hide_toggle && @subscription.hidden?
+    !@hide_hide_toggle && @subscription&.hidden?
   end
 end

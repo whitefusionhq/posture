@@ -1,40 +1,5 @@
 {% if @show_source %}
-  <source-header source-id="{{ @source.id }}" subscription-id="{{ @subscription&.id }}" source-header-action="togglePosts">
-    <h2>
-      <a href="/sources/@{{ @source.handle }}">
-        {% if @source.icon_cloudinary_id %}
-          {%= cl_image_tag(@source.icon_cloudinary_id, width: 80, height: 80,
-        crop: :thumb, format: :jpg, quality: 60) %}
-        {% end %}
-      </a>
-      <a href="/sources/@{{ @source.handle }}">
-        {{ @source.title }}
-      </a>
-    </h2>
-
-    <layout-spacer style="white-space: nowrap">
-      <sl-dropdown placement="bottom">
-        <sl-icon-button name="gear" label="Options" slot="trigger">
-        </sl-icon-button>
-        <sl-menu>
-          <sl-menu-item>
-            Menu Item
-            <sl-icon slot="suffix" name="gift"></sl-icon>
-          </sl-menu-item>
-          <sl-menu-divider></sl-menu-divider>
-          <a href="#"><sl-menu-item>
-            Suffix Icon
-            <sl-icon slot="suffix" name="heart"></sl-icon>
-          </sl-menu-item></a>
-        </sl-menu>
-      </sl-dropdown>
-
-      {% unless @hide_hide_toggle %}
-        <sl-icon-button style="margin-left: var(--sl-spacing-small)" name="{{ hide_posts? ? "plus-circle" : "dash-circle" }}" label="Hide" source-header-action="togglePosts" source-header-target="togglebutton">
-        </sl-icon-button>
-      {% end %}
-    </layout-spacer>
-  </source-header>
+  {%@ SourceHeaderComponent source: @source, subscription: @subscription, hide_hide_toggle: @hide_hide_toggle %}
 {% end %}
 
 <timeline-post post-id="{{ @post.id }}" source-id="{{ @source.id }}" {{ "hidden" if hide_posts? }}>
@@ -94,7 +59,7 @@
             <sl-icon slot="suffix" name="link-45deg"></sl-icon>
           </sl-menu-item>
           <sl-menu-divider></sl-menu-divider>
-          <sl-menu-item>
+          <sl-menu-item timeline-post-action="reportIssue">
             Report Issue
             <sl-icon slot="suffix" name="exclamation-triangle"></sl-icon>
           </sl-menu-item>

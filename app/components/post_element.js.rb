@@ -110,4 +110,8 @@ class TimelinePostElement < ApplicationElement
 
     Toaster.raise %s:link-45deg:, "Link Copied to Clipboard"
   end
+
+  def report_issue()
+    Toaster.raise :megaphone, "We're working on moderation capabilities. Stay tuned!"
+  end
 end

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :source_subscriptions do
     member do
       post :toggle_visibility
+      post :change_number_of_posts
     end
   end
 

@@ -49,4 +49,10 @@ class Source < ApplicationRecord
   rescue StandardError => e
     Rails.logger.warn "*** ERROR: unable to import #{icon_url} for Source ##{id}: #{e.message}"
   end
+
+  # If the association has been loaded with a single user-scoped subscription,
+  # this will return that as a conveinence.
+  def subscription
+    subscriptions.first
+  end
 end
