@@ -38,6 +38,8 @@ class SourceHeaderElement < ApplicationElement
     nodes_to_delete = self.parent_node.query_selector_all(tposts)
     self.parent_node.query_selector(tposts).insertAdjacentHTML("beforebegin", html)
     nodes_to_delete.each { |el| el.remove() }
+
+    Toaster.raise %s:list-ol:, "Now Showing #{number} Posts"
   end
 
   def unsubscribe()
