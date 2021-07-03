@@ -22,6 +22,9 @@ class ApplicationPolicy
 
   def destroy? = false
 
+  # helper
+  def user_is_admin = user.user_roles.admin_only.count.positive?
+
   class Scope
     attr_reader :user, :scope
 

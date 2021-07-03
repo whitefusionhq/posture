@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   match "/logout", to: "sessions#destroy", via: [:delete, :post]
 
+  get "/account/admin", to: "account#admin", as: :admin_account
+
   put "/", to: "home#index"
   get "/navbars", to: "home#navbars", as: :navbars
   root to: "home#index"

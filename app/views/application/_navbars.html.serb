@@ -41,19 +41,19 @@
             {{ user_button }}
           </a>
           <sl-menu>
-            <sl-menu-item nav-dropdown-action="itemClick">
-              <a href="/account/me">My Account</a>
+            <sl-menu-item>
+              <a href="/account/me" onclick="return false">My Account</a>
             </sl-menu-item>
 
             {% if admin?(current_user) %}
-              <sl-menu-item nav-dropdown-action="itemClick">
+              <sl-menu-item>
                 <a href="/account/admin">Admin Dashboard</a>
               </sl-menu-item>
             {% end %}
 
             <sl-menu-divider></sl-menu-divider>
 
-            <sl-menu-item nav-dropdown-action="itemClick">
+            <sl-menu-item>
               {{ "users.sign_out" | t | button_to: logout_path, class: "unstyled" }}
             </sl-menu-item>
           </sl-menu>

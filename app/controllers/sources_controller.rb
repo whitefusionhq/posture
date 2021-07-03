@@ -20,4 +20,19 @@ class SourcesController < ApplicationController
       format.html
     end
   end
+
+  def update
+    @source = Source.find(params[:id])
+    authorize @source
+
+    @source.update(secure_params)
+
+    redirect_to source_path(@source.handle)
+  end
+
+  private
+
+  def secure_params
+    (params[:source] || params[:publication]).permit(:tag_list)
+  end
 end

@@ -71,6 +71,20 @@
             {% end %}
           </tag-list>
         {% end %}
+
+        {% if admin?(current_user) %}
+          {%@form @source, url: source_path(@source), method: :put do |f| %}
+            <sl-form data-controller="shoelace-form">
+              {%= f.label :tag_list, "ADMIN — Source Tags:" %}
+              <sl-light-input>
+                {%= f.text_field :tag_list, value: f.object.tag_list.join(",") %}
+              </sl-light-input>
+              <form-footer>
+                <sl-button type="primary" submit>Save</sl-button>
+              </form-footer>
+            </sl-form>
+          {% end %}
+        {% end %}
       </section>
     {% end %}
   </header>

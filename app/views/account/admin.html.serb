@@ -1,0 +1,25 @@
+<main>
+  <h1>Admin Dashboard</h1>
+
+  <h2 style="margin:var(--sl-spacing-xx-large) 0">Sources</h2>
+
+  <main-content id="timeline">
+    <sources-list style="display:block; columns:2">
+      {% @sources.each do |source| %}
+        <source-header>
+          <h3 style="font-size:1.3rem">
+            <a href="/sources/@{{ source.handle }}">
+              {% if source.icon_cloudinary_id %}
+                {%= cl_image_tag(source.icon_cloudinary_id, width: 80, height: 80,
+              crop: :thumb, format: :jpg, quality: 60) %}
+              {% end %}
+            </a>
+            <a href="/sources/@{{ source.handle }}">
+              {{ source.title }}
+            </a>
+          </h3>
+        </source-header>
+      {% end %}
+    </sources-list>
+  </main-content>
+</main>
