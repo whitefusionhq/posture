@@ -30,7 +30,7 @@ class TimelinePostElement < ApplicationElement
 
   async def load_actions()
     actions_loader = await self.context_element(%s:actions-loader:)
-    await actions_loader.load_actions_for_post(self)
+    actions_loader.load_actions_for_post(self)
   end
 
   def add_blank_targets_to_links() = @excerpt_links.each { |link| link.target = "_blank" }
