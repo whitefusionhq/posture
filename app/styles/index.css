@@ -229,6 +229,10 @@ body > footer {
   }
 }
 
+.is-visible {
+  visibility: visible !important;
+}
+
 @import "shoelace-customizations.css";
 @import "custom-elements.css";
 @import "navbar.css";

@@ -16,6 +16,10 @@
             </a>
             <a href="/sources/@{{ source.handle }}">
               {{ source.title }}
+              <ui-icon style="padding-left:0.5rem; color:var(--color-love); font-size:var(--sl-font-size-small)">
+                {% if source.twitter_handle.present? %}<sl-icon name="twitter"></sl-icon>{% end %}
+                {% if source.tags.present? %}<sl-icon name="tags"></sl-icon>{% end %}
+              </ui-icon>
             </a>
           </h3>
         </source-header>

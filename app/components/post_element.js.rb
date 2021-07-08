@@ -21,7 +21,11 @@ class TimelinePostElement < ApplicationElement
         i = @post_image # cache query for speed
         i.onload = -> do
           # we don't want to blow up tiny images!
-          i.parent_node.remove() if i.natural_width < 200 && i.natural_height < 200
+          if i.natural_width < 200 && i.natural_height < 200
+            i.parent_node.remove()
+          else
+            i.parent_node.class_list.add %s:is-visible:
+          end
         end
         i.onload() if i.complete # already loaded!
       end

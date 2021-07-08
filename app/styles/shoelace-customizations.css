@@ -53,6 +53,7 @@ sl-card {
   & [slot="image"] {
     --hover-brightness: 1;
     width: 100%;
+    visibility: hidden;
 
     & img {
       display: block;

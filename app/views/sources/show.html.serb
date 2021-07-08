@@ -26,6 +26,13 @@
       {{ @source.description }}
       <br/>
       <a href="{{ @source.url }}" target="_blank" rel="noopener" rel="noreferrer">{{ @source.url | split: "/" | then: ->input { input[2..] } | join: "/" }}</a>
+      {% if @source.twitter_handle.present? %}
+        &nbsp;&nbsp;
+        <a href="https://twitter.com/{{ @source.twitter_handle }}" target="_blank" rel="noopener" rel="noreferrer">
+          <sl-icon name="twitter" style="vertical-align:-1px"></sl-icon>
+          @{{ @source.twitter_handle }}
+        </a>
+      {% end %}
     </section>
 
     {%@frame :source_actions do %}
