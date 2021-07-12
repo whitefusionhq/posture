@@ -55,6 +55,7 @@ gem "annotate", "~> 3.1", group: :development
 gem "cloudinary", "~> 1.17"
 gem "faraday_middleware", "~> 1.0"
 gem "feedjira", "~> 3.1"
+gem "honeybadger", "~> 4.0"
 gem "html_truncator", "~> 0.4"
 gem "inline_svg"
 gem "nokogiri", "~> 1.11"

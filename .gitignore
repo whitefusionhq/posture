@@ -39,3 +39,4 @@ yarn-debug.log*
 
 db/seeds.rb
 config/cloudinary.yml
+config/honeybadger.yml
