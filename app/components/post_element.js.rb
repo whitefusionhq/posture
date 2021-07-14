@@ -12,7 +12,7 @@ class TimelinePostElement < ApplicationElement
 
     self.load_actions()
 
-    set_timeout 100 do
+    set_timeout rand(100..150) do
       self.class_list.add %s:load-complete:
 
       self.add_blank_targets_to_links()
@@ -27,7 +27,9 @@ class TimelinePostElement < ApplicationElement
             i.parent_node.class_list.add %s:is-visible:
           end
         end
-        i.onload() if i.complete # already loaded!
+        i.src = i.dataset.src # load the lazy!
+
+        #        i.onload() if i.complete # already loaded!
       end
     end
   end

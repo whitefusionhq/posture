@@ -6,7 +6,7 @@
   <sl-card style="{{ %(margin-bottom: var(--sl-spacing-large)) unless @no_spacing }}">
     {% if !@post.feed&.no_thumbnails and @post.thumbnail_url %}
       <a href="{{ @post.qualified_url }}" target="_blank" slot="image"><img
-        src="{{ @post.thumbnail_url }}" 
+        data-src="{{ @post.thumbnail_url }}" 
         alt="article thumbnail"
       /></a>
     {% end %}
